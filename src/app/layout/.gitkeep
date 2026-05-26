@@ -1,0 +1,2 @@
+// Layout: navbar, sidebar, footer, main shell components
+export const LAYOUT_PLACEHOLDER = true;

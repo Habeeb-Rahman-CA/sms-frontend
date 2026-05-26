@@ -1,0 +1,2 @@
+// Feature: Dashboard (analytics, charts, quick stats)
+export const FEATURE_DASHBOARD_PLACEHOLDER = true;

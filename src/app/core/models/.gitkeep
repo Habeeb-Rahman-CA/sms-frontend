@@ -1,0 +1,2 @@
+// Core models: TypeScript interfaces and types shared across the app
+export const CORE_MODELS_PLACEHOLDER = true;

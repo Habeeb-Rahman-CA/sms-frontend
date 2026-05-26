@@ -1,0 +1,2 @@
+// Feature: Employee management (staff list, profile, designations)
+export const FEATURE_EMPLOYEE_PLACEHOLDER = true;

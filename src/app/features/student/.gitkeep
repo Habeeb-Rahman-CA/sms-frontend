@@ -1,0 +1,2 @@
+// Feature: Student management (list, profile, admission, marks)
+export const FEATURE_STUDENT_PLACEHOLDER = true;

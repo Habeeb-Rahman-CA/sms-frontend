@@ -1,0 +1,2 @@
+// Shared components: reusable UI building blocks (buttons, modals, tables, etc.)
+export const SHARED_COMPONENTS_PLACEHOLDER = true;

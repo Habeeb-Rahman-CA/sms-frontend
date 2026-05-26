@@ -1,0 +1,2 @@
+// Core interceptors: AuthInterceptor, ErrorInterceptor, LoadingInterceptor, etc.
+export const CORE_INTERCEPTORS_PLACEHOLDER = true;

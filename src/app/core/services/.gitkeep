@@ -1,0 +1,2 @@
+// Core services: API communication, auth, storage, etc.
+export const CORE_SERVICES_PLACEHOLDER = true;

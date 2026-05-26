@@ -1,0 +1,2 @@
+// Shared directives: click-outside, tooltip, highlight, etc.
+export const SHARED_DIRECTIVES_PLACEHOLDER = true;

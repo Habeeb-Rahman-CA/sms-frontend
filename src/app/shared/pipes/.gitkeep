@@ -1,0 +1,2 @@
+// Shared pipes: date formatting, currency, truncate, etc.
+export const SHARED_PIPES_PLACEHOLDER = true;

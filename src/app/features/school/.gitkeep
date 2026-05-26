@@ -1,0 +1,2 @@
+// Feature: School management (school registration, profile, settings)
+export const FEATURE_SCHOOL_PLACEHOLDER = true;

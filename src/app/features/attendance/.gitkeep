@@ -1,0 +1,2 @@
+// Feature: Attendance tracking (class attendance, reports)
+export const FEATURE_ATTENDANCE_PLACEHOLDER = true;

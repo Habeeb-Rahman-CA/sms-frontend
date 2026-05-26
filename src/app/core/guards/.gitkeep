@@ -1,0 +1,2 @@
+// Core guards: AuthGuard, RoleGuard, TenantGuard, etc.
+export const CORE_GUARDS_PLACEHOLDER = true;

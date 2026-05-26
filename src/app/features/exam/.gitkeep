@@ -1,0 +1,2 @@
+// Feature: Exam management (schedules, marks, results)
+export const FEATURE_EXAM_PLACEHOLDER = true;
