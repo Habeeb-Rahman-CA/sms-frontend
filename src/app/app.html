@@ -389,11 +389,20 @@
         </div>
       </section>
 
-      <!-- 5. Badges & Labels Section -->
-      <section id="badges" class="showcase-section">
+      <!-- ── 2. Badges & Labels ──────────────────────────────────────── -->
+      <section id="badges" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Badges &amp; Labels</h1>
+        <p class="section-desc">
+          Flexible label badges designed for metadata, active status filters, categorization, and visual counts.
+        </p>
+      </section>
+
+      <!-- Badge Variants -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Badges &amp; Labels</h2>
-          <p>Flexible label badges designed for metadata, active filters, status states, and categorization.</p>
+          <h2>Badge Variants</h2>
+          <p>Sleek and vibrant status indicators configured for metadata classifications.</p>
         </div>
 
         <div class="component-card">
@@ -413,47 +422,117 @@
         </div>
       </section>
 
-      <!-- 6. Spinners Section -->
-      <section id="spinners" class="showcase-section">
+      <!-- Badge Sizes -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Spinners</h2>
-          <p>Clean loading spinners configured in dynamic sizing hierarchies for background processes and visual
-            feedback.</p>
+          <h2>Badge Sizes</h2>
+          <p>Small, medium, and large sizing variations to suit different list densities.</p>
         </div>
 
         <div class="component-card">
           <div class="preview-box">
             <div class="button-row align-items-center">
               <div class="size-group">
-                <span class="size-label">Large (48px)</span>
-                <app-spinner size="lg"></app-spinner>
+                <span class="size-label">Small (sm)</span>
+                <app-badge size="sm" variant="standard">Standard sm</app-badge>
               </div>
-
               <div class="size-group">
-                <span class="size-label">Medium (32px)</span>
-                <app-spinner size="md"></app-spinner>
+                <span class="size-label">Medium (md)</span>
+                <app-badge size="md" variant="new">New md</app-badge>
               </div>
-
               <div class="size-group">
-                <span class="size-label">Small with Label (18px)</span>
-                <app-spinner size="sm" label="Syncing Grades..."></app-spinner>
+                <span class="size-label">Large (lg)</span>
+                <app-badge size="lg" variant="urgent">Urgent lg</app-badge>
               </div>
             </div>
           </div>
 
           <div class="code-box">
-            <pre><code>&lt;app-spinner size="lg"&gt;&lt;/app-spinner&gt;
-&lt;app-spinner size="md"&gt;&lt;/app-spinner&gt;
-&lt;app-spinner size="sm" label="Syncing Grades..."&gt;&lt;/app-spinner&gt;</code></pre>
+            <pre><code>&lt;app-badge size="sm" variant="standard"&gt;Standard sm&lt;/app-badge&gt;
+&lt;app-badge size="md" variant="new"&gt;New md&lt;/app-badge&gt;
+&lt;app-badge size="lg" variant="urgent"&gt;Urgent lg&lt;/app-badge&gt;</code></pre>
           </div>
         </div>
       </section>
 
-      <!-- 7. Navs & Tabs Section -->
-      <section id="navs" class="showcase-section">
+      <!-- ── 3. Spinners ─────────────────────────────────────────────── -->
+      <section id="spinners" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Spinners</h1>
+        <p class="section-desc">
+          Clean loading spinners configured in dynamic sizing hierarchies, designed for visual progress feedback during long-running background actions.
+        </p>
+      </section>
+
+      <!-- Spinner Sizing -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Navs &amp; Tabs</h2>
-          <p>Underline action tabs with smooth reactive indicator transitions and disabled state visual styling.</p>
+          <h2>Spinner Sizing</h2>
+          <p>Standardized sizing options designed to integrate inside forms, tables, and overlay blocks.</p>
+        </div>
+
+        <div class="component-card">
+          <div class="preview-box">
+            <div class="button-row align-items-center">
+              <div class="size-group">
+                <span class="size-label">Small (sm)</span>
+                <app-spinner size="sm"></app-spinner>
+              </div>
+              <div class="size-group">
+                <span class="size-label">Medium (md)</span>
+                <app-spinner size="md"></app-spinner>
+              </div>
+              <div class="size-group">
+                <span class="size-label">Large (lg)</span>
+                <app-spinner size="lg"></app-spinner>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-box">
+            <pre><code>&lt;app-spinner size="sm"&gt;&lt;/app-spinner&gt;
+&lt;app-spinner size="md"&gt;&lt;/app-spinner&gt;
+&lt;app-spinner size="lg"&gt;&lt;/app-spinner&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Spinners with Labels -->
+      <section class="showcase-section">
+        <div class="section-header">
+          <h2>Spinners with Progress Labels</h2>
+          <p>Detailed textual indicators displayed alongside the animated loader for responsive feedback.</p>
+        </div>
+
+        <div class="component-card">
+          <div class="preview-box">
+            <div class="button-row align-items-center">
+              <app-spinner size="sm" label="Loading student profiles..."></app-spinner>
+              <app-spinner size="md" label="Syncing database records..."></app-spinner>
+            </div>
+          </div>
+
+          <div class="code-box">
+            <pre><code>&lt;app-spinner size="sm" label="Loading student profiles..."&gt;&lt;/app-spinner&gt;
+&lt;app-spinner size="md" label="Syncing database records..."&gt;&lt;/app-spinner&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 4. Navs & Tabs ──────────────────────────────────────────── -->
+      <section id="navs" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Navs &amp; Tabs</h1>
+        <p class="section-desc">
+          Underline navigation tabs with smooth reactive indicator transitions, designed to organize sub-views within single page flows.
+        </p>
+      </section>
+
+      <!-- Tab Navigation -->
+      <section class="showcase-section">
+        <div class="section-header">
+          <h2>Interactive Tab Selection</h2>
+          <p>Click on the tabs to swap sub-view directories instantly with smooth visual transitions.</p>
         </div>
 
         <div class="component-card">
@@ -469,8 +548,7 @@
                   <i class="fa-solid fa-address-book text-green"></i>
                   <div>
                     <h4>Student Registry Panel</h4>
-                    <p>View complete academic profiles, GPA analytics, and disciplinary records for enrolled students.
-                    </p>
+                    <p>View complete academic profiles, GPA analytics, and disciplinary records for enrolled students.</p>
                   </div>
                 </div>
                 }
@@ -488,8 +566,7 @@
                   <i class="fa-solid fa-shield-halved text-green"></i>
                   <div>
                     <h4>Disciplinary Action Reports</h4>
-                    <p>Monitor student behavior ledgers, formal teacher write-ups, and active campus suspension logs.
-                    </p>
+                    <p>Monitor student behavior ledgers, formal teacher write-ups, and active campus suspension logs.</p>
                   </div>
                 </div>
                 }
@@ -503,11 +580,20 @@
         </div>
       </section>
 
-      <!-- 8. Pagination Section -->
-      <section id="pagination" class="showcase-section">
+      <!-- ── 5. Pagination ───────────────────────────────────────────── -->
+      <section id="pagination" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Pagination</h1>
+        <p class="section-desc">
+          Rounded page navigation bars supporting truncation indicators, chevron states, and disabled limits for table grids.
+        </p>
+      </section>
+
+      <!-- Pagination Showcase -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Pagination</h2>
-          <p>Circular-rounded page navigation blocks supporting truncation dots, chevrons, and active indices.</p>
+          <h2>Pagination Navigation</h2>
+          <p>Supports auto-truncation and active page indicators for paginated datasets.</p>
         </div>
 
         <div class="component-card">
@@ -530,12 +616,20 @@
         </div>
       </section>
 
-      <!-- 9. Forms & Inputs Section -->
-      <section id="forms" class="showcase-section">
+      <!-- ── 6. Form Inputs ──────────────────────────────────────────── -->
+      <section id="forms" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Form Inputs</h1>
+        <p class="section-desc">
+          A comprehensive set of interactive form controls — text fields, selects, currency inputs, checkboxes, radios, range sliders, and full validation state support.
+        </p>
+      </section>
+
+      <!-- Text, Select & Currency Inputs -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Form Inputs</h2>
-          <p>A comprehensive set of interactive form controls — text fields, selects, currency inputs, checkboxes,
-            radios, range sliders, and validation states.</p>
+          <h2>Text, Select &amp; Currency Inputs</h2>
+          <p>Core field types with label support, icon prefixes, and unit suffix helpers for academic data entry.</p>
         </div>
 
         <!-- Demo card matching the spec screenshot -->
@@ -617,12 +711,20 @@
         </div>
       </section>
 
-      <!-- Accordion Section -->
-      <section id="accordion" class="showcase-section">
+      <!-- ── 7. Accordion ────────────────────────────────────────────── -->
+      <section id="accordion" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Accordion</h1>
+        <p class="section-desc">
+          Vertically stacked disclosure panels — one open at a time, with smooth CSS max-height transitions ideal for FAQs, policies, and expandable form sections.
+        </p>
+      </section>
+
+      <!-- Accordion Panels -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Accordion</h2>
-          <p>Vertically stacked, bordered disclosure panels. One panel open at a time with a smooth CSS max-height
-            transition.</p>
+          <h2>Expandable Disclosure Panels</h2>
+          <p>Click any panel header to expand. Only one section stays open at a time.</p>
         </div>
 
         <div class="component-card">
@@ -640,12 +742,20 @@
         </div>
       </section>
 
-      <!-- Carousel Section -->
-      <section id="carousel" class="showcase-section">
+      <!-- ── 8. Carousel ─────────────────────────────────────────────── -->
+      <section id="carousel" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Carousel</h1>
+        <p class="section-desc">
+          Touch-friendly slide viewer with gradient overlay captions, blurred-glass navigation arrows, and animated dot indicators for school announcements and event highlights.
+        </p>
+      </section>
+
+      <!-- Slide Viewer -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Carousel</h2>
-          <p>Touch-friendly slide viewer with gradient overlay captions, blurred-glass arrows, and stretching dot
-            indicators.</p>
+          <h2>Announcement Slide Viewer</h2>
+          <p>Auto-navigable slides ideal for broadcasting school events, notices, and reminders.</p>
         </div>
 
         <div class="component-card">
@@ -663,24 +773,30 @@
         </div>
       </section>
 
-      <!-- Skeleton Section -->
-      <section id="skeleton" class="showcase-section">
+      <!-- ── 9. Skeleton ─────────────────────────────────────────────── -->
+      <section id="skeleton" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Skeleton Loaders</h1>
+        <p class="section-desc">
+          Shimmer-animated placeholder shapes that preserve layout structure and reduce perceived latency while content loads asynchronously.
+        </p>
+      </section>
+
+      <!-- Skeleton Variants -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Skeleton Placeholders</h2>
-          <p>Shimmer-animated placeholder shapes — used during data-loading states to preserve layout and reduce
-            perceived latency.</p>
+          <h2>Skeleton Placeholder Variants</h2>
+          <p>Card and list-item variants that mirror real UI shapes for seamless loading transitions.</p>
         </div>
 
         <div class="component-card">
           <div class="preview-box skeleton-preview-box">
             <div class="skeleton-showcase-grid">
-              <!-- Card variant -->
               <div class="skeleton-demo-col">
                 <p class="skeleton-demo-label">Card Variant</p>
                 <app-skeleton variant="card"></app-skeleton>
               </div>
 
-              <!-- List-item variant -->
               <div class="skeleton-demo-col">
                 <p class="skeleton-demo-label">List Items</p>
                 <div style="display:flex;flex-direction:column;gap:16px;">
@@ -699,12 +815,20 @@
         </div>
       </section>
 
-      <!-- Modal & Offcanvas Section -->
-      <section id="modal-offcanvas" class="showcase-section">
+      <!-- ── 10. Modal & Offcanvas ──────────────────────────────────── -->
+      <section id="modal-offcanvas" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Modal &amp; Offcanvas</h1>
+        <p class="section-desc">
+          Overlay dialog and slide-in panel components — both with backdrop blur, smooth CSS-transition animations, and flexible content slot projection.
+        </p>
+      </section>
+
+      <!-- Modal & Offcanvas Triggers -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Modal &amp; Offcanvas</h2>
-          <p>Overlay dialog and slide-in panel components — both with backdrop blur, CSS-transition animations, and
-            flexible ng-content slots.</p>
+          <h2>Overlay Triggers</h2>
+          <p>Click below to open the fully wired-up student registration modal or the advanced filter offcanvas.</p>
         </div>
 
         <div class="component-card">
@@ -855,12 +979,20 @@
         </div>
       </app-offcanvas>
 
-      <!-- Student Directory Section -->
-      <section id="table-directory" class="showcase-section">
+      <!-- ── 11. Student Directory ──────────────────────────────────── -->
+      <section id="table-directory" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Student Directory</h1>
+        <p class="section-desc">
+          A premium, reactive data grid supporting real-time column sorting, text search, and multi-filter offcanvas — built entirely on Angular Signals with zero third-party grid library dependencies.
+        </p>
+      </section>
+
+      <!-- Data Grid with Active Filters -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Student Directory</h2>
-          <p>A premium data grid showcasing real-time sorting, searching, and filtering of student profiles powered by
-            reactive Signals.</p>
+          <h2>Reactive Data Grid</h2>
+          <p>Sort by any column header, use the Refine Search offcanvas to filter by grade, section, status, and date range.</p>
         </div>
 
         <div class="component-card">
@@ -941,12 +1073,20 @@
         </div>
       </section>
 
-      <!-- File Uploaders Section -->
-      <section id="file-uploaders" class="showcase-section">
+      <!-- ── 12. File Uploaders ──────────────────────────────────── -->
+      <section id="file-uploaders" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>File Uploaders</h1>
+        <p class="section-desc">
+          Drag-and-drop file uploader with instant format validation, uploading state animations, and micro progress meters for document submissions.
+        </p>
+      </section>
+
+      <!-- Drag & Drop Uploader -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>File Uploaders</h2>
-          <p>A drag-and-drop file uploader component with instant format validation, interactive uploading status
-            animations, and micro progress meters.</p>
+          <h2>Drag &amp; Drop Uploader</h2>
+          <p>Drop files or click to browse. Validates format and file size client-side before upload begins.</p>
         </div>
 
         <div class="component-card">
@@ -960,12 +1100,20 @@
         </div>
       </section>
 
-      <!-- Feedback & Status Section -->
-      <section id="feedback-status" class="showcase-section">
+      <!-- ── 13. Feedback & Status ──────────────────────────────── -->
+      <section id="feedback-status" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Feedback &amp; Status</h1>
+        <p class="section-desc">
+          Semantic alert banners and animated progress bars for communicating system events, enrollment statuses, and completion metrics.
+        </p>
+      </section>
+
+      <!-- Alerts & Progress Bars -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Feedback &amp; Status</h2>
-          <p>Semantic alert messages and visually appealing progress meters representing student processes,
-            registrations, and completions.</p>
+          <h2>Alert Banners &amp; Progress Meters</h2>
+          <p>Info, danger, success, and warning alert types paired with animated progress bars for process tracking.</p>
         </div>
 
         <!-- Layout container matching mockup layout exactly -->
@@ -993,11 +1141,20 @@
         </div>
       </section>
 
-      <!-- Layout & Containers Section -->
-      <section id="layout-containers" class="showcase-section">
+      <!-- ── 14. Layout & Containers ──────────────────────────── -->
+      <section id="layout-containers" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Layout &amp; Containers</h1>
+        <p class="section-desc">
+          Responsive multi-column grid primitives and split-layout structural wrappers designed to compose high-fidelity dashboard interfaces.
+        </p>
+      </section>
+
+      <!-- Responsive Grid & Split Layout -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Layout &amp; Containers</h2>
-          <p>Responsive multi-column grids and structural content wraps configured for high-fidelity dashboards.</p>
+          <h2>Responsive Grid &amp; Split Layout</h2>
+          <p>Configure the column count with a single input. The grid automatically adapts to content width.</p>
         </div>
 
         <div class="component-card">
@@ -1039,12 +1196,20 @@
         </div>
       </section>
 
-      <!-- Popovers & Toasts Section -->
-      <section id="popover-toast" class="showcase-section">
+      <!-- ── 15. Popovers & Toasts ──────────────────────────────── -->
+      <section id="popover-toast" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Popovers &amp; Toasts</h1>
+        <p class="section-desc">
+          Contextual hover tooltips and transient notification banners that communicate system state without interrupting the user's workflow.
+        </p>
+      </section>
+
+      <!-- Popover & Toast Demos -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Popovers &amp; Toasts</h2>
-          <p>Overlay helper tips and transient notification banners built to fit the School Management System branding
-            guidelines.</p>
+          <h2>Hover Popovers &amp; Toast Triggers</h2>
+          <p>Hover the info link to reveal a popover tooltip. Click the buttons to fire live toast notifications.</p>
         </div>
 
         <div class="component-card">
@@ -1085,12 +1250,20 @@
         </div>
       </section>
 
-      <!-- ── 16. Top Bar Section ─────────────────────────────────────── -->
-      <section id="topbar" class="showcase-section">
+      <!-- ── 16. Top Bar ─────────────────────────────────────────── -->
+      <section id="topbar" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Top Bar</h1>
+        <p class="section-desc">
+          A responsive top navigation bar for the SMS dashboard — with school branding, primary nav links, an expanding search field, notification badge, and a user avatar with online indicator.
+        </p>
+      </section>
+
+      <!-- Live Top Bar Demo -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Top Bar</h2>
-          <p>A responsive top navigation bar for the SMS dashboard — with school branding, primary nav links,
-            an expanding search field, notification badge, settings, and a user avatar with online indicator.</p>
+          <h2>Live Navigation Demo</h2>
+          <p>Click the nav links to see the active indicator animate. Hover the search icon to expand the search field.</p>
         </div>
 
         <div class="component-card">
@@ -1129,12 +1302,20 @@
         </div>
       </section>
 
-      <!-- ── 17. Sidebar Section ─────────────────────────────────────── -->
-      <section id="sidebar" class="showcase-section">
+      <!-- ── 17. Sidebar ────────────────────────────────────────────── -->
+      <section id="sidebar" class="intro-section">
+        <span class="category-tag">UI Component Library</span>
+        <h1>Sidebar</h1>
+        <p class="section-desc">
+          A collapsible, sticky vertical navigation sidebar with school branding, grouped nav items, badge notifications, active item tracking, and configurable bottom action buttons.
+        </p>
+      </section>
+
+      <!-- Live Sidebar Demo -->
+      <section class="showcase-section">
         <div class="section-header">
-          <h2>Sidebar</h2>
-          <p>A collapsible, responsive vertical navigation sidebar. Supports school branding, nav groups, active item
-            tracking, notifications/badge dots, and bottom action buttons.</p>
+          <h2>Collapsible Navigation Demo</h2>
+          <p>Click nav items to update the active state. Toggle collapse using the chevron in the sidebar header.</p>
         </div>
 
         <div class="component-card">
