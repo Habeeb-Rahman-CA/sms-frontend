@@ -1,0 +1,40 @@
+<!-- Spec-matching card layout: avatar + lines + rect + two small rects -->
+@if (variant() === 'card') {
+  <div class="skeleton-card">
+    <!-- Top row: avatar circle + two text lines -->
+    <div class="skeleton-row">
+      <div class="skeleton-shape skeleton-circle"></div>
+      <div class="skeleton-text-group">
+        <div class="skeleton-shape skeleton-line line-full"></div>
+        <div class="skeleton-shape skeleton-line line-half"></div>
+      </div>
+    </div>
+
+    <!-- Large image/content rectangle -->
+    <div class="skeleton-shape skeleton-rect"></div>
+
+    <!-- Bottom row: two short pill buttons -->
+    <div class="skeleton-row skeleton-footer-row">
+      <div class="skeleton-shape skeleton-pill"></div>
+      <div class="skeleton-shape skeleton-pill pill-wide"></div>
+    </div>
+  </div>
+}
+
+@if (variant() === 'list-item') {
+  <div class="skeleton-list-item">
+    <div class="skeleton-shape skeleton-circle circle-sm"></div>
+    <div class="skeleton-text-group">
+      <div class="skeleton-shape skeleton-line line-full"></div>
+      <div class="skeleton-shape skeleton-line line-three-quarters"></div>
+    </div>
+  </div>
+}
+
+@if (variant() === 'text') {
+  <div class="skeleton-text-block">
+    @for (i of [].constructor(lines()); track $index; let last = $last) {
+      <div class="skeleton-shape skeleton-line" [class.line-three-quarters]="last"></div>
+    }
+  </div>
+}

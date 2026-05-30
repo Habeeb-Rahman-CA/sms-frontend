@@ -1,0 +1,61 @@
+<div class="app-carousel">
+  <!-- Slide Track -->
+  <div class="carousel-slide" [style.background-image]="currentSlide().imageUrl ? 'url(' + currentSlide().imageUrl + ')' : 'none'">
+
+    <!-- Placeholder icon when no image -->
+    @if (!currentSlide().imageUrl) {
+      <div class="carousel-placeholder-icon" aria-hidden="true">
+        <i class="fa-regular fa-image"></i>
+      </div>
+    }
+
+    <!-- Gradient overlay at bottom -->
+    <div class="carousel-gradient" aria-hidden="true"></div>
+
+    <!-- Left arrow -->
+    <button
+      type="button"
+      class="carousel-arrow arrow-left"
+      [class.hidden]="!hasPrev()"
+      (click)="prev()"
+      aria-label="Previous slide"
+    >
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Right arrow -->
+    <button
+      type="button"
+      class="carousel-arrow arrow-right"
+      [class.hidden]="!hasNext()"
+      (click)="next()"
+      aria-label="Next slide"
+    >
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Caption -->
+    <div class="carousel-caption">
+      <h3 class="carousel-title">{{ currentSlide().title }}</h3>
+      @if (currentSlide().subtitle) {
+        <p class="carousel-subtitle">{{ currentSlide().subtitle }}</p>
+      }
+    </div>
+  </div>
+
+  <!-- Dot indicators -->
+  @if (totalSlides() > 1) {
+    <div class="carousel-dots" role="tablist" aria-label="Slide navigation">
+      @for (slide of slides(); track slide.id; let i = $index) {
+        <button
+          type="button"
+          class="carousel-dot"
+          [class.active]="i === currentIndex()"
+          (click)="goTo(i)"
+          [attr.aria-label]="'Slide ' + (i + 1)"
+          role="tab"
+        ></button>
+      }
+    </div>
+  }
+</div>

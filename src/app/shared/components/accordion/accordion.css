@@ -1,0 +1,98 @@
+:host {
+  display: block;
+  --acc-border: #e2e8f0;
+  --acc-radius: 12px;
+  --acc-header-bg: #ffffff;
+  --acc-header-hover: #fafbfc;
+  --acc-title: #0f172a;
+  --acc-icon: #4a5d54;
+  --acc-body-text: #475569;
+  --acc-primary: #003d29;
+  --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-accordion {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid var(--acc-border);
+  border-radius: var(--acc-radius);
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Panel ── */
+.accordion-panel {
+  border-bottom: 1.5px solid var(--acc-border);
+}
+
+.accordion-panel:last-child {
+  border-bottom: none;
+}
+
+/* ── Header button ── */
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 24px;
+  background-color: var(--acc-header-bg);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  gap: 16px;
+  transition: background-color 0.15s var(--transition-bezier);
+}
+
+.accordion-header:hover {
+  background-color: var(--acc-header-hover);
+}
+
+.accordion-header:focus-visible {
+  outline: 3px solid rgba(0, 61, 41, 0.25);
+  outline-offset: -3px;
+}
+
+.accordion-title {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--acc-title);
+  flex: 1;
+}
+
+.accordion-icon {
+  color: var(--acc-icon);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  transition: color 0.2s var(--transition-bezier);
+}
+
+.accordion-panel.open .accordion-icon {
+  color: var(--acc-primary);
+}
+
+/* ── Body: CSS max-height transition for smooth open/close ── */
+.accordion-body-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s var(--transition-bezier);
+}
+
+.accordion-body-wrapper.expanded {
+  max-height: 600px; /* generous upper bound */
+}
+
+.accordion-body {
+  padding: 4px 24px 24px;
+}
+
+.accordion-body p {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--acc-body-text);
+}

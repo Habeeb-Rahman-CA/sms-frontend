@@ -1,0 +1,28 @@
+<div class="app-accordion">
+  @for (item of items(); track item.id) {
+    <div
+      class="accordion-panel"
+      [class.open]="isOpen(item.id)()"
+    >
+      <!-- Header / Trigger -->
+      <button
+        type="button"
+        class="accordion-header"
+        [attr.aria-expanded]="isOpen(item.id)()"
+        (click)="toggle(item.id)"
+      >
+        <span class="accordion-title">{{ item.title }}</span>
+        <span class="accordion-icon" aria-hidden="true">
+          <i [class]="isOpen(item.id)() ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"></i>
+        </span>
+      </button>
+
+      <!-- Collapsible Body -->
+      <div class="accordion-body-wrapper" [class.expanded]="isOpen(item.id)()">
+        <div class="accordion-body">
+          <p>{{ item.content }}</p>
+        </div>
+      </div>
+    </div>
+  }
+</div>

@@ -33,6 +33,9 @@
           <li><a href="#navs" class="sidebar-item"><i class="fa-solid fa-compass"></i> Navs & Tabs</a></li>
           <li><a href="#pagination" class="sidebar-item"><i class="fa-solid fa-list-ol"></i> Pagination</a></li>
           <li><a href="#forms" class="sidebar-item"><i class="fa-solid fa-square-poll-horizontal"></i> Form Inputs</a></li>
+          <li><a href="#accordion" class="sidebar-item"><i class="fa-solid fa-layer-group"></i> Accordion</a></li>
+          <li><a href="#carousel" class="sidebar-item"><i class="fa-solid fa-film"></i> Carousel</a></li>
+          <li><a href="#skeleton" class="sidebar-item"><i class="fa-solid fa-ghost"></i> Skeleton</a></li>
         </ul>
       </div>
     </aside>
@@ -514,9 +517,86 @@
           </div>
         </div>
       </section>
+
+      <!-- Accordion Section -->
+      <section id="accordion" class="showcase-section">
+        <div class="section-header">
+          <h2>1. Accordion</h2>
+          <p>Vertically stacked, bordered disclosure panels. One panel open at a time with a smooth CSS max-height transition.</p>
+        </div>
+
+        <div class="component-card">
+          <div class="preview-box accordion-preview-box">
+            <div class="accordion-showcase-wrap">
+              <app-accordion [items]="accordionItems()"></app-accordion>
+            </div>
+          </div>
+          <div class="code-box">
+            <pre><code>&lt;app-accordion [items]="accordionItems"&gt;&lt;/app-accordion&gt;
+
+// AccordionItem[]
+&#123; id: 'integrity', title: 'Academic Integrity Policy', content: '...' &#125;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Carousel Section -->
+      <section id="carousel" class="showcase-section">
+        <div class="section-header">
+          <h2>8. Carousel</h2>
+          <p>Touch-friendly slide viewer with gradient overlay captions, blurred-glass arrows, and stretching dot indicators.</p>
+        </div>
+
+        <div class="component-card">
+          <div class="preview-box carousel-preview-box">
+            <div class="carousel-showcase-wrap">
+              <app-carousel [slides]="carouselSlides()"></app-carousel>
+            </div>
+          </div>
+          <div class="code-box">
+            <pre><code>&lt;app-carousel [slides]="carouselSlides"&gt;&lt;/app-carousel&gt;
+
+// CarouselSlide[]
+&#123; id: 'slide1', title: 'Annual Science Fair 2024', subtitle: '...' &#125;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skeleton Section -->
+      <section id="skeleton" class="showcase-section">
+        <div class="section-header">
+          <h2>18. Skeleton Placeholders</h2>
+          <p>Shimmer-animated placeholder shapes — used during data-loading states to preserve layout and reduce perceived latency.</p>
+        </div>
+
+        <div class="component-card">
+          <div class="preview-box skeleton-preview-box">
+            <div class="skeleton-showcase-grid">
+              <!-- Card variant -->
+              <div class="skeleton-demo-col">
+                <p class="skeleton-demo-label">Card Variant</p>
+                <app-skeleton variant="card"></app-skeleton>
+              </div>
+
+              <!-- List-item variant -->
+              <div class="skeleton-demo-col">
+                <p class="skeleton-demo-label">List Items</p>
+                <div style="display:flex;flex-direction:column;gap:16px;">
+                  <app-skeleton variant="list-item"></app-skeleton>
+                  <app-skeleton variant="list-item"></app-skeleton>
+                  <app-skeleton variant="list-item"></app-skeleton>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="code-box">
+            <pre><code>&lt;app-skeleton variant="card"&gt;&lt;/app-skeleton&gt;
+&lt;app-skeleton variant="list-item"&gt;&lt;/app-skeleton&gt;
+&lt;app-skeleton variant="text" [lines]="4"&gt;&lt;/app-skeleton&gt;</code></pre>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 </div>
-
-<router-outlet></router-outlet>
 

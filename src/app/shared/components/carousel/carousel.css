@@ -1,0 +1,149 @@
+:host {
+  display: block;
+  --car-radius: 16px;
+  --car-gradient-start: transparent;
+  --car-gradient-end: rgba(0, 30, 20, 0.85);
+  --car-arrow-bg: rgba(255, 255, 255, 0.2);
+  --car-arrow-hover: rgba(255, 255, 255, 0.35);
+  --car-dot-inactive: rgba(255, 255, 255, 0.45);
+  --car-dot-active: #ffffff;
+  --car-placeholder-bg: #003d29;
+  --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-carousel {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Main slide frame ── */
+.carousel-slide {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--car-radius);
+  overflow: hidden;
+  background-color: var(--car-placeholder-bg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Placeholder icon (when no imageUrl) ── */
+.carousel-placeholder-icon {
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Gradient overlay ── */
+.carousel-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--car-gradient-start) 35%,
+    var(--car-gradient-end) 100%
+  );
+  border-radius: var(--car-radius);
+  z-index: 2;
+}
+
+/* ── Arrow buttons ── */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--car-arrow-bg);
+  color: #ffffff;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition:
+    background-color 0.2s var(--transition-bezier),
+    transform 0.15s var(--transition-bezier);
+}
+
+.carousel-arrow:hover {
+  background-color: var(--car-arrow-hover);
+}
+
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.arrow-left  { left: 16px; }
+.arrow-right { right: 16px; }
+
+.carousel-arrow.hidden {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* ── Caption ── */
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 24px;
+  z-index: 3;
+}
+
+.carousel-title {
+  margin: 0 0 6px 0;
+  font-family: var(--font-family);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-subtitle {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Dot indicators ── */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background-color 0.2s var(--transition-bezier),
+    transform 0.2s var(--transition-bezier),
+    width 0.2s var(--transition-bezier);
+}
+
+.carousel-dot.active {
+  background-color: #003d29;
+  width: 22px;
+  border-radius: 999px;
+}

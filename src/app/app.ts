@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Button } from './shared/components/button/button';
 import { Badge } from './shared/components/badge/badge';
 import { Spinner } from './shared/components/spinner/spinner';
@@ -10,11 +9,14 @@ import { Select, SelectOption } from './shared/components/select/select';
 import { Checkbox } from './shared/components/checkbox/checkbox';
 import { Radio } from './shared/components/radio/radio';
 import { Range } from './shared/components/range/range';
+import { Accordion, AccordionItem } from './shared/components/accordion/accordion';
+import { Carousel, CarouselSlide } from './shared/components/carousel/carousel';
+import { Skeleton } from './shared/components/skeleton/skeleton';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Button, Badge, Spinner, Tabs, Pagination, Input, Select, Checkbox, Radio, Range],
+  imports: [Button, Badge, Spinner, Tabs, Pagination, Input, Select, Checkbox, Radio, Range, Accordion, Carousel, Skeleton],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -59,29 +61,56 @@ export class App {
   }
 
   // ── Form Inputs ────────────────────────────────────────────────────────────
-  // 29. Text search input
   protected readonly searchValue = signal('');
-
-  // 25. Enrollment Status select
   protected readonly enrollmentStatus = signal('enrolled');
   protected readonly enrollmentOptions = signal<SelectOption[]>([
-    { value: 'enrolled',   label: 'Currently Enrolled' },
-    { value: 'graduated',  label: 'Graduated' },
-    { value: 'suspended',  label: 'Suspended' },
-    { value: 'withdrawn',  label: 'Withdrawn' },
+    { value: 'enrolled',  label: 'Currently Enrolled' },
+    { value: 'graduated', label: 'Graduated' },
+    { value: 'suspended', label: 'Suspended' },
+    { value: 'withdrawn', label: 'Withdrawn' },
   ]);
-
-  // 28. Lab Fees amount input
   protected readonly labFees = signal('');
-
-  // 26. Checkbox & Radio
   protected readonly optInEmail   = signal(true);
   protected readonly selectedTerm = signal('termA');
-
-  // 27. Grade Curve range
-  protected readonly gradeCurve = signal(15);
-
-  // 31. Error & Success state inputs
+  protected readonly gradeCurve   = signal(15);
   protected readonly errorValue   = signal('invalid-entry@');
   protected readonly successValue = signal('Valid Entry');
+
+  // ── Accordion ─────────────────────────────────────────────────────────────
+  protected readonly accordionItems = signal<AccordionItem[]>([
+    {
+      id: 'integrity',
+      title: 'Academic Integrity Policy',
+      content: 'Oakhaven Academy maintains strict standards regarding plagiarism and academic honesty. Students found in violation of these policies may face disciplinary action including suspension or expulsion.',
+    },
+    {
+      id: 'attendance',
+      title: 'Attendance Requirements',
+      content: 'Students are required to attend at least 85% of scheduled classes per term. Absences beyond this threshold must be supported by a medical certificate or formal parental notification.',
+    },
+    {
+      id: 'fees',
+      title: 'Fee Payment Schedule',
+      content: 'All tuition and lab fees must be settled by the 10th of each month. Late payments attract a 2% monthly surcharge. Contact the Finance Office for installment plan arrangements.',
+    },
+  ]);
+
+  // ── Carousel ──────────────────────────────────────────────────────────────
+  protected readonly carouselSlides = signal<CarouselSlide[]>([
+    {
+      id: 'slide1',
+      title: 'Annual Science Fair 2024',
+      subtitle: 'Join us this Friday in the Main Hall for student exhibitions.',
+    },
+    {
+      id: 'slide2',
+      title: 'Inter-School Sports Day',
+      subtitle: 'Registration open for track, field, and team events.',
+    },
+    {
+      id: 'slide3',
+      title: 'Parent-Teacher Conference',
+      subtitle: 'Schedule your slot via the portal — limited availability.',
+    },
+  ]);
 }
