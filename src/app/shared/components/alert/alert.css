@@ -1,0 +1,134 @@
+:host {
+  display: block;
+  width: 100%;
+  --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+  --font-family: var(--font-family);
+}
+
+.app-alert-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 18px 24px;
+  border-radius: 16px;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  animation: fadeInAlert 0.2s var(--transition-bezier);
+}
+
+@keyframes fadeInAlert {
+  from {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.alert-content-wrap {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.alert-icon-col {
+  font-size: 1.45rem;
+  line-height: 1;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.alert-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.alert-title-heading {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 850;
+}
+
+.alert-message-body {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+/* --- THEMES MATCHING MOCKUP --- */
+
+/* 1. Success / Info Alert Theme (Enrollment Update style) */
+.alert-type-success,
+.alert-type-info {
+  background-color: #d1dfd8; /* Pale soft mint green tint */
+  border: 2px solid #003d29; /* Dark Forest Green Accent */
+}
+
+.alert-type-success .alert-icon-col i,
+.alert-type-info .alert-icon-col i,
+.alert-type-success .alert-title-heading,
+.alert-type-info .alert-title-heading {
+  color: #003d29;
+}
+
+.alert-type-success .alert-message-body,
+.alert-type-info .alert-message-body {
+  color: #2e4038;
+}
+
+/* 2. Danger / Error Alert Theme (Missing Documentation style) */
+.alert-type-danger {
+  background-color: #fdf2f2; /* Soft red / cream tint */
+  border: 2px solid #c53030; /* Red Crimson Accent */
+}
+
+.alert-type-danger .alert-icon-col i,
+.alert-type-danger .alert-title-heading {
+  color: #c53030;
+}
+
+.alert-type-danger .alert-message-body {
+  color: #475569;
+}
+
+/* 3. Warning Alert Theme */
+.alert-type-warning {
+  background-color: #fffbeb;
+  border: 2px solid #d97706;
+}
+
+.alert-type-warning .alert-icon-col i,
+.alert-type-warning .alert-title-heading {
+  color: #b45309;
+}
+
+.alert-type-warning .alert-message-body {
+  color: #78350f;
+}
+
+/* --- DISMISS TRIGGER --- */
+.alert-close-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.15s;
+  flex-shrink: 0;
+  margin-left: 12px;
+  opacity: 0.7;
+}
+
+.alert-close-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  opacity: 1;
+}

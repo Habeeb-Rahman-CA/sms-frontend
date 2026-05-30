@@ -1,0 +1,71 @@
+<div class="file-uploader-card">
+  <!-- Title Header Row -->
+  <div class="uploader-header">
+    <i class="fa-solid fa-file-arrow-up uploader-title-icon" aria-hidden="true"></i>
+    <h3 class="uploader-title-text">File Uploaders</h3>
+  </div>
+
+  <!-- Drag and Drop Overlay Trigger Zone -->
+  <div
+    class="dropzone-area"
+    [class.dragover]="isDragOver()"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)"
+    (click)="fileInput.click()"
+    role="button"
+    tabindex="0"
+    aria-label="Upload files by dragging and dropping here or clicking to browse"
+  >
+    <!-- Hidden native file input element -->
+    <input
+      #fileInput
+      type="file"
+      class="hidden-file-input"
+      [accept]="accept()"
+      (change)="onFileChange($event)"
+    />
+
+    <!-- Inner content -->
+    <div class="dropzone-content">
+      <i class="fa-solid fa-cloud-arrow-up cloud-icon" aria-hidden="true"></i>
+      <p class="dropzone-prompt">Drag and drop student records</p>
+      <p class="dropzone-sub">Supported formats: PDF, XLSX, CSV (Max {{ maxFileSizeMB() }}MB)</p>
+    </div>
+  </div>
+
+  <!-- Active uploading or completed files list -->
+  @if (filesList().length > 0) {
+    <div class="files-preview-stack">
+      @for (file of filesList(); track file.id) {
+        <div class="file-progress-row">
+          <!-- File Icon -->
+          <i class="fa-solid fa-file-lines file-row-icon" aria-hidden="true"></i>
+
+          <!-- Center details -->
+          <div class="file-row-details">
+            <div class="file-row-top-info">
+              <span class="file-name-label">{{ file.name }}</span>
+              <span class="file-progress-percentage">{{ file.progress }}%</span>
+            </div>
+            
+            <!-- Progress slider track -->
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" [style.width.%]="file.progress"></div>
+            </div>
+          </div>
+
+          <!-- Delete Action Icon Button -->
+          <button
+            type="button"
+            class="delete-file-btn"
+            (click)="removeFile(file.id); $event.stopPropagation()"
+            aria-label="Delete uploaded file"
+          >
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      }
+    </div>
+  }
+</div>

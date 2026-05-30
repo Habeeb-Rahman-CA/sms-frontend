@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.responsive-app-grid {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Responsive Media Queries matching premium grid flow --- */
+@media (max-width: 1024px) {
+  .responsive-app-grid {
+    /* Auto fit or override column count on tablet */
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-app-grid {
+    /* Stack on mobile */
+    grid-template-columns: 1fr !important;
+  }
+}

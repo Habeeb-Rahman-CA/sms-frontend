@@ -1,0 +1,27 @@
+@if (!isDismissed()) {
+  <div class="app-alert-card" [class]="'alert-type-' + type()">
+    <div class="alert-content-wrap">
+      <!-- Icon Column -->
+      <div class="alert-icon-col">
+        <i [class]="getIconClass()" aria-hidden="true"></i>
+      </div>
+
+      <!-- Text Details Column -->
+      <div class="alert-text-col">
+        @if (title()) {
+          <h4 class="alert-title-heading">{{ title() }}</h4>
+        }
+        @if (message()) {
+          <p class="alert-message-body">{{ message() }}</p>
+        }
+      </div>
+    </div>
+
+    <!-- Optional Dismiss Button -->
+    @if (dismissible()) {
+      <button type="button" class="alert-close-trigger" (click)="dismiss()" aria-label="Dismiss alert">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    }
+  </div>
+}

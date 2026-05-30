@@ -17,6 +17,10 @@ import { Offcanvas } from './shared/components/offcanvas/offcanvas';
 import { Popover } from './shared/components/popover/popover';
 import { Toast, ToastType } from './shared/components/toast/toast';
 import { Table, TableColumn } from './shared/components/table/table';
+import { FileUpload } from './shared/components/file-upload/file-upload';
+import { Alert } from './shared/components/alert/alert';
+import { Progress } from './shared/components/progress/progress';
+import { Grid } from './shared/components/layout/grid';
 
 export interface ToastItem {
   id: string;
@@ -42,7 +46,7 @@ export interface StudentRecord {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Button, Badge, Spinner, Tabs, Pagination, Input, Select, Checkbox, Radio, Range, Accordion, Carousel, Skeleton, Modal, Offcanvas, Popover, Toast, Table],
+  imports: [Button, Badge, Spinner, Tabs, Pagination, Input, Select, Checkbox, Radio, Range, Accordion, Carousel, Skeleton, Modal, Offcanvas, Popover, Toast, Table, FileUpload, Alert, Progress, Grid],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

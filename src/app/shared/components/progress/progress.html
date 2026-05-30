@@ -1,0 +1,20 @@
+<div class="progress-component-wrap">
+  <!-- Info row (Label and percentage) -->
+  <div class="progress-info-row">
+    <span class="progress-label-text">{{ label() }}</span>
+    <span class="progress-percent-val" [class]="'percent-' + variant()">{{ value() }}%</span>
+  </div>
+
+  <!-- Progress bar track -->
+  <div class="progress-bar-track">
+    <div 
+      class="progress-bar-fill" 
+      [class]="'fill-' + variant()" 
+      [style.width.%]="value()"
+      role="progressbar"
+      [attr.aria-valuenow]="value()"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    ></div>
+  </div>
+</div>

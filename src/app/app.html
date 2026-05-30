@@ -43,6 +43,9 @@
               Toasts</a></li>
           <li><a href="#table-directory" class="sidebar-item"><i class="fa-solid fa-table"></i> Student Directory</a>
           </li>
+          <li><a href="#file-uploaders" class="sidebar-item"><i class="fa-solid fa-file-arrow-up"></i> File Uploaders</a></li>
+          <li><a href="#feedback-status" class="sidebar-item"><i class="fa-solid fa-circle-info"></i> Feedback &amp; Status</a></li>
+          <li><a href="#layout-containers" class="sidebar-item"><i class="fa-solid fa-grip"></i> Layout &amp; Containers</a></li>
         </ul>
       </div>
     </aside>
@@ -779,6 +782,115 @@
         </div>
       </section>
 
+      <!-- File Uploaders Section -->
+      <section id="file-uploaders" class="showcase-section">
+        <div class="section-header">
+          <h2>File Uploaders</h2>
+          <p>A drag-and-drop file uploader component with instant format validation, interactive uploading status animations, and micro progress meters.</p>
+        </div>
+
+        <div class="component-card">
+          <div class="preview-box file-uploader-preview-container">
+            <app-file-upload accept=".pdf,.xlsx,.csv" [maxFileSizeMB]="10"></app-file-upload>
+          </div>
+
+          <div class="code-box">
+            <pre><code>&lt;app-file-upload accept=".pdf,.xlsx,.csv" [maxFileSizeMB]="10"&gt;&lt;/app-file-upload&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feedback & Status Section -->
+      <section id="feedback-status" class="showcase-section">
+        <div class="section-header">
+          <h2>Feedback &amp; Status</h2>
+          <p>Semantic alert messages and visually appealing progress meters representing student processes, registrations, and completions.</p>
+        </div>
+
+        <!-- Layout container matching mockup layout exactly -->
+        <div class="feedback-status-container">
+          <!-- Row 1: Alerts Grid -->
+          <div class="alerts-grid">
+            <app-alert
+              type="info"
+              title="Enrollment Update"
+              message="Phase 2 registration starts next Monday at 8:00 AM."
+            ></app-alert>
+
+            <app-alert
+              type="danger"
+              title="Missing Documentation"
+              message="35 students have pending health clearance forms."
+            ></app-alert>
+          </div>
+
+          <!-- Row 2: Progress Bars Container Card -->
+          <div class="progress-bars-card">
+            <app-progress
+              label="Graduation Requirement Completion"
+              [value]="75"
+              variant="primary"
+            ></app-progress>
+
+            <app-progress
+              label="Processing Transcripts..."
+              [value]="40"
+              variant="secondary"
+            ></app-progress>
+          </div>
+        </div>
+
+        <div class="code-box feedback-code-box">
+          <pre><code>&lt;app-alert type="info" title="Enrollment Update" message="..."&gt;&lt;/app-alert&gt;
+&lt;app-progress label="Graduation Requirement Completion" [value]="75" variant="primary"&gt;&lt;/app-progress&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- Layout & Containers Section -->
+      <section id="layout-containers" class="showcase-section">
+        <div class="section-header">
+          <h2>30. Layout &amp; Containers</h2>
+          <p>Responsive multi-column grids and structural content wraps configured for high-fidelity dashboards.</p>
+        </div>
+
+        <div class="component-card">
+          <div class="preview-box layout-preview-container-box">
+            <!-- Part 1: Responsive Grid (6-column Layout) -->
+            <p class="showcase-demo-label">Responsive Grid (6-column Layout)</p>
+            <app-grid [cols]="6" gap="16px">
+              <div class="mock-grid-col-card">Col 1</div>
+              <div class="mock-grid-col-card">Col 2</div>
+              <div class="mock-grid-col-card">Col 3</div>
+              <div class="mock-grid-col-card">Col 4</div>
+              <div class="mock-grid-col-card">Col 5</div>
+              <div class="mock-grid-col-card">Col 6</div>
+            </app-grid>
+
+            <!-- Part 2: Split Column Layout (3/4 and 1/4) -->
+            <div class="split-layout-grid-row">
+              <div class="mock-main-content-card">
+                Main Content Area (3/4)
+              </div>
+              
+              <div class="mock-sidebar-card">
+                Sidebar (1/4)
+              </div>
+            </div>
+          </div>
+
+          <div class="code-box">
+            <pre><code>&lt;app-grid [cols]="6" gap="16px"&gt;
+  &lt;div&gt;Col 1&lt;/div&gt;
+  &lt;div&gt;Col 2&lt;/div&gt;
+&lt;/app-grid&gt;
+
+&lt;div class="split-layout-grid-row"&gt;
+  &lt;div class="mock-main-content-card"&gt;Main Content Area (3/4)&lt;/div&gt;
+  &lt;div class="mock-sidebar-card"&gt;Sidebar (1/4)&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
 
       <!-- Popovers & Toasts Section -->
       <section id="popover-toast" class="showcase-section">

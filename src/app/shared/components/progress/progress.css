@@ -1,0 +1,69 @@
+:host {
+  display: block;
+  width: 100%;
+  --brand-green: #003d29;
+  --bg-track: #eaeaea;
+  --text-label: #1e293b;
+  --text-secondary: #475569;
+  --fill-secondary: #c6dfcf; /* Soft light sage-green fill matching screenshot */
+  --font-family: var(--font-family);
+  --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-component-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  font-family: var(--font-family);
+}
+
+.progress-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-label-text {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-label);
+}
+
+.progress-percent-val {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+/* Percentage color variants */
+.percent-primary {
+  color: var(--brand-green);
+}
+
+.percent-secondary {
+  color: var(--text-secondary);
+}
+
+/* Track container */
+.progress-bar-track {
+  height: 12px;
+  background-color: var(--bg-track);
+  border-radius: 999px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Fill bar progress slider */
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.35s var(--transition-bezier);
+}
+
+.fill-primary {
+  background-color: var(--brand-green);
+}
+
+.fill-secondary {
+  background-color: var(--fill-secondary);
+}
