@@ -1,0 +1,9 @@
+<div [class]="containerClasses()">
+  <!-- Rotating Circular Spinner -->
+  <span [class]="spinnerClasses()" aria-hidden="true"></span>
+  
+  <!-- Optional Label -->
+  @if (label()) {
+    <span class="app-spinner-label">{{ label() }}</span>
+  }
+</div>

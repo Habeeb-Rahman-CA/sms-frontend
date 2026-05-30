@@ -1,0 +1,45 @@
+<div class="app-pagination-container" role="navigation" aria-label="Pagination Navigation">
+  <!-- Previous Button -->
+  <button
+    type="button"
+    class="pagination-btn arrow-btn"
+    [class.disabled]="!hasPrevious()"
+    [disabled]="!hasPrevious()"
+    (click)="previousPage()"
+    aria-label="Previous Page"
+  >
+    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+  </button>
+
+  <!-- Page Numbers & Dots -->
+  @for (item of pageItems(); track $index) {
+    @if (item === '...') {
+      <span class="pagination-dots" aria-hidden="true">...</span>
+    } @else {
+      <button
+        type="button"
+        [class]="{
+          'pagination-btn': true,
+          'page-btn': true,
+          'active': item === currentPage()
+        }"
+        [attr.aria-current]="item === currentPage() ? 'page' : null"
+        (click)="selectPage(item)"
+      >
+        {{ item }}
+      </button>
+    }
+  }
+
+  <!-- Next Button -->
+  <button
+    type="button"
+    class="pagination-btn arrow-btn"
+    [class.disabled]="!hasNext()"
+    [disabled]="!hasNext()"
+    (click)="nextPage()"
+    aria-label="Next Page"
+  >
+    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+  </button>
+</div>

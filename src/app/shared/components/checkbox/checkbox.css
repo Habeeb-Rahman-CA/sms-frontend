@@ -1,0 +1,112 @@
+:host {
+  display: inline-block;
+  --chk-primary: #003d29;
+  --chk-border: #cbd5e1;
+  --chk-text: #4a5d54;
+  --chk-focus-ring: rgba(0, 61, 41, 0.15);
+  --font-family: var(--font-family);
+  --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+/* Visually hidden native checkbox */
+.native-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Custom Checkbox Square */
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--chk-border);
+  border-radius: 6px;
+  background-color: #ffffff;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transition: 
+    background-color 0.2s var(--transition-bezier),
+    border-color 0.2s var(--transition-bezier),
+    box-shadow 0.2s var(--transition-bezier);
+}
+
+/* Hover behaviors */
+.app-checkbox-wrapper:hover .custom-checkbox {
+  border-color: var(--chk-primary);
+}
+
+/* Focused outline ring */
+.native-checkbox:focus-visible + .custom-checkbox,
+.custom-checkbox.focused {
+  border-color: var(--chk-primary);
+  box-shadow: 0 0 0 3.5px var(--chk-focus-ring);
+}
+
+/* Checked styling matching screenshot filled square */
+.custom-checkbox.checked {
+  background-color: var(--chk-primary);
+  border-color: var(--chk-primary);
+}
+
+/* Checkmark pop-in micro-animation */
+.check-mark {
+  color: #ffffff;
+  font-size: 0.8rem;
+  animation: popIn 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Label details */
+.checkbox-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--chk-text);
+  transition: color 0.2s var(--transition-bezier);
+}
+
+.app-checkbox-wrapper:hover .checkbox-label {
+  color: var(--chk-primary);
+}
+
+/* Disabled styling */
+.app-checkbox-wrapper.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.app-checkbox-wrapper.disabled .custom-checkbox {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.app-checkbox-wrapper.disabled .checkbox-label {
+  color: #94a3b8 !important;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,63 @@
+:host {
+  display: inline-block;
+  --spinner-color: #003d29;
+  --track-color: #e6eee9;
+  --text-color: #4a5d54;
+  --font-family: var(--font-family);
+}
+
+.app-spinner-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+/* Spinner Circle Node */
+.app-spinner-circle {
+  display: inline-block;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: var(--track-color);
+  border-top-color: var(--spinner-color);
+  animation: spin 0.85s linear infinite;
+  flex-shrink: 0;
+}
+
+/* --- SIZES --- */
+.app-spinner-circle-sm {
+  width: 18px;
+  height: 18px;
+  border-width: 2.5px;
+}
+
+.app-spinner-circle-md {
+  width: 32px;
+  height: 32px;
+  border-width: 4px;
+}
+
+.app-spinner-circle-lg {
+  width: 48px;
+  height: 48px;
+  border-width: 5.5px;
+}
+
+/* --- LABEL --- */
+.app-spinner-label {
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

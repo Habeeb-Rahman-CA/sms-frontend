@@ -1,0 +1,89 @@
+:host {
+  display: block;
+  --select-border: #cbd5e1;
+  --select-border-hover: #003d29;
+  --select-focus-ring: rgba(0, 61, 41, 0.15);
+  --arrow-color: #4a5d54;
+  --font-family: var(--font-family);
+  --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-select-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- LABEL --- */
+.select-label {
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  user-select: none;
+}
+
+/* --- WRAPPER BOX --- */
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--select-border);
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: 
+    border-color 0.2s var(--transition-bezier),
+    box-shadow 0.2s var(--transition-bezier);
+}
+
+.select-wrapper:hover {
+  border-color: var(--select-border-hover);
+}
+
+.select-wrapper:focus-within {
+  border-color: var(--select-border-hover);
+  box-shadow: 0 0 0 3.5px var(--select-focus-ring);
+}
+
+/* --- NATIVE SELECT --- */
+.native-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 14px 44px 14px 16px;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #0f172a;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.native-select::-ms-expand {
+  display: none; /* Hide default arrow in old Edge/IE */
+}
+
+/* --- ARROW NODE --- */
+.select-arrow {
+  position: absolute;
+  right: 16px;
+  pointer-events: none;
+  color: var(--arrow-color);
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  transition: 
+    color 0.2s var(--transition-bezier),
+    transform 0.2s var(--transition-bezier);
+}
+
+.select-wrapper:focus-within .select-arrow {
+  color: var(--select-border-hover);
+  transform: rotate(180deg); /* Playful luxury detail: flips arrow on expand! */
+}

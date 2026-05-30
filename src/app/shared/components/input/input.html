@@ -1,0 +1,41 @@
+<div class="app-input-container">
+  <!-- Optional Label -->
+  @if (label()) {
+    <label class="input-label" [class]="'label-' + state()">{{ label() }}</label>
+  }
+
+  <!-- Input Wrapper containingaddons -->
+  <div [class]="wrapperClasses()">
+    <!-- Prefix Addon (e.g. '$') -->
+    @if (prefix()) {
+      <span class="input-addon addon-prefix">{{ prefix() }}</span>
+    }
+
+    <!-- Native Input Element -->
+    <input
+      [type]="type()"
+      [placeholder]="placeholder()"
+      [value]="value()"
+      (input)="onInput($event)"
+      class="native-input"
+    />
+
+    <!-- Suffix Addon (e.g. 'USD') -->
+    @if (suffix()) {
+      <span class="input-addon addon-suffix">{{ suffix() }}</span>
+    }
+  </div>
+
+  <!-- Validation Feedback Message -->
+  @if (message() && state() === 'error') {
+    <span class="feedback-message error-message" role="alert">
+      <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+      {{ message() }}
+    </span>
+  } @else if (message() && state() === 'success') {
+    <span class="feedback-message success-message">
+      <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+      {{ message() }}
+    </span>
+  }
+</div>

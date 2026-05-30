@@ -1,0 +1,23 @@
+<div class="app-range-container">
+  <!-- Header row: label + live value -->
+  <div class="range-header">
+    @if (label()) {
+      <label class="range-label">{{ label() }}</label>
+    }
+    @if (showValue()) {
+      <span class="range-value">{{ value() }}{{ suffix() }}</span>
+    }
+  </div>
+
+  <!-- Native range input, styled via CSS -->
+  <input
+    type="range"
+    class="native-range"
+    [min]="min()"
+    [max]="max()"
+    [step]="step()"
+    [value]="value()"
+    [style]="trackStyle()"
+    (input)="onInput($event)"
+  />
+</div>

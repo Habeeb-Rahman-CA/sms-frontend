@@ -1,0 +1,186 @@
+:host {
+  display: block;
+  --input-border: #cbd5e1;
+  --input-border-hover: #003d29;
+  --input-focus-ring: rgba(0, 61, 41, 0.15);
+  
+  --input-bg-error: #fff5f5;
+  --input-border-error: #c53030;
+  --input-focus-error: rgba(197, 48, 48, 0.15);
+  
+  --input-bg-success: #edf7f4;
+  --input-border-success: #003d29;
+  --input-focus-success: rgba(0, 61, 41, 0.15);
+  
+  --addon-bg: #e6eee9;
+  --addon-text: #4a5d54;
+  --font-family: var(--font-family);
+  --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- LABELS --- */
+.input-label {
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  user-select: none;
+  transition: color 0.2s var(--transition-bezier);
+}
+
+.label-error {
+  color: var(--input-border-error);
+}
+
+.label-success {
+  color: var(--input-border-success);
+}
+
+/* --- WRAPPER BOX --- */
+.input-wrapper {
+  display: flex;
+  align-items: stretch;
+  border: 1.5px solid var(--input-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: 
+    border-color 0.2s var(--transition-bezier),
+    box-shadow 0.2s var(--transition-bezier),
+    background-color 0.2s var(--transition-bezier);
+}
+
+.input-wrapper:hover {
+  border-color: var(--input-border-hover);
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--input-border-hover);
+  box-shadow: 0 0 0 3.5px var(--input-focus-ring);
+}
+
+/* Validation wrapper classes */
+.input-wrapper-error {
+  background-color: var(--input-bg-error);
+  border-color: var(--input-border-error);
+}
+
+.input-wrapper-error:hover {
+  border-color: var(--input-border-error);
+}
+
+.input-wrapper-error:focus-within {
+  border-color: var(--input-border-error);
+  box-shadow: 0 0 0 3.5px var(--input-focus-error);
+}
+
+.input-wrapper-success {
+  background-color: var(--input-bg-success);
+  border-color: var(--input-border-success);
+}
+
+.input-wrapper-success:hover {
+  border-color: var(--input-border-success);
+}
+
+.input-wrapper-success:focus-within {
+  border-color: var(--input-border-success);
+  box-shadow: 0 0 0 3.5px var(--input-focus-success);
+}
+
+/* --- NATIVE INPUT --- */
+.native-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 14px 16px;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  color: #0f172a;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.native-input::placeholder {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* --- ADDONS --- */
+.input-addon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  background-color: var(--addon-bg);
+  color: var(--addon-text);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 600;
+  user-select: none;
+  transition: border-color 0.2s var(--transition-bezier);
+}
+
+.addon-prefix {
+  border-right: 1.5px solid var(--input-border);
+}
+
+/* Match state boundary borders dynamically */
+.input-wrapper-error .addon-prefix {
+  border-color: var(--input-border-error);
+}
+.input-wrapper-success .addon-prefix {
+  border-color: var(--input-border-success);
+}
+
+.addon-suffix {
+  border-left: 1.5px solid var(--input-border);
+}
+
+.input-wrapper-error .addon-suffix {
+  border-color: var(--input-border-error);
+}
+.input-wrapper-success .addon-suffix {
+  border-color: var(--input-border-success);
+}
+
+/* --- FEEDBACK MESSAGE --- */
+.feedback-message {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-top: 4px;
+  animation: slideDown 0.2s var(--transition-bezier);
+}
+
+.error-message {
+  color: var(--input-border-error);
+}
+
+.success-message {
+  color: var(--input-border-success);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

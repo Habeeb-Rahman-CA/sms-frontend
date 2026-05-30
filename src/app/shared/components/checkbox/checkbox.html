@@ -1,0 +1,27 @@
+<label [for]="id()" class="app-checkbox-wrapper" [class.disabled]="disabled()">
+  <!-- Visually hidden native checkbox for accessibility -->
+  <input
+    type="checkbox"
+    [id]="id()"
+    [checked]="checked()"
+    [disabled]="disabled()"
+    (change)="toggle($event)"
+    class="native-checkbox"
+  />
+
+  <!-- Custom styled checkbox square -->
+  <span 
+    class="custom-checkbox" 
+    [class.checked]="checked()"
+    [class.focused]="isFocused"
+    (focusin)="isFocused = true"
+    (focusout)="isFocused = false"
+  >
+    @if (checked()) {
+      <i class="fa-solid fa-check check-mark" aria-hidden="true"></i>
+    }
+  </span>
+
+  <!-- Label text -->
+  <span class="checkbox-label">{{ label() }}</span>
+</label>

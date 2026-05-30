@@ -1,0 +1,22 @@
+<button
+  [type]="type()"
+  [disabled]="isDisabled()"
+  [class]="buttonClasses()"
+>
+  <!-- Loading Spinner or Left Icon -->
+  @if (loading()) {
+    <span class="btn-spinner" aria-hidden="true"></span>
+  } @else if (iconLeft()) {
+    <i [class]="iconLeft() + ' btn-icon-left'" aria-hidden="true"></i>
+  }
+
+  <!-- Button Content -->
+  <span class="btn-content">
+    <ng-content></ng-content>
+  </span>
+
+  <!-- Right Icon -->
+  @if (iconRight() && !loading()) {
+    <i [class]="iconRight() + ' btn-icon-right'" aria-hidden="true"></i>
+  }
+</button>

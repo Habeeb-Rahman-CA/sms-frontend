@@ -1,0 +1,66 @@
+:host {
+  display: inline-block;
+  --new-bg: #003d29;
+  --new-text: #ffffff;
+  
+  --standard-bg: #e6eee9;
+  --standard-text: #4a5d54;
+  
+  --urgent-bg: #ffebe8;
+  --urgent-text: #c53030;
+  
+  --font-family: var(--font-family);
+}
+
+.app-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  border-radius: 9999px;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* --- VARIANTS --- */
+
+/* 1. NEW Variant */
+.app-badge-new {
+  background-color: var(--new-bg);
+  color: var(--new-text);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* 2. Standard Variant */
+.app-badge-standard {
+  background-color: var(--standard-bg);
+  color: var(--standard-text);
+  font-weight: 600;
+}
+
+/* 3. Urgent Variant */
+.app-badge-urgent {
+  background-color: var(--urgent-bg);
+  color: var(--urgent-text);
+  font-weight: 700;
+}
+
+/* --- SIZES --- */
+.app-badge-sm {
+  font-size: 0.6875rem; /* 11px */
+  padding: 3px 8px;
+}
+
+.app-badge-md {
+  font-size: 0.8125rem; /* 13px */
+  padding: 5px 12px;
+}
+
+.app-badge-lg {
+  font-size: 0.9375rem; /* 15px */
+  padding: 7px 16px;
+}

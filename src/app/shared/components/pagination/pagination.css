@@ -1,0 +1,94 @@
+:host {
+  display: inline-block;
+  --pag-primary: #003d29;
+  --pag-text: #4a5d54;
+  --pag-border: #cbd5e1;
+  --pag-border-disabled: #f1f5f9;
+  --pag-bg-disabled: #f8fafc;
+  --pag-text-disabled: #cbd5e1;
+  --pag-hover-tint: rgba(0, 61, 41, 0.04);
+  --font-family: var(--font-family);
+  --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-pagination-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  border: 1.5px solid var(--pag-border);
+  background-color: #ffffff;
+  color: var(--pag-primary);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  user-select: none;
+  transition: 
+    background-color 0.2s var(--transition-bezier),
+    border-color 0.2s var(--transition-bezier),
+    color 0.2s var(--transition-bezier),
+    transform 0.1s var(--transition-bezier);
+}
+
+/* Hover effects for interactive buttons */
+.pagination-btn:hover:not(.disabled):not(.active) {
+  background-color: var(--pag-hover-tint);
+  border-color: var(--pag-primary);
+  color: var(--pag-primary);
+}
+
+/* Tactile press feedback */
+.pagination-btn:active:not(.disabled) {
+  transform: scale(0.95);
+}
+
+/* Active page button styling */
+.pagination-btn.active {
+  background-color: var(--pag-primary);
+  border-color: var(--pag-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 61, 41, 0.15);
+}
+
+/* Accessibility focus ring */
+.pagination-btn:focus-visible {
+  outline: 3px solid rgba(0, 61, 41, 0.25);
+  outline-offset: 1px;
+}
+
+/* Disabled/Arrow limits styling */
+.pagination-btn.disabled {
+  background-color: var(--pag-bg-disabled);
+  border-color: var(--pag-border-disabled);
+  color: var(--pag-text-disabled);
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Dots styling */
+.pagination-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  color: var(--pag-text);
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  user-select: none;
+  padding-bottom: 4px; /* Align slightly lower for a cleaner look */
+}

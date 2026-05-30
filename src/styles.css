@@ -1,3 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+/* ── Global styles ────────────────────────────────────────────────────────── */
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import '@fortawesome/fontawesome-free/css/all.css';
+
+/* ── Primary Typeface: Atkinson Hyperlegible Next ───────────────────────── */
+/* Loaded locally via @font-face so no network dependency during build.      */
+/* CDN fallback via <link> in index.html is the actual delivery mechanism.   */
+
+:root {
+  --font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', Arial, sans-serif;
+}
+
+/* Apply globally so every element inherits it by default */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,24 @@
+<nav class="app-tabs-container" role="tablist">
+  @for (tab of tabs(); track tab.id) {
+    <button
+      type="button"
+      role="tab"
+      [attr.aria-selected]="tab.id === activeId()"
+      [attr.aria-disabled]="tab.disabled"
+      [class]="{
+        'app-tab-item': true,
+        'active': tab.id === activeId(),
+        'disabled': tab.disabled
+      }"
+      [disabled]="tab.disabled"
+      (click)="selectTab(tab)"
+    >
+      <span class="tab-label">{{ tab.label }}</span>
+      
+      <!-- Active Underline Indicator Bar -->
+      @if (tab.id === activeId()) {
+        <span class="active-indicator" aria-hidden="true"></span>
+      }
+    </button>
+  }
+</nav>

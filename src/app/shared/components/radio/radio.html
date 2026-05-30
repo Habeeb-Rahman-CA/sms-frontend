@@ -1,0 +1,27 @@
+<label [for]="id()" class="app-radio-wrapper" [class.disabled]="disabled()">
+  <!-- Visually hidden native radio for accessibility -->
+  <input
+    type="radio"
+    [id]="id()"
+    [checked]="checked()"
+    [disabled]="disabled()"
+    (change)="select()"
+    class="native-radio"
+  />
+
+  <!-- Custom styled radio circle -->
+  <span 
+    class="custom-radio" 
+    [class.checked]="checked()"
+    [class.focused]="isFocused"
+    (focusin)="isFocused = true"
+    (focusout)="isFocused = false"
+  >
+    @if (checked()) {
+      <span class="radio-dot" aria-hidden="true"></span>
+    }
+  </span>
+
+  <!-- Label text -->
+  <span class="radio-label">{{ label() }}</span>
+</label>

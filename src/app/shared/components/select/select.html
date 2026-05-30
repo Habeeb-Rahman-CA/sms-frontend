@@ -1,0 +1,27 @@
+<div class="app-select-container">
+  <!-- Optional Label -->
+  @if (label()) {
+    <label class="select-label">{{ label() }}</label>
+  }
+
+  <!-- Select element wrapper -->
+  <div class="select-wrapper">
+    <select
+      [value]="value()"
+      (change)="onChange($event)"
+      class="native-select"
+    >
+      @if (placeholder()) {
+        <option value="" disabled selected>{{ placeholder() }}</option>
+      }
+      @for (option of options(); track option.value) {
+        <option [value]="option.value">{{ option.label }}</option>
+      }
+    </select>
+    
+    <!-- Custom Indicator Arrow Icon -->
+    <span class="select-arrow" aria-hidden="true">
+      <i class="fa-solid fa-chevron-down"></i>
+    </span>
+  </div>
+</div>
