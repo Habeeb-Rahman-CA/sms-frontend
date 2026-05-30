@@ -1359,3 +1359,68 @@ section[id] .section-header h2 {
   line-height: 1.3;
   margin-top: 8px;
 }
+
+/* ── Sidebar showcase ────────────────────────────────────────────────────── */
+.sidebar-preview-box {
+  padding: 0 !important;
+  background-color: #f1f5f9 !important;
+  display: block !important;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sidebar-demo-shell {
+  display: flex;
+  height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 4px 20px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  margin: 32px;
+}
+
+.sidebar-demo-shell app-sidebar {
+  height: 100%;
+}
+
+.sidebar-demo-content {
+  flex: 1;
+  padding: 32px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.sidebar-demo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 16px;
+}
+
+.sidebar-demo-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.active-badge {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sidebar-demo-body {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+}

@@ -1,0 +1,84 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed()">
+
+  <!-- ── Brand Block ──────────────────────────────────────────────────────── -->
+  <div class="sidebar-brand">
+    <div class="brand-logo">
+      <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+    @if (!isCollapsed()) {
+      <div class="brand-text">
+        <span class="brand-name">{{ schoolName() }}</span>
+        <span class="brand-role">{{ schoolRole() }}</span>
+      </div>
+    }
+    <button
+      type="button"
+      class="collapse-btn"
+      [title]="isCollapsed() ? 'Expand sidebar' : 'Collapse sidebar'"
+      (click)="toggleCollapse()"
+      aria-label="Toggle sidebar"
+    >
+      <i class="fa-solid" [class.fa-chevron-left]="!isCollapsed()" [class.fa-chevron-right]="isCollapsed()"></i>
+    </button>
+  </div>
+
+  <!-- ── Nav Groups ───────────────────────────────────────────────────────── -->
+  <nav class="sidebar-nav" aria-label="Sidebar navigation">
+    @for (group of navGroups(); track group.label) {
+      <div class="nav-group">
+        @if (group.label && !isCollapsed()) {
+          <p class="nav-group-label">{{ group.label }}</p>
+        }
+        <ul class="nav-list">
+          @for (item of group.items; track item.id) {
+            <li>
+              <a
+                [attr.href]="item.href ? item.href : null"
+                class="nav-item"
+                [class.active]="item.id === activeItemId()"
+                [title]="isCollapsed() ? item.label : ''"
+                (click)="onItemClick($event, item)"
+              >
+                <i [class]="item.icon + ' nav-icon'" aria-hidden="true"></i>
+                @if (!isCollapsed()) {
+                  <span class="nav-label">{{ item.label }}</span>
+                  @if (item.badge && item.badge > 0) {
+                    <span class="nav-badge">{{ item.badge > 99 ? '99+' : item.badge }}</span>
+                  }
+                } @else if (item.badge && item.badge > 0) {
+                  <span class="nav-badge-dot" aria-label="{{ item.badge }} notifications"></span>
+                }
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+  </nav>
+
+
+
+  <!-- ── Bottom Actions ───────────────────────────────────────────────────── -->
+  @if (bottomItems().length > 0) {
+    <div class="sidebar-bottom">
+      <ul class="nav-list">
+        @for (item of bottomItems(); track item.id) {
+          <li>
+            <button
+              type="button"
+              class="nav-item bottom-item"
+              [title]="isCollapsed() ? item.label : ''"
+              (click)="onBottomClick(item)"
+            >
+              <i [class]="item.icon + ' nav-icon'" aria-hidden="true"></i>
+              @if (!isCollapsed()) {
+                <span class="nav-label">{{ item.label }}</span>
+              }
+            </button>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+
+</aside>

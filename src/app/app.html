@@ -7,44 +7,10 @@
   <!-- Sidebar & Main Content Layout -->
   <div class="showcase-layout">
     <!-- Sidebar Navigation -->
-    <aside class="showcase-sidebar">
-      <div class="sidebar-section">
-        <h3 class="sidebar-title">Foundation</h3>
-        <ul class="sidebar-menu">
-          <li><a href="#colors" class="sidebar-item"><i class="fa-solid fa-palette"></i> Colors</a></li>
-          <li><a href="#typography" class="sidebar-item"><i class="fa-solid fa-font"></i> Typography</a></li>
-        </ul>
-      </div>
-
-      <div class="sidebar-section">
-        <h3 class="sidebar-title">Components</h3>
-        <ul class="sidebar-menu">
-          <li><a href="#buttons" class="sidebar-item active"><i class="fa-solid fa-square"></i> Buttons</a></li>
-          <li><a href="#badges" class="sidebar-item"><i class="fa-solid fa-tags"></i> Badges &amp; Labels</a></li>
-          <li><a href="#spinners" class="sidebar-item"><i class="fa-solid fa-arrows-spin"></i> Spinners</a></li>
-          <li><a href="#navs" class="sidebar-item"><i class="fa-solid fa-compass"></i> Navs &amp; Tabs</a></li>
-          <li><a href="#pagination" class="sidebar-item"><i class="fa-solid fa-list-ol"></i> Pagination</a></li>
-          <li><a href="#forms" class="sidebar-item"><i class="fa-solid fa-square-poll-horizontal"></i> Form Inputs</a>
-          </li>
-          <li><a href="#accordion" class="sidebar-item"><i class="fa-solid fa-layer-group"></i> Accordion</a></li>
-          <li><a href="#carousel" class="sidebar-item"><i class="fa-solid fa-film"></i> Carousel</a></li>
-          <li><a href="#skeleton" class="sidebar-item"><i class="fa-solid fa-ghost"></i> Skeleton</a></li>
-          <li><a href="#modal-offcanvas" class="sidebar-item"><i class="fa-solid fa-window-restore"></i> Modal &amp;
-              Offcanvas</a></li>
-          <li><a href="#table-directory" class="sidebar-item"><i class="fa-solid fa-table"></i> Student Directory</a>
-          </li>
-          <li><a href="#file-uploaders" class="sidebar-item"><i class="fa-solid fa-file-arrow-up"></i> File
-              Uploaders</a></li>
-          <li><a href="#feedback-status" class="sidebar-item"><i class="fa-solid fa-circle-info"></i> Feedback &amp;
-              Status</a></li>
-          <li><a href="#layout-containers" class="sidebar-item"><i class="fa-solid fa-grip"></i> Layout &amp;
-              Containers</a></li>
-          <li><a href="#popover-toast" class="sidebar-item"><i class="fa-solid fa-message"></i> Popovers &amp;
-              Toasts</a></li>
-          <li><a href="#topbar" class="sidebar-item"><i class="fa-solid fa-bars"></i> Top Bar</a></li>
-        </ul>
-      </div>
-    </aside>
+    <app-sidebar schoolName="SMS Design" schoolRole="System Showcase" [navGroups]="showcaseSidebarGroups()"
+      [activeItemId]="showcaseSidebarActive()" [bottomItems]="showcaseSidebarBottom()"
+      (itemClick)="onShowcaseSidebarClick($event)"
+      (bottomItemClick)="onShowcaseSidebarBottomClick($event)"></app-sidebar>
 
     <!-- Main Content Area -->
     <main class="showcase-main">
@@ -223,7 +189,7 @@
       </section>
 
       <!-- 1. Buttons -->
-      <section class="intro-section">
+      <section id="buttons" class="intro-section">
         <span class="category-tag">UI Component Library</span>
         <h1>Buttons</h1>
         <p class="section-desc">
@@ -1139,6 +1105,79 @@
           </div>
         </div>
       </section>
+
+      <!-- ── 17. Sidebar Section ─────────────────────────────────────── -->
+      <section id="sidebar" class="showcase-section">
+        <div class="section-header">
+          <h2>Sidebar</h2>
+          <p>A collapsible, responsive vertical navigation sidebar. Supports school branding, nav groups, active item
+            tracking, notifications/badge dots, and bottom action buttons.</p>
+        </div>
+
+        <div class="component-card">
+          <!-- Live demo -->
+          <div class="preview-box sidebar-preview-box">
+            <div class="sidebar-demo-shell">
+              <app-sidebar schoolName="Oakhaven Academy" schoolRole="Teacher Portal" [navGroups]="demoSidebarGroups()"
+                [activeItemId]="demoSidebarActive()" [bottomItems]="demoSidebarBottom()"
+                (itemClick)="onDemoSidebarClick($event)"
+                (bottomItemClick)="onDemoSidebarBottomClick($event)"></app-sidebar>
+
+              <!-- Mock main window content next to sidebar -->
+              <div class="sidebar-demo-content">
+                <div class="sidebar-demo-header">
+                  <h3>{{ demoSidebarActive() | titlecase }} Overview</h3>
+                  <span class="active-badge">Live View</span>
+                </div>
+                <div class="sidebar-demo-body">
+                  @switch (demoSidebarActive()) {
+                  @case ('dashboard') {
+                  <p>Welcome to the Oakhaven Academy teacher dashboard. You have 4 gradebook notifications waiting.</p>
+                  }
+                  @case ('classes') {
+                  <p>Viewing your active classes: Homeroom 10A, Physics II (Grade 11), Algebra (Grade 10).</p>
+                  }
+                  @case ('attendance') {
+                  <p>All morning attendance reports submitted. 2 students currently flagged as absent.</p>
+                  }
+                  @case ('gradebook') {
+                  <p>4 new homework assignments pending grading. Graduation tracking parameters active.</p>
+                  }
+                  @case ('homework') {
+                  <p>View assignment sheets, deadline reminders, and custom student notes.</p>
+                  }
+                  }
+                  <p style="margin-top: 16px; font-style: italic; color: #94a3b8; font-size: 0.8rem;">Click on the
+                    different sidebar items or toggle collapse on the bottom-right corner of the sidebar header!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-box">
+            <pre><code>&lt;app-sidebar
+  schoolName="Oakhaven Academy"
+  schoolRole="Teacher Portal"
+  [navGroups]="navGroups"
+  [activeItemId]="activeItemId"
+  [bottomItems]="bottomItems"
+  (itemClick)="onItemClick($event)"
+&gt;&lt;/app-sidebar&gt;
+
+// SidebarNavGroup[]
+[
+  &#123;
+    label: 'Academic',
+    items: [
+      &#123; id: 'dashboard', label: 'Dashboard', icon: 'fa-solid fa-gauge' &#125;,
+      &#123; id: 'gradebook', label: 'Gradebook', icon: 'fa-solid fa-book', badge: 4 &#125;
+    ]
+  &#123;
+]</code></pre>
+          </div>
+        </div>
+      </section>
+
 
     </main>
   </div>

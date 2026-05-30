@@ -23,6 +23,7 @@ import { Alert } from './shared/components/alert/alert';
 import { Progress } from './shared/components/progress/progress';
 import { Grid } from './shared/components/layout/grid';
 import { Topbar, NavItem } from './shared/components/topbar/topbar';
+import { Sidebar, SidebarNavGroup, SidebarNavItem, SidebarBottomItem } from './shared/components/sidebar/sidebar';
 
 export interface ToastItem {
   id: string;
@@ -48,7 +49,7 @@ export interface StudentRecord {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Button, Badge, Spinner, Tabs, Pagination, Input, Select, Checkbox, Radio, Range, Accordion, Carousel, Skeleton, Modal, Offcanvas, Popover, Toast, Table, FileUpload, Alert, Progress, Grid, Topbar, TitleCasePipe],
+  imports: [Button, Badge, Spinner, Tabs, Pagination, Input, Select, Checkbox, Radio, Range, Accordion, Carousel, Skeleton, Modal, Offcanvas, Popover, Toast, Table, FileUpload, Alert, Progress, Grid, Topbar, TitleCasePipe, Sidebar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -63,6 +64,74 @@ export class App {
   ]);
   protected readonly showcaseNavActive = signal('components');
   protected onShowcaseNavChange(id: string): void { this.showcaseNavActive.set(id); }
+
+  // ── Showcase page sidebar nav ───────────────────────────────────────────────────
+  protected readonly showcaseSidebarGroups = signal<SidebarNavGroup[]>([
+    {
+      label: 'Foundation',
+      items: [
+        { id: 'colors',      label: 'Colors',      icon: 'fa-solid fa-palette',    href: '#colors' },
+        { id: 'typography',  label: 'Typography',  icon: 'fa-solid fa-font',        href: '#typography' },
+      ],
+    },
+    {
+      label: 'Components',
+      items: [
+        { id: 'buttons',          label: 'Buttons',           icon: 'fa-solid fa-square',               href: '#buttons' },
+        { id: 'badges',           label: 'Badges & Labels',   icon: 'fa-solid fa-tags',                 href: '#badges' },
+        { id: 'spinners',         label: 'Spinners',          icon: 'fa-solid fa-arrows-spin',          href: '#spinners' },
+        { id: 'navs',             label: 'Navs & Tabs',       icon: 'fa-solid fa-compass',              href: '#navs' },
+        { id: 'pagination',       label: 'Pagination',        icon: 'fa-solid fa-list-ol',              href: '#pagination' },
+        { id: 'forms',            label: 'Form Inputs',       icon: 'fa-solid fa-square-poll-horizontal', href: '#forms' },
+        { id: 'accordion',        label: 'Accordion',         icon: 'fa-solid fa-layer-group',          href: '#accordion' },
+        { id: 'carousel',         label: 'Carousel',          icon: 'fa-solid fa-film',                 href: '#carousel' },
+        { id: 'skeleton',         label: 'Skeleton',          icon: 'fa-solid fa-ghost',                href: '#skeleton' },
+        { id: 'modal-offcanvas',  label: 'Modal & Offcanvas', icon: 'fa-solid fa-window-restore',       href: '#modal-offcanvas' },
+        { id: 'table-directory',  label: 'Student Directory', icon: 'fa-solid fa-table',                href: '#table-directory' },
+        { id: 'file-uploaders',   label: 'File Uploaders',    icon: 'fa-solid fa-file-arrow-up',        href: '#file-uploaders' },
+        { id: 'feedback-status',  label: 'Feedback & Status', icon: 'fa-solid fa-circle-info',          href: '#feedback-status' },
+        { id: 'layout-containers',label: 'Layout & Containers',icon: 'fa-solid fa-grip',               href: '#layout-containers' },
+        { id: 'popover-toast',    label: 'Popovers & Toasts', icon: 'fa-solid fa-message',              href: '#popover-toast' },
+        { id: 'topbar',           label: 'Top Bar',           icon: 'fa-solid fa-bars',                 href: '#topbar' },
+        { id: 'sidebar',          label: 'Sidebar',           icon: 'fa-solid fa-sidebar',              href: '#sidebar' },
+      ],
+    },
+  ]);
+  protected readonly showcaseSidebarActive = signal('buttons');
+  protected onShowcaseSidebarClick(item: SidebarNavItem): void { this.showcaseSidebarActive.set(item.id); }
+
+  protected readonly showcaseSidebarBottom = signal<SidebarBottomItem[]>([
+    { id: 'github', label: 'GitHub v1.0.0', icon: 'fa-brands fa-github' },
+  ]);
+
+  // ── Demo sidebar (for the showcase section) ───────────────────────────────────
+  protected readonly demoSidebarGroups = signal<SidebarNavGroup[]>([
+    {
+      items: [
+        { id: 'dashboard',  label: 'Dashboard',  icon: 'fa-solid fa-gauge' },
+        { id: 'classes',    label: 'My Classes',  icon: 'fa-solid fa-users-rectangle' },
+        { id: 'attendance', label: 'Attendance',  icon: 'fa-solid fa-circle-check' },
+        { id: 'gradebook',  label: 'Gradebook',   icon: 'fa-solid fa-book-open', badge: 4 },
+        { id: 'homework',   label: 'Homework',    icon: 'fa-solid fa-clipboard-list' },
+      ],
+    },
+  ]);
+  protected readonly demoSidebarActive = signal('dashboard');
+  protected readonly demoSidebarBottom = signal<SidebarBottomItem[]>([
+    { id: 'settings', label: 'Settings',  icon: 'fa-solid fa-gear' },
+    { id: 'signout',  label: 'Sign Out',  icon: 'fa-solid fa-arrow-right-from-bracket' },
+  ]);
+  protected onDemoSidebarClick(item: SidebarNavItem): void { this.demoSidebarActive.set(item.id); }
+
+  protected onDemoSidebarBottomClick(item: SidebarBottomItem): void {
+    this.triggerToast(`Clicked ${item.label} bottom menu item!`, 'info');
+  }
+
+  protected onShowcaseSidebarBottomClick(item: SidebarBottomItem): void {
+    if (item.id === 'github') {
+      window.open('https://github.com', '_blank');
+    }
+  }
 
   // ── Button playground ──────────────────────────────────────────────────────
   protected readonly isLoading  = signal(false);
