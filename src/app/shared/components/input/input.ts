@@ -14,7 +14,7 @@ export class Input {
   // Sizing & styling inputs
   readonly label = input<string | undefined>(undefined);
   readonly placeholder = input<string>('');
-  readonly type = input<'text' | 'email' | 'password' | 'number'>('text');
+  readonly type = input<'text' | 'email' | 'password' | 'number' | 'date' | 'tel'>('text');
   readonly prefix = input<string | undefined>(undefined);
   readonly suffix = input<string | undefined>(undefined);
   readonly state = input<'normal' | 'error' | 'success'>('normal');
@@ -29,5 +29,10 @@ export class Input {
   protected onInput(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.value.set(target.value);
+  }
+
+  // Returns true if the string is a FontAwesome class (e.g. 'fa-solid fa-user')
+  protected isIconClass(value: string): boolean {
+    return value.includes('fa-');
   }
 }

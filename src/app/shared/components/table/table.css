@@ -1,0 +1,233 @@
+:host {
+  display: block;
+  width: 100%;
+  --table-border: #cbd5e1;
+  --table-header-bg: #eaeaea;
+  --table-header-text: #1e293b;
+  --table-row-hover: #f1f5f9;
+  --table-text-main: #1e293b;
+  --table-text-sub: #64748b;
+  --font-family: var(--font-family);
+  --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.table-outer-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border: 1.5px solid var(--table-border);
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.app-table-element {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-family);
+}
+
+/* --- HEADERS --- */
+.app-table-element th {
+  background-color: var(--table-header-bg);
+  color: var(--table-header-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 18px 20px;
+  border-bottom: 1.5px solid var(--table-border);
+  user-select: none;
+}
+
+.app-table-element th.is-sortable {
+  cursor: pointer;
+}
+
+.app-table-element th.is-sortable:hover {
+  background-color: #dfdfdf;
+}
+
+.header-cell-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-cell-content i {
+  font-size: 0.85rem;
+  transition: color 0.15s var(--transition-bezier);
+}
+
+/* --- CELLS --- */
+.app-table-element td {
+  padding: 16px 20px;
+  border-bottom: 1.5px solid var(--table-border);
+  color: var(--table-text-main);
+  font-size: 0.95rem;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.table-data-row {
+  transition: background-color 0.15s var(--transition-bezier);
+}
+
+.table-data-row:hover {
+  background-color: var(--table-row-hover);
+}
+
+.table-data-row:last-child td {
+  border-bottom: none;
+}
+
+/* --- ALIGNMENTS --- */
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+
+.align-center .header-cell-content { justify-content: center; }
+.align-right .header-cell-content { justify-content: flex-end; }
+
+/* --- CUSTOM CELL RENDERERS --- */
+
+/* 1. Admission ID text */
+.admission-text-accent {
+  font-weight: 800;
+  color: #003d29; /* High-contrast dark forest green */
+}
+
+/* 2. Avatar Cell */
+.avatar-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #1e293b;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.student-name {
+  font-weight: 700;
+  color: var(--table-text-main);
+}
+
+/* 3. Gender Pill (Capsule Badge matching screenshot exactly) */
+.gender-pill-badge {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+  border: 1px solid #bee3f8;
+}
+
+.gender-female {
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+  border-color: #bee3f8;
+}
+
+.gender-male {
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+  border-color: #bee3f8;
+}
+
+/* 4. Status Badges matching screenshot exactly */
+.status-pill-badge {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border: 1.5px solid transparent;
+}
+
+.status-active {
+  background-color: #e6f7ed;
+  color: #046c4e;
+  border-color: #a3e635; /* soft bright green border */
+  border-width: 1px;
+}
+
+.status-pending {
+  background-color: #fef3c7;
+  color: #b45309;
+  border-color: #fde047;
+  border-width: 1px;
+}
+
+.status-on-leave {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+  border-width: 1px;
+}
+
+.status-inactive {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+  border-width: 1px;
+}
+
+/* 5. Action ellipsis */
+.table-action-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.15s var(--transition-bezier);
+}
+
+.table-action-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #0f172a;
+}
+
+/* --- EMPTY SCREEN STATE --- */
+.empty-table-row {
+  text-align: center;
+  padding: 48px 24px !important;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  color: #cbd5e1;
+  margin-bottom: 12px;
+}
+
+.empty-heading {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--table-text-main);
+}
+
+.empty-sub {
+  margin: 4px 0 0 0;
+  font-size: 0.85rem;
+  color: var(--table-text-sub);
+}

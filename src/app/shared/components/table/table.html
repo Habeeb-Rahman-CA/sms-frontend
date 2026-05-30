@@ -1,0 +1,90 @@
+<div class="table-outer-wrapper">
+  <table class="app-table-element">
+    <!-- Header -->
+    <thead>
+      <tr>
+        @for (col of columns(); track col.key) {
+          <th
+            [style.width]="col.width || 'auto'"
+            [class]="'align-' + (col.align || 'left') + (col.sortable ? ' is-sortable' : '')"
+            (click)="onHeaderClick(col)"
+          >
+            <div class="header-cell-content">
+              <span>{{ col.label }}</span>
+              @if (col.sortable) {
+                <i [class]="getSortIcon(col.key)" aria-hidden="true"></i>
+              }
+            </div>
+          </th>
+        }
+      </tr>
+    </thead>
+
+    <!-- Body -->
+    <tbody>
+      @for (row of sortedData(); track row.id || $index) {
+        <tr class="table-data-row">
+          @for (col of columns(); track col.key) {
+            <td [class]="'align-' + (col.align || 'left')">
+              
+              <!-- Custom renderer: Admission No -->
+              @if (col.key === 'admissionNo') {
+                <span class="admission-text-accent">{{ row.admissionNo }}</span>
+              }
+
+              <!-- Custom renderer: Avatar / Name column -->
+              @else if (col.key === 'name') {
+                <div class="avatar-cell">
+                  <div class="avatar-circle" [style.background-color]="row.avatarBg || '#e2e8f0'">
+                    {{ row.initials || 'ST' }}
+                  </div>
+                  <div class="avatar-text">
+                    <span class="student-name">{{ row.name }}</span>
+                  </div>
+                </div>
+              }
+              
+              <!-- Custom renderer: Gender Badge (Capsule styling) -->
+              @else if (col.key === 'gender') {
+                <span class="gender-pill-badge" [class]="'gender-' + row.gender.toLowerCase()">
+                  {{ row.gender }}
+                </span>
+              }
+
+              <!-- Custom renderer: Status Badge -->
+              @else if (col.key === 'status') {
+                <span class="status-pill-badge" [class]="'status-' + row.status.replace(' ', '-').toLowerCase()">
+                  {{ row.status }}
+                </span>
+              }
+
+              <!-- Custom renderer: Actions vertical three dots -->
+              @else if (col.key === 'actions') {
+                <button type="button" class="table-action-trigger" aria-label="More actions">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+              }
+
+              <!-- Default Fallback Cell -->
+              @else {
+                <span class="default-cell-text">{{ row[col.key] }}</span>
+              }
+
+            </td>
+          }
+        </tr>
+      } @empty {
+        <tr>
+          <td [attr.colspan]="columns().length" class="empty-table-row">
+            <i class="fa-solid fa-folder-open empty-icon" aria-hidden="true"></i>
+            <p class="empty-heading">No records found</p>
+            <p class="empty-sub">Try refining your search filters or add a new record profile.</p>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <!-- Project Table Footer into the Component dynamically -->
+  <ng-content select="[table-footer]"></ng-content>
+</div>

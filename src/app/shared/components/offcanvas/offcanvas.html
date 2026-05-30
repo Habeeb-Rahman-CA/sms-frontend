@@ -1,0 +1,45 @@
+<!-- Full-height panel — always in DOM, CSS transitions show/hide -->
+<div
+  class="offcanvas-backdrop"
+  [class.visible]="isOpen()"
+  (click)="onBackdropClick($event)"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-hidden]="!isOpen()"
+>
+  <div class="offcanvas-panel" [class]="'position-' + position()">
+
+    <!-- ── Header ────────────────────────────────────────────────── -->
+    <div class="offcanvas-header">
+      <div class="offcanvas-header-text">
+        <h2 class="offcanvas-title">{{ title() }}</h2>
+        @if (subtitle()) {
+          <p class="offcanvas-subtitle">{{ subtitle() }}</p>
+        }
+      </div>
+      <button
+        type="button"
+        class="offcanvas-close-btn"
+        (click)="close()"
+        aria-label="Close panel"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="offcanvas-divider"></div>
+
+    <!-- ── Body — projected content (scrollable) ─────────────────── -->
+    <div class="offcanvas-body">
+      <ng-content></ng-content>
+    </div>
+
+    <div class="offcanvas-divider"></div>
+
+    <!-- ── Footer — named slot ───────────────────────────────────── -->
+    <div class="offcanvas-footer">
+      <ng-content select="[offcanvas-footer]"></ng-content>
+    </div>
+
+  </div>
+</div>

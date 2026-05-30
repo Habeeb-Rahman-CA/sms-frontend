@@ -4,11 +4,18 @@
     <label class="input-label" [class]="'label-' + state()">{{ label() }}</label>
   }
 
-  <!-- Input Wrapper containingaddons -->
+  <!-- Input Wrapper containing addons -->
   <div [class]="wrapperClasses()">
-    <!-- Prefix Addon (e.g. '$') -->
+
+    <!-- Prefix Addon: FA icon class (contains 'fa-') or plain text (e.g. '$') -->
     @if (prefix()) {
-      <span class="input-addon addon-prefix">{{ prefix() }}</span>
+      <span class="input-addon addon-prefix">
+        @if (isIconClass(prefix()!)) {
+          <i [class]="prefix()" aria-hidden="true"></i>
+        } @else {
+          {{ prefix() }}
+        }
+      </span>
     }
 
     <!-- Native Input Element -->
@@ -20,9 +27,15 @@
       class="native-input"
     />
 
-    <!-- Suffix Addon (e.g. 'USD') -->
+    <!-- Suffix Addon: FA icon class or plain text (e.g. 'USD') -->
     @if (suffix()) {
-      <span class="input-addon addon-suffix">{{ suffix() }}</span>
+      <span class="input-addon addon-suffix">
+        @if (isIconClass(suffix()!)) {
+          <i [class]="suffix()" aria-hidden="true"></i>
+        } @else {
+          {{ suffix() }}
+        }
+      </span>
     }
   </div>
 

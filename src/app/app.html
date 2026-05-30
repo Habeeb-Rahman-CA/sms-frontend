@@ -32,10 +32,17 @@
           <li><a href="#spinners" class="sidebar-item"><i class="fa-solid fa-arrows-spin"></i> Spinners</a></li>
           <li><a href="#navs" class="sidebar-item"><i class="fa-solid fa-compass"></i> Navs & Tabs</a></li>
           <li><a href="#pagination" class="sidebar-item"><i class="fa-solid fa-list-ol"></i> Pagination</a></li>
-          <li><a href="#forms" class="sidebar-item"><i class="fa-solid fa-square-poll-horizontal"></i> Form Inputs</a></li>
+          <li><a href="#forms" class="sidebar-item"><i class="fa-solid fa-square-poll-horizontal"></i> Form Inputs</a>
+          </li>
           <li><a href="#accordion" class="sidebar-item"><i class="fa-solid fa-layer-group"></i> Accordion</a></li>
           <li><a href="#carousel" class="sidebar-item"><i class="fa-solid fa-film"></i> Carousel</a></li>
           <li><a href="#skeleton" class="sidebar-item"><i class="fa-solid fa-ghost"></i> Skeleton</a></li>
+          <li><a href="#modal-offcanvas" class="sidebar-item"><i class="fa-solid fa-window-restore"></i> Modal &amp;
+              Offcanvas</a></li>
+          <li><a href="#popover-toast" class="sidebar-item"><i class="fa-solid fa-message"></i> Popovers &amp;
+              Toasts</a></li>
+          <li><a href="#table-directory" class="sidebar-item"><i class="fa-solid fa-table"></i> Student Directory</a>
+          </li>
         </ul>
       </div>
     </aside>
@@ -46,7 +53,8 @@
         <span class="category-tag">UI Component Library</span>
         <h1>5. Buttons</h1>
         <p class="section-desc">
-          A highly reusable, interactive button component built for the School Management System (SMS). Supports variants, sizes, icon placement, state tracking, and satisfying micro-interactions.
+          A highly reusable, interactive button component built for the School Management System (SMS). Supports
+          variants, sizes, icon placement, state tracking, and satisfying micro-interactions.
         </p>
       </section>
 
@@ -57,18 +65,12 @@
           <span class="control-desc">Test real-time component behavior</span>
         </div>
         <div class="control-buttons">
-          <button 
-            [class]="'control-toggle ' + (isLoading() ? 'active' : '')" 
-            (click)="toggleLoading()"
-          >
+          <button [class]="'control-toggle ' + (isLoading() ? 'active' : '')" (click)="toggleLoading()">
             <i class="fa-solid fa-spinner" [class.fa-spin]="isLoading()"></i>
             Toggle Loading State
           </button>
-          
-          <button 
-            [class]="'control-toggle ' + (isDisabled() ? 'active' : '')" 
-            (click)="toggleDisabled()"
-          >
+
+          <button [class]="'control-toggle ' + (isDisabled() ? 'active' : '')" (click)="toggleDisabled()">
             <i class="fa-solid fa-ban"></i>
             Toggle Disabled State
           </button>
@@ -81,39 +83,27 @@
           <h2>Button Variants</h2>
           <p>The primary architectural shapes defined by the brand styling guidelines.</p>
         </div>
-        
+
         <div class="component-card">
           <div class="preview-box">
             <div class="button-row">
-              <app-button 
-                variant="primary" 
-                [loading]="isLoading()" 
-                [disabled]="isDisabled()"
-                (click)="onButtonClick('Primary Action')"
-              >
+              <app-button variant="primary" [loading]="isLoading()" [disabled]="isDisabled()"
+                (click)="onButtonClick('Primary Action')">
                 Primary Action
               </app-button>
 
-              <app-button 
-                variant="outline" 
-                [loading]="isLoading()" 
-                [disabled]="isDisabled()"
-                (click)="onButtonClick('Outline Action')"
-              >
+              <app-button variant="outline" [loading]="isLoading()" [disabled]="isDisabled()"
+                (click)="onButtonClick('Outline Action')">
                 Outline Action
               </app-button>
 
-              <app-button 
-                variant="ghost" 
-                [loading]="isLoading()" 
-                [disabled]="isDisabled()"
-                (click)="onButtonClick('Ghost Action')"
-              >
+              <app-button variant="ghost" [loading]="isLoading()" [disabled]="isDisabled()"
+                (click)="onButtonClick('Ghost Action')">
                 Ghost Action
               </app-button>
             </div>
           </div>
-          
+
           <div class="code-box">
             <pre><code>&lt;app-button variant="primary"&gt;Primary Action&lt;/app-button&gt;
 &lt;app-button variant="outline"&gt;Outline Action&lt;/app-button&gt;
@@ -154,7 +144,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="code-box">
             <pre><code>&lt;app-button size="sm"&gt;Small Action&lt;/app-button&gt;
 &lt;app-button size="md"&gt;Medium Action&lt;/app-button&gt;
@@ -173,35 +163,23 @@
         <div class="component-card">
           <div class="preview-box">
             <div class="button-row">
-              <app-button 
-                variant="primary" 
-                iconLeft="fa-solid fa-plus" 
-                [loading]="isLoading()" 
-                [disabled]="isDisabled()"
-              >
+              <app-button variant="primary" iconLeft="fa-solid fa-plus" [loading]="isLoading()"
+                [disabled]="isDisabled()">
                 Add Student
               </app-button>
 
-              <app-button 
-                variant="outline" 
-                iconRight="fa-solid fa-arrow-right" 
-                [loading]="isLoading()" 
-                [disabled]="isDisabled()"
-              >
+              <app-button variant="outline" iconRight="fa-solid fa-arrow-right" [loading]="isLoading()"
+                [disabled]="isDisabled()">
                 Next Step
               </app-button>
 
-              <app-button 
-                variant="ghost" 
-                iconLeft="fa-solid fa-trash" 
-                [loading]="isLoading()" 
-                [disabled]="isDisabled()"
-              >
+              <app-button variant="ghost" iconLeft="fa-solid fa-trash" [loading]="isLoading()"
+                [disabled]="isDisabled()">
                 Delete Record
               </app-button>
             </div>
           </div>
-          
+
           <div class="code-box">
             <pre><code>&lt;app-button iconLeft="fa-solid fa-plus"&gt;Add Student&lt;/app-button&gt;
 &lt;app-button iconRight="fa-solid fa-arrow-right"&gt;Next Step&lt;/app-button&gt;
@@ -224,7 +202,8 @@
               <app-badge variant="standard" size="sm">Active Session</app-badge>
               <h4>Class of 2026 Registry</h4>
             </div>
-            <p>Export student registrations, fee receipts, and complete course enrollments for the academic semester.</p>
+            <p>Export student registrations, fee receipts, and complete course enrollments for the academic semester.
+            </p>
             <div class="mock-card-footer">
               <app-button variant="ghost" iconLeft="fa-solid fa-file-pdf">View PDF</app-button>
               <app-button variant="primary" iconLeft="fa-solid fa-download">Download</app-button>
@@ -237,7 +216,8 @@
               <app-badge variant="urgent" size="sm">System Status</app-badge>
               <h4>Database Backup</h4>
             </div>
-            <p>Initialize a secure, remote cloud backup of all academic, tenant, and financial ledger data repositories.</p>
+            <p>Initialize a secure, remote cloud backup of all academic, tenant, and financial ledger data repositories.
+            </p>
             <div class="mock-card-footer">
               <app-button variant="outline" iconLeft="fa-solid fa-arrows-rotate">Sync Cache</app-button>
               <app-button variant="primary" iconLeft="fa-solid fa-cloud-arrow-up">Backup Now</app-button>
@@ -261,7 +241,7 @@
               <app-badge variant="urgent">Urgent</app-badge>
             </div>
           </div>
-          
+
           <div class="code-box">
             <pre><code>&lt;app-badge variant="new"&gt;NEW&lt;/app-badge&gt;
 &lt;app-badge variant="standard"&gt;Standard&lt;/app-badge&gt;
@@ -274,7 +254,8 @@
       <section id="spinners" class="showcase-section">
         <div class="section-header">
           <h2>22. Spinners</h2>
-          <p>Clean loading spinners configured in dynamic sizing hierarchies for background processes and visual feedback.</p>
+          <p>Clean loading spinners configured in dynamic sizing hierarchies for background processes and visual
+            feedback.</p>
         </div>
 
         <div class="component-card">
@@ -296,7 +277,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="code-box">
             <pre><code>&lt;app-spinner size="lg"&gt;&lt;/app-spinner&gt;
 &lt;app-spinner size="md"&gt;&lt;/app-spinner&gt;
@@ -315,46 +296,44 @@
         <div class="component-card">
           <div class="preview-box tab-preview-box">
             <div class="tab-showcase-container">
-              <app-tabs 
-                [tabs]="tabsData()" 
-                [activeId]="activeTabId()" 
-                (tabChange)="onTabChange($event)"
-              >
+              <app-tabs [tabs]="tabsData()" [activeId]="activeTabId()" (tabChange)="onTabChange($event)">
               </app-tabs>
-              
+
               <!-- Dynamic Content matching active tab -->
               <div class="tab-pane-content">
                 @if (activeTabId() === 'records') {
-                  <div class="tab-pane-info">
-                    <i class="fa-solid fa-address-book text-green"></i>
-                    <div>
-                      <h4>Student Registry Panel</h4>
-                      <p>View complete academic profiles, GPA analytics, and disciplinary records for enrolled students.</p>
-                    </div>
+                <div class="tab-pane-info">
+                  <i class="fa-solid fa-address-book text-green"></i>
+                  <div>
+                    <h4>Student Registry Panel</h4>
+                    <p>View complete academic profiles, GPA analytics, and disciplinary records for enrolled students.
+                    </p>
                   </div>
+                </div>
                 }
                 @if (activeTabId() === 'attendance') {
-                  <div class="tab-pane-info">
-                    <i class="fa-solid fa-calendar-check text-green"></i>
-                    <div>
-                      <h4>Daily Attendance Records</h4>
-                      <p>Track student class participation logs, check-in timestamps, and absent justification notes.</p>
-                    </div>
+                <div class="tab-pane-info">
+                  <i class="fa-solid fa-calendar-check text-green"></i>
+                  <div>
+                    <h4>Daily Attendance Records</h4>
+                    <p>Track student class participation logs, check-in timestamps, and absent justification notes.</p>
                   </div>
+                </div>
                 }
                 @if (activeTabId() === 'discipline') {
-                  <div class="tab-pane-info">
-                    <i class="fa-solid fa-shield-halved text-green"></i>
-                    <div>
-                      <h4>Disciplinary Action Reports</h4>
-                      <p>Monitor student behavior ledgers, formal teacher write-ups, and active campus suspension logs.</p>
-                    </div>
+                <div class="tab-pane-info">
+                  <i class="fa-solid fa-shield-halved text-green"></i>
+                  <div>
+                    <h4>Disciplinary Action Reports</h4>
+                    <p>Monitor student behavior ledgers, formal teacher write-ups, and active campus suspension logs.
+                    </p>
                   </div>
+                </div>
                 }
               </div>
             </div>
           </div>
-          
+
           <div class="code-box">
             <pre><code>&lt;app-tabs [tabs]="tabsData" [activeId]="activeTabId" (tabChange)="onTabChange($event)"&gt;&lt;/app-tabs&gt;</code></pre>
           </div>
@@ -371,19 +350,17 @@
         <div class="component-card">
           <div class="preview-box">
             <div class="tab-showcase-container text-center">
-              <app-pagination 
-                [currentPage]="currentPage()" 
-                [totalPages]="totalPages()" 
-                (pageChange)="onPageChange($event)"
-              >
+              <app-pagination [currentPage]="currentPage()" [totalPages]="totalPages()"
+                (pageChange)="onPageChange($event)">
               </app-pagination>
-              
+
               <div class="pagination-info-text">
-                Current Active Page: <span class="active-page-badge">{{ currentPage() }}</span> of <span class="active-page-badge">12</span>
+                Current Active Page: <span class="active-page-badge">{{ currentPage() }}</span> of <span
+                  class="active-page-badge">12</span>
               </div>
             </div>
           </div>
-          
+
           <div class="code-box">
             <pre><code>&lt;app-pagination [currentPage]="currentPage" [totalPages]="12" (pageChange)="onPageChange($event)"&gt;&lt;/app-pagination&gt;</code></pre>
           </div>
@@ -394,7 +371,8 @@
       <section id="forms" class="showcase-section">
         <div class="section-header">
           <h2>Forms & Inputs</h2>
-          <p>A comprehensive set of interactive form controls — text fields, selects, currency inputs, checkboxes, radios, range sliders, and validation states.</p>
+          <p>A comprehensive set of interactive form controls — text fields, selects, currency inputs, checkboxes,
+            radios, range sliders, and validation states.</p>
         </div>
 
         <!-- Demo card matching the spec screenshot -->
@@ -405,34 +383,20 @@
             <div class="forms-row">
               <!-- 29. Student Search text input -->
               <div class="form-col">
-                <app-input
-                  placeholder="29. Student Search"
-                  [value]="searchValue()"
-                  (valueChange)="searchValue.set($event)"
-                ></app-input>
+                <app-input placeholder="29. Student Search" [value]="searchValue()"
+                  (valueChange)="searchValue.set($event)"></app-input>
               </div>
 
               <!-- 25. Enrollment Status select -->
               <div class="form-col">
-                <app-select
-                  label="25. Enrollment Status"
-                  [options]="enrollmentOptions()"
-                  [value]="enrollmentStatus()"
-                  (valueChange)="enrollmentStatus.set($event)"
-                ></app-select>
+                <app-select label="25. Enrollment Status" [options]="enrollmentOptions()" [value]="enrollmentStatus()"
+                  (valueChange)="enrollmentStatus.set($event)"></app-select>
               </div>
 
               <!-- 28. Lab Fees currency input -->
               <div class="form-col">
-                <app-input
-                  label="28. Lab Fees"
-                  type="number"
-                  placeholder="0.00"
-                  prefix="$"
-                  suffix="USD"
-                  [value]="labFees()"
-                  (valueChange)="labFees.set($event)"
-                ></app-input>
+                <app-input label="28. Lab Fees" type="number" placeholder="0.00" prefix="$" suffix="USD"
+                  [value]="labFees()" (valueChange)="labFees.set($event)"></app-input>
               </div>
             </div>
 
@@ -442,39 +406,21 @@
               <div class="form-col">
                 <p class="forms-group-label">26. Checkboxes &amp; Radios</p>
                 <div class="forms-inline-group">
-                  <app-checkbox
-                    label="Opt-in Email"
-                    [checked]="optInEmail()"
-                    (checkedChange)="optInEmail.set($event)"
-                  ></app-checkbox>
+                  <app-checkbox label="Opt-in Email" [checked]="optInEmail()"
+                    (checkedChange)="optInEmail.set($event)"></app-checkbox>
 
-                  <app-radio
-                    label="Term A"
-                    value="termA"
-                    [modelValue]="selectedTerm()"
-                    (modelValueChange)="selectedTerm.set($event)"
-                  ></app-radio>
+                  <app-radio label="Term A" value="termA" [modelValue]="selectedTerm()"
+                    (modelValueChange)="selectedTerm.set($event)"></app-radio>
 
-                  <app-radio
-                    label="Term B"
-                    value="termB"
-                    [modelValue]="selectedTerm()"
-                    (modelValueChange)="selectedTerm.set($event)"
-                  ></app-radio>
+                  <app-radio label="Term B" value="termB" [modelValue]="selectedTerm()"
+                    (modelValueChange)="selectedTerm.set($event)"></app-radio>
                 </div>
               </div>
 
               <!-- 27. Grade Curve Sensitivity range -->
               <div class="form-col">
-                <app-range
-                  label="27. Grade Curve Sensitivity"
-                  suffix="%"
-                  [min]="0"
-                  [max]="100"
-                  [step]="1"
-                  [value]="gradeCurve()"
-                  (valueChange)="gradeCurve.set($event)"
-                ></app-range>
+                <app-range label="27. Grade Curve Sensitivity" suffix="%" [min]="0" [max]="100" [step]="1"
+                  [value]="gradeCurve()" (valueChange)="gradeCurve.set($event)"></app-range>
               </div>
             </div>
 
@@ -482,24 +428,14 @@
             <div class="forms-row">
               <!-- 31. Error State -->
               <div class="form-col">
-                <app-input
-                  label="31. Error State"
-                  state="error"
-                  message="Student ID not found in database."
-                  [value]="errorValue()"
-                  (valueChange)="errorValue.set($event)"
-                ></app-input>
+                <app-input label="31. Error State" state="error" message="Student ID not found in database."
+                  [value]="errorValue()" (valueChange)="errorValue.set($event)"></app-input>
               </div>
 
               <!-- 31. Success State -->
               <div class="form-col">
-                <app-input
-                  label="31. Success State"
-                  state="success"
-                  message="Transcript verified and locked."
-                  [value]="successValue()"
-                  (valueChange)="successValue.set($event)"
-                ></app-input>
+                <app-input label="31. Success State" state="success" message="Transcript verified and locked."
+                  [value]="successValue()" (valueChange)="successValue.set($event)"></app-input>
               </div>
             </div>
 
@@ -522,7 +458,8 @@
       <section id="accordion" class="showcase-section">
         <div class="section-header">
           <h2>1. Accordion</h2>
-          <p>Vertically stacked, bordered disclosure panels. One panel open at a time with a smooth CSS max-height transition.</p>
+          <p>Vertically stacked, bordered disclosure panels. One panel open at a time with a smooth CSS max-height
+            transition.</p>
         </div>
 
         <div class="component-card">
@@ -544,7 +481,8 @@
       <section id="carousel" class="showcase-section">
         <div class="section-header">
           <h2>8. Carousel</h2>
-          <p>Touch-friendly slide viewer with gradient overlay captions, blurred-glass arrows, and stretching dot indicators.</p>
+          <p>Touch-friendly slide viewer with gradient overlay captions, blurred-glass arrows, and stretching dot
+            indicators.</p>
         </div>
 
         <div class="component-card">
@@ -566,7 +504,8 @@
       <section id="skeleton" class="showcase-section">
         <div class="section-header">
           <h2>18. Skeleton Placeholders</h2>
-          <p>Shimmer-animated placeholder shapes — used during data-loading states to preserve layout and reduce perceived latency.</p>
+          <p>Shimmer-animated placeholder shapes — used during data-loading states to preserve layout and reduce
+            perceived latency.</p>
         </div>
 
         <div class="component-card">
@@ -596,7 +535,304 @@
           </div>
         </div>
       </section>
+
+      <!-- Modal & Offcanvas Section -->
+      <section id="modal-offcanvas" class="showcase-section">
+        <div class="section-header">
+          <h2>13. Modal &amp; 16. Offcanvas</h2>
+          <p>Overlay dialog and slide-in panel components — both with backdrop blur, CSS-transition animations, and
+            flexible ng-content slots.</p>
+        </div>
+
+        <div class="component-card">
+          <div class="preview-box modal-triggers-box">
+            <div class="modal-trigger-row">
+              <app-button iconLeft="fa-solid fa-window-restore" (click)="showModal.set(true)">Trigger
+                Modal</app-button>
+              <app-button variant="outline" iconLeft="fa-solid fa-window-maximize"
+                (click)="showOffcanvas.set(true)">Open Offcanvas</app-button>
+            </div>
+          </div>
+          <div class="code-box">
+            <pre><code>&lt;app-modal [isOpen]="show" title="Add New Student" (closed)="show.set(false)"&gt;
+  ... form body ...
+  &lt;div modal-footer&gt;
+    &lt;app-button variant="outline"&gt;Cancel&lt;/app-button&gt;
+    &lt;app-button&gt;Register Student&lt;/app-button&gt;
+  &lt;/div&gt;
+&lt;/app-modal&gt;
+
+&lt;app-offcanvas [isOpen]="show" title="Refine Search" (closed)="show.set(false)"&gt;
+  ... filter body ...
+  &lt;div offcanvas-footer&gt;...&lt;/div&gt;
+&lt;/app-offcanvas&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── MODAL INSTANCE (always in DOM, CSS-driven) ── -->
+      <app-modal [isOpen]="showModal()" title="Add New Student" subtitle="Initialize a new student enrollment profile."
+        size="md" (closed)="showModal.set(false)">
+        <!-- Body: Add New Student form -->
+        <div class="modal-form-body">
+
+          <!-- School Selection -->
+          <div class="mf-row">
+            <div class="mf-col mf-full">
+              <app-select label="School Selection" placeholder="Select School Campus" [options]="modalSchoolOptions()"
+                [value]="modalSchool()" (valueChange)="modalSchool.set($event)"></app-select>
+            </div>
+          </div>
+
+          <!-- Parent ID / Admission No -->
+          <div class="mf-row">
+            <div class="mf-col">
+              <app-input label="Parent ID / Name" placeholder="Search Parent Database..."
+                prefix="fa-solid fa-user-group" [value]="modalParentId()"
+                (valueChange)="modalParentId.set($event)"></app-input>
+            </div>
+            <div class="mf-col">
+              <app-input label="Admission No" placeholder="ADM-0000" [value]="modalAdmission()"
+                (valueChange)="modalAdmission.set($event)"></app-input>
+            </div>
+          </div>
+
+          <!-- First / Last Name -->
+          <div class="mf-row">
+            <div class="mf-col">
+              <app-input label="First Name" placeholder="Legal first name" [value]="modalFirstName()"
+                (valueChange)="modalFirstName.set($event)"></app-input>
+            </div>
+            <div class="mf-col">
+              <app-input label="Last Name" placeholder="Legal last name" [value]="modalLastName()"
+                (valueChange)="modalLastName.set($event)"></app-input>
+            </div>
+          </div>
+
+          <!-- DOB / Gender -->
+          <div class="mf-row">
+            <div class="mf-col">
+              <app-input label="Date of Birth" type="date" [value]="modalDob()"
+                (valueChange)="modalDob.set($event)"></app-input>
+            </div>
+            <div class="mf-col">
+              <p class="mf-label">Gender Identity</p>
+              <div class="gender-toggle-group">
+                @for (g of ['Male', 'Female', 'Other']; track g) {
+                <button type="button" class="gender-btn" [class.active]="modalGender() === g"
+                  (click)="modalGender.set(g)">{{ g }}</button>
+                }
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer slot -->
+        <div modal-footer>
+          <app-button variant="outline" (click)="showModal.set(false)">Cancel and Discard</app-button>
+          <app-button variant="primary">Register Student</app-button>
+        </div>
+      </app-modal>
+
+      <!-- ── OFFCANVAS INSTANCE ── -->
+      <app-offcanvas [isOpen]="showOffcanvas()" title="Refine Search" subtitle="Advanced Filters" position="right"
+        (closed)="showOffcanvas.set(false)">
+        <!-- Body: Refine Search filters -->
+        <!-- Student search -->
+        <app-input label="Student Name / Admission ID" placeholder="Search specific student..."
+          prefix="fa-solid fa-magnifying-glass" [value]="ocStudentSearch()"
+          (valueChange)="ocStudentSearch.set($event)"></app-input>
+
+        <!-- School -->
+        <app-select label="School" [options]="ocSchoolOptions()" [value]="ocSchool()"
+          (valueChange)="ocSchool.set($event)"></app-select>
+
+        <!-- Academic Year -->
+        <app-select label="Academic Year" [options]="ocYearOptions()" [value]="ocYear()"
+          (valueChange)="ocYear.set($event)"></app-select>
+
+        <!-- Grade + Section side by side -->
+        <div class="oc-row">
+          <app-select label="Grade" [options]="ocGradeOptions()" [value]="ocGrade()"
+            (valueChange)="ocGrade.set($event)"></app-select>
+          <app-select label="Section" [options]="ocSectionOptions()" [value]="ocSection()"
+            (valueChange)="ocSection.set($event)"></app-select>
+        </div>
+
+        <!-- Gender toggle -->
+        <div>
+          <p class="mf-label">Gender</p>
+          <div class="gender-toggle-group">
+            @for (g of ['Male', 'Female', 'Other']; track g) {
+            <button type="button" class="gender-btn" [class.active]="ocGender() === g" (click)="ocGender.set(g)">{{ g
+              }}</button>
+            }
+          </div>
+        </div>
+
+        <!-- Enrollment Status -->
+        <app-select label="Enrollment Status" [options]="ocEnrollOptions()" [value]="ocEnrollStatus()"
+          (valueChange)="ocEnrollStatus.set($event)"></app-select>
+
+        <!-- Admission Date Range -->
+        <div>
+          <p class="mf-label">Admission Date Range</p>
+          <div class="oc-row">
+            <app-input label="From" type="date" [value]="ocDateFrom()"
+              (valueChange)="ocDateFrom.set($event)"></app-input>
+            <app-input label="To" type="date" [value]="ocDateTo()" (valueChange)="ocDateTo.set($event)"></app-input>
+          </div>
+        </div>
+
+        <!-- Footer slot -->
+        <div offcanvas-footer>
+          <app-button variant="outline" (click)="showOffcanvas.set(false)">Clear All</app-button>
+          <app-button variant="primary">Apply Filters</app-button>
+        </div>
+      </app-offcanvas>
+
+      <!-- Student Directory Section -->
+      <section id="table-directory" class="showcase-section">
+        <div class="section-header">
+          <h2>Student Directory (Data Table)</h2>
+          <p>A premium data grid showcasing real-time sorting, searching, and filtering of student profiles powered by reactive Signals.</p>
+        </div>
+
+        <div class="component-card">
+          <!-- Mockup Active Filters Header Panel -->
+          <div class="directory-filter-header-bar">
+            <span class="advanced-filters-label">Advanced Filters</span>
+            
+            <div class="filter-actions-row">
+              <!-- Trigger Refine Search Offcanvas -->
+              <app-button
+                variant="primary"
+                iconLeft="fa-solid fa-filter"
+                (click)="showOffcanvas.set(true)"
+              >
+                Refine Search
+              </app-button>
+
+              <!-- Active Grade Pill -->
+              @if (getGradeLabel() !== '') {
+                <div class="active-filter-pill">
+                  <span>{{ getGradeLabel() }}</span>
+                  <button type="button" class="clear-pill-btn" (click)="clearGradeFilter()" aria-label="Clear grade filter">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              }
+
+              <!-- Active Section Pill -->
+              @if (getSectionLabel() !== '') {
+                <div class="active-filter-pill">
+                  <span>{{ getSectionLabel() }}</span>
+                  <button type="button" class="clear-pill-btn" (click)="clearSectionFilter()" aria-label="Clear section filter">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="preview-box table-preview-box-container">
+            <app-table [columns]="tableColumns()" [data]="filteredStudents()">
+              
+              <!-- Custom projected footer matching screenshot -->
+              <div table-footer class="app-table-footer-row">
+                <span class="footer-summary-text">
+                  Showing 1-{{ filteredStudents().length }} of 1,245 Students
+                </span>
+
+                <div class="footer-pagination-stack">
+                  <!-- Prev chevron -->
+                  <button type="button" class="pag-btn pag-nav-btn" aria-label="Previous page">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+                  
+                  <!-- Page numbers -->
+                  <button type="button" class="pag-btn pag-num-btn active">1</button>
+                  <button type="button" class="pag-btn pag-num-btn">2</button>
+                  <button type="button" class="pag-btn pag-num-btn">3</button>
+                  
+                  <span class="pag-ellipsis">...</span>
+                  
+                  <!-- Next chevron -->
+                  <button type="button" class="pag-btn pag-nav-btn" aria-label="Next page">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+
+            </app-table>
+          </div>
+
+          <div class="code-box">
+            <pre><code>&lt;app-table [columns]="tableColumns" [data]="filteredStudents"&gt;
+  &lt;div table-footer class="app-table-footer-row"&gt;
+    &lt;span&gt;Showing 1-10 of 1,245 Students&lt;/span&gt;
+    &lt;div class="footer-pagination-stack"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/app-table&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Popovers & Toasts Section -->
+      <section id="popover-toast" class="showcase-section">
+        <div class="section-header">
+          <h2>19. Popovers &amp; 23. Toasts</h2>
+          <p>Overlay helper tips and transient notification banners built to fit the School Management System branding
+            guidelines.</p>
+        </div>
+
+        <div class="component-card">
+          <div class="preview-box popover-toast-preview">
+            <!-- Popover Playground -->
+            <div class="popover-demo-wrap">
+              <p class="showcase-demo-label">19. Popover (Hover Trigger)</p>
+              <div class="popover-test-box">
+                <app-popover title="Grade Point Average"
+                  content="Calculated based on 4.0 weighted scale for honors courses." position="top">
+                  <span class="hover-trigger-link">Hover for info (Popover)</span>
+                </app-popover>
+              </div>
+            </div>
+
+            <!-- Toast Trigger Row -->
+            <div class="toast-demo-wrap">
+              <p class="showcase-demo-label">23. Toasts (Reactive Actions)</p>
+              <div class="toast-trigger-row">
+                <app-button variant="primary" iconLeft="fa-solid fa-circle-check"
+                  (click)="triggerToast('Document saved successfully.', 'success')">
+                  Trigger Success Toast
+                </app-button>
+                <app-button variant="outline" iconLeft="fa-solid fa-circle-xmark"
+                  (click)="triggerToast('Connection lost. Retrying...', 'error')">
+                  Trigger Error Toast
+                </app-button>
+              </div>
+            </div>
+          </div>
+          <div class="code-box">
+            <pre><code>&lt;app-popover title="Grade Point Average" content="..." position="top"&gt;
+  &lt;span&gt;Hover for info (Popover)&lt;/span&gt;
+&lt;/app-popover&gt;
+
+&lt;app-toast type="success" message="Document saved successfully."&gt;&lt;/app-toast&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 </div>
 
+<!-- Floating Viewport Toast Stack -->
+<div class="global-toast-container">
+  @for (t of toasts(); track t.id) {
+  <app-toast [type]="t.type" [message]="t.message" (close)="removeToast(t.id)"></app-toast>
+  }
+</div>
