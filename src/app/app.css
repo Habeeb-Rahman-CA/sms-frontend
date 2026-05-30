@@ -1099,8 +1099,52 @@ section[id] .section-header h2 {
   box-sizing: border-box;
 }
 
+/* ── Topbar showcase ─────────────────────────────────────────────────────── */
+.topbar-preview-box {
+  padding: 0 !important;
+  background-color: #f1f5f9 !important;
+  display: block !important;
+  border-bottom: 1px solid #e2e8f0;
+}
 
+.topbar-demo-shell {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 4px 20px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  margin: 32px;
+}
 
+.topbar-demo-content {
+  padding: 20px 24px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
+.topbar-demo-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #003d29;
+}
+
+.topbar-demo-breadcrumb i {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.topbar-demo-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-style: italic;
+}
 
 

@@ -1,4 +1,5 @@
 import { Component, computed, signal } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 import { Button } from './shared/components/button/button';
 import { Badge } from './shared/components/badge/badge';
 import { Spinner } from './shared/components/spinner/spinner';
@@ -21,6 +22,7 @@ import { FileUpload } from './shared/components/file-upload/file-upload';
 import { Alert } from './shared/components/alert/alert';
 import { Progress } from './shared/components/progress/progress';
 import { Grid } from './shared/components/layout/grid';
+import { Topbar, NavItem } from './shared/components/topbar/topbar';
 
 export interface ToastItem {
   id: string;
@@ -46,12 +48,21 @@ export interface StudentRecord {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Button, Badge, Spinner, Tabs, Pagination, Input, Select, Checkbox, Radio, Range, Accordion, Carousel, Skeleton, Modal, Offcanvas, Popover, Toast, Table, FileUpload, Alert, Progress, Grid],
+  imports: [Button, Badge, Spinner, Tabs, Pagination, Input, Select, Checkbox, Radio, Range, Accordion, Carousel, Skeleton, Modal, Offcanvas, Popover, Toast, Table, FileUpload, Alert, Progress, Grid, Topbar, TitleCasePipe],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('sms-frontend');
+
+  // ── Showcase page header nav ───────────────────────────────────────────────
+  protected readonly showcaseNavItems = signal<NavItem[]>([
+    { id: 'foundation', label: 'Foundation', icon: 'fa-solid fa-layer-group' },
+    { id: 'components', label: 'Components', icon: 'fa-solid fa-cubes' },
+    { id: 'guidelines', label: 'Guidelines', icon: 'fa-solid fa-book-open' },
+  ]);
+  protected readonly showcaseNavActive = signal('components');
+  protected onShowcaseNavChange(id: string): void { this.showcaseNavActive.set(id); }
 
   // ── Button playground ──────────────────────────────────────────────────────
   protected readonly isLoading  = signal(false);
@@ -253,4 +264,14 @@ export class App {
   protected clearSectionFilter(): void {
     this.ocSection.set('all');
   }
+
+  // ── Topbar showcase ────────────────────────────────────────────────────────
+  protected readonly topbarNavItems = signal<NavItem[]>([
+    { id: 'dashboard', label: 'Dashboard', icon: 'fa-solid fa-gauge' },
+    { id: 'academics', label: 'Academics', icon: 'fa-solid fa-book-open' },
+    { id: 'staff',     label: 'Staff',     icon: 'fa-solid fa-chalkboard-user' },
+    { id: 'students',  label: 'Students',  icon: 'fa-solid fa-user-graduate', badge: 3 },
+  ]);
+  protected readonly topbarActiveNav = signal('dashboard');
+  protected onTopbarNavChange(id: string): void { this.topbarActiveNav.set(id); }
 }

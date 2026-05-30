@@ -1,16 +1,14 @@
 <div class="showcase-container">
   <!-- Top Navigation Bar -->
-  <header class="showcase-header">
-    <div class="logo-area">
-      <span class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></span>
-      <span class="logo-text">SMS Design System</span>
-    </div>
-    <div class="header-actions">
-      <a href="https://github.com" target="_blank" class="header-link">
-        <i class="fa-brands fa-github"></i> v1.0.0
-      </a>
-    </div>
-  </header>
+  <app-topbar
+    schoolName="SMS Design System"
+    [navItems]="showcaseNavItems()"
+    [activeNavId]="showcaseNavActive()"
+    [notifications]="0"
+    avatarInitials="DS"
+    searchPlaceholder="Search components..."
+    (navChange)="onShowcaseNavChange($event)"
+  ></app-topbar>
 
   <!-- Sidebar & Main Content Layout -->
   <div class="showcase-layout">
@@ -46,6 +44,7 @@
           <li><a href="#layout-containers" class="sidebar-item"><i class="fa-solid fa-grip"></i> 14. Layout &amp; Containers</a></li>
           <li><a href="#popover-toast" class="sidebar-item"><i class="fa-solid fa-message"></i> 15. Popovers &amp;
               Toasts</a></li>
+          <li><a href="#topbar" class="sidebar-item"><i class="fa-solid fa-bars"></i> 16. Top Bar</a></li>
         </ul>
       </div>
     </aside>
@@ -934,6 +933,56 @@
 &lt;/app-popover&gt;
 
 &lt;app-toast type="success" message="Document saved successfully."&gt;&lt;/app-toast&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 16. Top Bar Section ─────────────────────────────────────── -->
+      <section id="topbar" class="showcase-section">
+        <div class="section-header">
+          <h2>16. Top Bar</h2>
+          <p>A responsive top navigation bar for the SMS dashboard — with school branding, primary nav links,
+            an expanding search field, notification badge, settings, and a user avatar with online indicator.</p>
+        </div>
+
+        <div class="component-card">
+          <!-- Live demo -->
+          <div class="preview-box topbar-preview-box">
+            <div class="topbar-demo-shell">
+              <app-topbar
+                schoolName="Oakhaven Academy"
+                [navItems]="topbarNavItems()"
+                [activeNavId]="topbarActiveNav()"
+                [notifications]="3"
+                avatarInitials="OA"
+                searchPlaceholder="Global Search..."
+                (navChange)="onTopbarNavChange($event)"
+              ></app-topbar>
+
+              <!-- Fake content below the bar -->
+              <div class="topbar-demo-content">
+                <div class="topbar-demo-breadcrumb">
+                  <i class="fa-solid fa-gauge"></i>
+                  <span>{{ topbarActiveNav() | titlecase }}</span>
+                </div>
+                <p class="topbar-demo-hint">Click the nav links above to see the active indicator animate.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-box">
+            <pre><code>&lt;app-topbar
+  schoolName="Oakhaven Academy"
+  [navItems]="navItems"
+  [activeNavId]="activeNavId"
+  [notifications]="3"
+  avatarInitials="OA"
+  (navChange)="onNavChange($event)"
+&gt;&lt;/app-topbar&gt;
+
+// NavItem[]
+&#123; id: 'dashboard', label: 'Dashboard', icon: 'fa-solid fa-gauge' &#125;
+&#123; id: 'students',  label: 'Students',  icon: 'fa-solid fa-user-graduate', badge: 3 &#125;</code></pre>
           </div>
         </div>
       </section>

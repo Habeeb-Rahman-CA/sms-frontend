@@ -1,0 +1,139 @@
+<header class="topbar">
+
+  <!-- Left: Logo + Brand -->
+  <div class="topbar-brand">
+    <div class="topbar-logo">
+      <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+    <span class="topbar-school-name">{{ schoolName() }}</span>
+  </div>
+
+  <!-- Centre: Primary Nav Links -->
+  <nav class="topbar-nav" aria-label="Primary navigation">
+    @for (item of navItems(); track item.id) {
+      <button
+        type="button"
+        class="topbar-nav-item"
+        [class.active]="item.id === activeNavId()"
+        (click)="onNavClick(item.id)"
+      >
+        @if (item.icon) {
+          <i [class]="item.icon" aria-hidden="true"></i>
+        }
+        {{ item.label }}
+        @if (item.badge && item.badge > 0) {
+          <span class="nav-item-badge">{{ item.badge }}</span>
+        }
+      </button>
+    }
+  </nav>
+
+  <!-- Right: Search + Actions -->
+  <div class="topbar-actions">
+
+    <!-- Search -->
+    <div class="topbar-search">
+      <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+      <input
+        type="text"
+        class="search-input"
+        [placeholder]="searchPlaceholder()"
+        [value]="searchQuery()"
+        (input)="onSearchInput($event)"
+        aria-label="Global search"
+      />
+      <span class="search-shortcut">⌘K</span>
+    </div>
+
+    <!-- Notifications -->
+    <button
+      type="button"
+      class="topbar-icon-btn"
+      aria-label="Notifications"
+      (click)="notificationClick.emit()"
+    >
+      <i class="fa-regular fa-bell" aria-hidden="true"></i>
+      @if (hasNotifications()) {
+        <span class="notif-dot" aria-label="{{ notifLabel() }} unread notifications">
+          {{ notifLabel() }}
+        </span>
+      }
+    </button>
+
+    <!-- Settings -->
+    <button
+      type="button"
+      class="topbar-icon-btn"
+      aria-label="Settings"
+      (click)="settingsClick.emit()"
+    >
+      <i class="fa-solid fa-gear" aria-hidden="true"></i>
+    </button>
+
+    <!-- Divider -->
+    <div class="topbar-divider" aria-hidden="true"></div>
+
+    <!-- User Avatar -->
+    <button
+      type="button"
+      class="topbar-avatar"
+      aria-label="User profile"
+      (click)="avatarClick.emit()"
+    >
+      @if (avatarUrl()) {
+        <img [src]="avatarUrl()" [alt]="avatarInitials()" class="avatar-img" />
+      } @else {
+        <span class="avatar-initials">{{ avatarInitials() }}</span>
+      }
+      <span class="avatar-online-dot" aria-hidden="true"></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile hamburger (visible below 768px) -->
+  <button
+    type="button"
+    class="topbar-hamburger"
+    [class.open]="mobileMenuOpen()"
+    aria-label="Toggle menu"
+    (click)="toggleMobileMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</header>
+
+<!-- Mobile drawer -->
+@if (mobileMenuOpen()) {
+  <div class="topbar-mobile-drawer">
+    <div class="mobile-search">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input
+        type="text"
+        [placeholder]="searchPlaceholder()"
+        [value]="searchQuery()"
+        (input)="onSearchInput($event)"
+      />
+    </div>
+    <nav class="mobile-nav">
+      @for (item of navItems(); track item.id) {
+        <button
+          type="button"
+          class="mobile-nav-item"
+          [class.active]="item.id === activeNavId()"
+          (click)="onNavClick(item.id); toggleMobileMenu()"
+        >
+          @if (item.icon) {
+            <i [class]="item.icon" aria-hidden="true"></i>
+          }
+          {{ item.label }}
+          @if (item.badge && item.badge > 0) {
+            <span class="nav-item-badge">{{ item.badge }}</span>
+          }
+        </button>
+      }
+    </nav>
+  </div>
+}
