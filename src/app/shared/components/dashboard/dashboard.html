@@ -1,0 +1,233 @@
+<div class="dashboard-container">
+
+  <!-- ── Dashboard Header ─────────────────────────────────────────────────── -->
+  <header class="db-header">
+    <div class="header-text">
+      <span class="db-badge">Overview Portal</span>
+      <h1>Academic Dashboard</h1>
+      <p class="db-subtitle">Welcome back, Administrator. Here's what's happening at Oakhaven Academy today.</p>
+    </div>
+    <div class="header-actions">
+      <div class="date-selector">
+        <i class="fa-regular fa-calendar-days"></i>
+        <span>Academic Year 2025/2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── KPI Cards Grid ───────────────────────────────────────────────────── -->
+  <section class="metrics-grid" aria-label="Key Performance Indicators">
+    @for (metric of metrics(); track metric.title; let idx = $index) {
+      <div
+        class="metric-card"
+        [class.selected]="selectedMetricIndex() === idx"
+        (click)="selectMetric(idx)"
+        tabindex="0"
+        (keydown.enter)="selectMetric(idx)"
+      >
+        <div class="card-inner">
+          <div class="metric-info">
+            <span class="metric-title">{{ metric.title }}</span>
+            <span class="metric-value">{{ metric.value }}</span>
+          </div>
+          <div class="metric-icon-box" [style.background-color]="'var(' + metric.colorVar + 'Tint)'" [style.color]="'var(' + metric.colorVar + ')'">
+            <i [class]="metric.icon"></i>
+          </div>
+        </div>
+        <div class="metric-footer">
+          <span class="metric-trend" [class.negative]="!metric.isPositive">
+            <i class="fa-solid" [class.fa-arrow-up]="metric.isPositive" [class.fa-arrow-down]="!metric.isPositive"></i>
+            {{ metric.change }}
+          </span>
+        </div>
+      </div>
+    }
+  </section>
+
+  <!-- ── Charts Grid Row ──────────────────────────────────────────────────── -->
+  <section class="charts-row" aria-label="Performance Visualizations">
+    
+    <!-- Left Chart: Weekly Attendance Area Graph -->
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title-block">
+          <h3>Weekly Attendance Trend</h3>
+          <p>Overall student presence rate this week</p>
+        </div>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-dot current"></span>Present</span>
+          <span class="legend-item"><span class="legend-dot target"></span>Target (95%)</span>
+        </div>
+      </div>
+      <div class="chart-body">
+        <!-- SVG Area Chart -->
+        <svg class="attendance-svg" viewBox="0 0 500 200" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--primary-500)" stop-opacity="0.25" />
+              <stop offset="100%" stop-color="var(--primary-500)" stop-opacity="0.0" />
+            </linearGradient>
+          </defs>
+          
+          <!-- Target Grid Lines -->
+          <line x1="0" y1="40" x2="500" y2="40" class="grid-line target-dashed" />
+          <line x1="0" y1="90" x2="500" y2="90" class="grid-line" />
+          <line x1="0" y1="140" x2="500" y2="140" class="grid-line" />
+
+          <!-- Filled Area -->
+          <path d="M 0,200 L 0,80 L 80,60 L 160,75 L 240,45 L 320,35 L 400,50 L 500,20 L 500,200 Z" fill="url(#areaGrad)" />
+          
+          <!-- Colored Area Line -->
+          <path d="M 0,80 L 80,60 L 160,75 L 240,45 L 320,35 L 400,50 L 500,20" fill="none" stroke="var(--primary-600)" stroke-width="3" stroke-linecap="round" />
+
+          <!-- Graph Data Points -->
+          <circle cx="0" cy="80" r="5" class="chart-dot" />
+          <circle cx="80" cy="60" r="5" class="chart-dot" />
+          <circle cx="160" cy="75" r="5" class="chart-dot" />
+          <circle cx="240" cy="45" r="5" class="chart-dot" />
+          <circle cx="320" cy="35" r="5" class="chart-dot" />
+          <circle cx="400" cy="50" r="5" class="chart-dot" />
+          <circle cx="500" cy="20" r="5" class="chart-dot" />
+        </svg>
+
+        <!-- Chart X-Axis Labels -->
+        <div class="chart-labels">
+          <span>Mon</span>
+          <span>Tue</span>
+          <span>Wed</span>
+          <span>Thu</span>
+          <span>Fri</span>
+          <span>Sat</span>
+          <span>Sun</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Chart: Grade Performance Donut -->
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title-block">
+          <h3>Academic Standings</h3>
+          <p>Grade distributions of term tests</p>
+        </div>
+      </div>
+      <div class="chart-body donut-body">
+        <div class="donut-container">
+          <svg class="donut-svg" viewBox="0 0 100 100">
+            <!-- Donut base gray circle -->
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="#f1f5f9" stroke-width="12" />
+            <!-- Segment A (A grades - 45%) -->
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--success-500)" stroke-width="12"
+                    stroke-dasharray="113.1 251.3" stroke-dashoffset="0" class="donut-segment" />
+            <!-- Segment B (B grades - 35%) -->
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--primary-500)" stroke-width="12"
+                    stroke-dasharray="88 251.3" stroke-dashoffset="-113.1" class="donut-segment" />
+            <!-- Segment C (C grades - 20%) -->
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--warning-500)" stroke-width="12"
+                    stroke-dasharray="50.3 251.3" stroke-dashoffset="-201.1" class="donut-segment" />
+          </svg>
+          <div class="donut-text">
+            <span class="donut-num">85%</span>
+            <span class="donut-lbl">Pass Rate</span>
+          </div>
+        </div>
+
+        <!-- Donut Legend details -->
+        <div class="donut-details">
+          <div class="donut-legend-row">
+            <div class="legend-lbl">
+              <span class="legend-color-indicator success"></span>
+              <span>A / Outstanding</span>
+            </div>
+            <span class="legend-val">45%</span>
+          </div>
+          <div class="donut-legend-row">
+            <div class="legend-lbl">
+              <span class="legend-color-indicator primary"></span>
+              <span>B / Proficient</span>
+            </div>
+            <span class="legend-val">35%</span>
+          </div>
+          <div class="donut-legend-row">
+            <div class="legend-lbl">
+              <span class="legend-color-indicator warning"></span>
+              <span>C / Satisfactory</span>
+            </div>
+            <span class="legend-val">20%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Bottom Split Section ────────────────────────────────────────────── -->
+  <section class="split-section" aria-label="Activity Feed and Quick Management Actions">
+
+    <!-- Recent Activity Feed -->
+    <div class="split-card">
+      <div class="card-header">
+        <h3>Recent Updates Feed</h3>
+        <span class="update-counter">Real-time</span>
+      </div>
+      <div class="activity-feed">
+        @for (act of recentActivities(); track act.id) {
+          <div class="activity-row">
+            <div class="activity-icon-container" [class]="act.type">
+              <span class="status-dot"></span>
+            </div>
+            <div class="activity-detail">
+              <div class="activity-row-header">
+                <span class="activity-title">{{ act.title }}</span>
+                <span class="activity-time">{{ act.time }}</span>
+              </div>
+              <p class="activity-desc">{{ act.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Quick Academic Actions -->
+    <div class="split-card">
+      <div class="card-header">
+        <h3>Quick Academic Actions</h3>
+      </div>
+      <div class="quick-actions-grid">
+        <button type="button" class="action-btn-item" (click)="onActionClick('enroll')">
+          <div class="btn-icon primary"><i class="fa-solid fa-user-plus"></i></div>
+          <div class="btn-label-text">
+            <span class="btn-primary-lbl">New Enrollment</span>
+            <span class="btn-secondary-lbl">Register a new student profile</span>
+          </div>
+        </button>
+
+        <button type="button" class="action-btn-item" (click)="onActionClick('attendance')">
+          <div class="btn-icon success"><i class="fa-solid fa-clipboard-user"></i></div>
+          <div class="btn-label-text">
+            <span class="btn-primary-lbl">Record Attendance</span>
+            <span class="btn-secondary-lbl">Log daily classroom presence</span>
+          </div>
+        </button>
+
+        <button type="button" class="action-btn-item" (click)="onActionClick('post')">
+          <div class="btn-icon warning"><i class="fa-solid fa-bullhorn"></i></div>
+          <div class="btn-label-text">
+            <span class="btn-primary-lbl">Post Announcement</span>
+            <span class="btn-secondary-lbl">Broadcast notice board alert</span>
+          </div>
+        </button>
+
+        <button type="button" class="action-btn-item" (click)="onActionClick('report')">
+          <div class="btn-icon danger"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="btn-label-text">
+            <span class="btn-primary-lbl">Generate Report</span>
+            <span class="btn-secondary-lbl">Compile term academic standings</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+</div>

@@ -188,6 +188,29 @@
         </div>
       </section>
 
+      <!-- ── Dashboard Category ──────────────────────────────────────── -->
+      <section id="dashboard" class="intro-section">
+        <span class="category-tag">Integrated View templates</span>
+        <h1>Dashboard</h1>
+        <p class="section-desc">
+          A ready-to-use, high-fidelity administrative panel compiling KPIs, interactive charts, and real-time activity feeds to give an instant operational pulse.
+        </p>
+      </section>
+
+      <section class="showcase-section">
+        <div class="component-card">
+          <div class="preview-box" style="background-color: #f8fafc; padding: 32px; border-radius: 12px;">
+            <app-dashboard (actionClick)="onDashboardActionClick($event)"></app-dashboard>
+          </div>
+
+          <div class="code-box">
+            <pre><code>&lt;app-dashboard
+  (actionClick)="onDashboardAction($event)"
+&gt;&lt;/app-dashboard&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
       <!-- 1. Buttons -->
       <section id="buttons" class="intro-section">
         <span class="category-tag">UI Component Library</span>
@@ -1177,7 +1200,6 @@
           </div>
         </div>
       </section>
-
 
     </main>
   </div>

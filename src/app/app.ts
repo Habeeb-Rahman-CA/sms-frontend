@@ -24,6 +24,7 @@ import { Progress } from './shared/components/progress/progress';
 import { Grid } from './shared/components/layout/grid';
 import { Topbar, NavItem } from './shared/components/topbar/topbar';
 import { Sidebar, SidebarNavGroup, SidebarNavItem, SidebarBottomItem } from './shared/components/sidebar/sidebar';
+import { Dashboard } from './shared/components/dashboard/dashboard';
 
 export interface ToastItem {
   id: string;
@@ -49,7 +50,7 @@ export interface StudentRecord {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Button, Badge, Spinner, Tabs, Pagination, Input, Select, Checkbox, Radio, Range, Accordion, Carousel, Skeleton, Modal, Offcanvas, Popover, Toast, Table, FileUpload, Alert, Progress, Grid, Topbar, TitleCasePipe, Sidebar],
+  imports: [Button, Badge, Spinner, Tabs, Pagination, Input, Select, Checkbox, Radio, Range, Accordion, Carousel, Skeleton, Modal, Offcanvas, Popover, Toast, Table, FileUpload, Alert, Progress, Grid, Topbar, TitleCasePipe, Sidebar, Dashboard],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -70,30 +71,36 @@ export class App {
     {
       label: 'Foundation',
       items: [
-        { id: 'colors',      label: 'Colors',      icon: 'fa-solid fa-palette',    href: '#colors' },
-        { id: 'typography',  label: 'Typography',  icon: 'fa-solid fa-font',        href: '#typography' },
+        { id: 'colors', label: 'Colors', icon: 'fa-solid fa-palette', href: '#colors' },
+        { id: 'typography', label: 'Typography', icon: 'fa-solid fa-font', href: '#typography' },
+      ],
+    },
+    {
+      label: 'Dashboard',
+      items: [
+        { id: 'dashboard', label: 'Dashboard', icon: 'fa-solid fa-gauge', href: '#dashboard' },
       ],
     },
     {
       label: 'Components',
       items: [
-        { id: 'buttons',          label: 'Buttons',           icon: 'fa-solid fa-square',               href: '#buttons' },
-        { id: 'badges',           label: 'Badges & Labels',   icon: 'fa-solid fa-tags',                 href: '#badges' },
-        { id: 'spinners',         label: 'Spinners',          icon: 'fa-solid fa-arrows-spin',          href: '#spinners' },
-        { id: 'navs',             label: 'Navs & Tabs',       icon: 'fa-solid fa-compass',              href: '#navs' },
-        { id: 'pagination',       label: 'Pagination',        icon: 'fa-solid fa-list-ol',              href: '#pagination' },
-        { id: 'forms',            label: 'Form Inputs',       icon: 'fa-solid fa-square-poll-horizontal', href: '#forms' },
-        { id: 'accordion',        label: 'Accordion',         icon: 'fa-solid fa-layer-group',          href: '#accordion' },
-        { id: 'carousel',         label: 'Carousel',          icon: 'fa-solid fa-film',                 href: '#carousel' },
-        { id: 'skeleton',         label: 'Skeleton',          icon: 'fa-solid fa-ghost',                href: '#skeleton' },
-        { id: 'modal-offcanvas',  label: 'Modal & Offcanvas', icon: 'fa-solid fa-window-restore',       href: '#modal-offcanvas' },
-        { id: 'table-directory',  label: 'Student Directory', icon: 'fa-solid fa-table',                href: '#table-directory' },
-        { id: 'file-uploaders',   label: 'File Uploaders',    icon: 'fa-solid fa-file-arrow-up',        href: '#file-uploaders' },
-        { id: 'feedback-status',  label: 'Feedback & Status', icon: 'fa-solid fa-circle-info',          href: '#feedback-status' },
-        { id: 'layout-containers',label: 'Layout & Containers',icon: 'fa-solid fa-grip',               href: '#layout-containers' },
-        { id: 'popover-toast',    label: 'Popovers & Toasts', icon: 'fa-solid fa-message',              href: '#popover-toast' },
-        { id: 'topbar',           label: 'Top Bar',           icon: 'fa-solid fa-bars',                 href: '#topbar' },
-        { id: 'sidebar',          label: 'Sidebar',           icon: 'fa-solid fa-sidebar',              href: '#sidebar' },
+        { id: 'buttons', label: 'Buttons', icon: 'fa-solid fa-square', href: '#buttons' },
+        { id: 'badges', label: 'Badges & Labels', icon: 'fa-solid fa-tags', href: '#badges' },
+        { id: 'spinners', label: 'Spinners', icon: 'fa-solid fa-arrows-spin', href: '#spinners' },
+        { id: 'navs', label: 'Navs & Tabs', icon: 'fa-solid fa-compass', href: '#navs' },
+        { id: 'pagination', label: 'Pagination', icon: 'fa-solid fa-list-ol', href: '#pagination' },
+        { id: 'forms', label: 'Form Inputs', icon: 'fa-solid fa-square-poll-horizontal', href: '#forms' },
+        { id: 'accordion', label: 'Accordion', icon: 'fa-solid fa-layer-group', href: '#accordion' },
+        { id: 'carousel', label: 'Carousel', icon: 'fa-solid fa-film', href: '#carousel' },
+        { id: 'skeleton', label: 'Skeleton', icon: 'fa-solid fa-ghost', href: '#skeleton' },
+        { id: 'modal-offcanvas', label: 'Modal & Offcanvas', icon: 'fa-solid fa-window-restore', href: '#modal-offcanvas' },
+        { id: 'table-directory', label: 'Student Directory', icon: 'fa-solid fa-table', href: '#table-directory' },
+        { id: 'file-uploaders', label: 'File Uploaders', icon: 'fa-solid fa-file-arrow-up', href: '#file-uploaders' },
+        { id: 'feedback-status', label: 'Feedback & Status', icon: 'fa-solid fa-circle-info', href: '#feedback-status' },
+        { id: 'layout-containers', label: 'Layout & Containers', icon: 'fa-solid fa-grip', href: '#layout-containers' },
+        { id: 'popover-toast', label: 'Popovers & Toasts', icon: 'fa-solid fa-message', href: '#popover-toast' },
+        { id: 'topbar', label: 'Top Bar', icon: 'fa-solid fa-bars', href: '#topbar' },
+        { id: 'sidebar', label: 'Sidebar', icon: 'fa-solid fa-sidebar', href: '#sidebar' },
       ],
     },
   ]);
@@ -108,18 +115,18 @@ export class App {
   protected readonly demoSidebarGroups = signal<SidebarNavGroup[]>([
     {
       items: [
-        { id: 'dashboard',  label: 'Dashboard',  icon: 'fa-solid fa-gauge' },
-        { id: 'classes',    label: 'My Classes',  icon: 'fa-solid fa-users-rectangle' },
-        { id: 'attendance', label: 'Attendance',  icon: 'fa-solid fa-circle-check' },
-        { id: 'gradebook',  label: 'Gradebook',   icon: 'fa-solid fa-book-open', badge: 4 },
-        { id: 'homework',   label: 'Homework',    icon: 'fa-solid fa-clipboard-list' },
+        { id: 'dashboard', label: 'Dashboard', icon: 'fa-solid fa-gauge' },
+        { id: 'classes', label: 'My Classes', icon: 'fa-solid fa-users-rectangle' },
+        { id: 'attendance', label: 'Attendance', icon: 'fa-solid fa-circle-check' },
+        { id: 'gradebook', label: 'Gradebook', icon: 'fa-solid fa-book-open', badge: 4 },
+        { id: 'homework', label: 'Homework', icon: 'fa-solid fa-clipboard-list' },
       ],
     },
   ]);
   protected readonly demoSidebarActive = signal('dashboard');
   protected readonly demoSidebarBottom = signal<SidebarBottomItem[]>([
-    { id: 'settings', label: 'Settings',  icon: 'fa-solid fa-gear' },
-    { id: 'signout',  label: 'Sign Out',  icon: 'fa-solid fa-arrow-right-from-bracket' },
+    { id: 'settings', label: 'Settings', icon: 'fa-solid fa-gear' },
+    { id: 'signout', label: 'Sign Out', icon: 'fa-solid fa-arrow-right-from-bracket' },
   ]);
   protected onDemoSidebarClick(item: SidebarNavItem): void { this.demoSidebarActive.set(item.id); }
 
@@ -133,43 +140,53 @@ export class App {
     }
   }
 
+  protected onDashboardActionClick(action: string): void {
+    const actMap: Record<string, string> = {
+      enroll: 'Register New Student',
+      attendance: 'Log Daily Attendance',
+      post: 'Broadcast New Announcement',
+      report: 'Compile Term Report'
+    };
+    this.triggerToast(`Quick action triggered: ${actMap[action] || action}`, 'success');
+  }
+
   // ── Button playground ──────────────────────────────────────────────────────
-  protected readonly isLoading  = signal(false);
+  protected readonly isLoading = signal(false);
   protected readonly isDisabled = signal(false);
 
   protected onButtonClick(buttonName: string): void { console.log(`${buttonName} clicked!`); }
-  protected toggleLoading():  void { this.isLoading.update(v => !v); }
+  protected toggleLoading(): void { this.isLoading.update(v => !v); }
   protected toggleDisabled(): void { this.isDisabled.update(v => !v); }
 
   // ── Tabs ───────────────────────────────────────────────────────────────────
   protected readonly activeTabId = signal('records');
   protected readonly tabsData = signal<TabItem[]>([
-    { id: 'records',    label: 'Student Records' },
+    { id: 'records', label: 'Student Records' },
     { id: 'attendance', label: 'Attendance' },
     { id: 'discipline', label: 'Discipline' },
-    { id: 'legacy',     label: 'Legacy Data', disabled: true },
+    { id: 'legacy', label: 'Legacy Data', disabled: true },
   ]);
   protected onTabChange(tabId: string): void { this.activeTabId.set(tabId); }
 
   // ── Pagination ─────────────────────────────────────────────────────────────
   protected readonly currentPage = signal(1);
-  protected readonly totalPages  = signal(12);
+  protected readonly totalPages = signal(12);
   protected onPageChange(page: number): void { this.currentPage.set(page); }
 
   // ── Form Inputs ────────────────────────────────────────────────────────────
-  protected readonly searchValue     = signal('');
+  protected readonly searchValue = signal('');
   protected readonly enrollmentStatus = signal('enrolled');
   protected readonly enrollmentOptions = signal<SelectOption[]>([
-    { value: 'enrolled',  label: 'Currently Enrolled' },
+    { value: 'enrolled', label: 'Currently Enrolled' },
     { value: 'graduated', label: 'Graduated' },
     { value: 'suspended', label: 'Suspended' },
     { value: 'withdrawn', label: 'Withdrawn' },
   ]);
-  protected readonly labFees      = signal('');
-  protected readonly optInEmail   = signal(true);
+  protected readonly labFees = signal('');
+  protected readonly optInEmail = signal(true);
   protected readonly selectedTerm = signal('termA');
-  protected readonly gradeCurve   = signal(15);
-  protected readonly errorValue   = signal('invalid-entry@');
+  protected readonly gradeCurve = signal(15);
+  protected readonly errorValue = signal('invalid-entry@');
   protected readonly successValue = signal('Valid Entry');
 
   // ── Accordion ─────────────────────────────────────────────────────────────
@@ -182,64 +199,64 @@ export class App {
   // ── Carousel ──────────────────────────────────────────────────────────────
   protected readonly carouselSlides = signal<CarouselSlide[]>([
     { id: 'slide1', title: 'Annual Science Fair 2024', subtitle: 'Join us this Friday in the Main Hall for student exhibitions.' },
-    { id: 'slide2', title: 'Inter-School Sports Day',  subtitle: 'Registration open for track, field, and team events.' },
+    { id: 'slide2', title: 'Inter-School Sports Day', subtitle: 'Registration open for track, field, and team events.' },
     { id: 'slide3', title: 'Parent-Teacher Conference', subtitle: 'Schedule your slot via the portal — limited availability.' },
   ]);
 
   // ── Modal ──────────────────────────────────────────────────────────────────
-  protected readonly showModal       = signal(false);
-  protected readonly modalSchool     = signal('');
+  protected readonly showModal = signal(false);
+  protected readonly modalSchool = signal('');
   protected readonly modalSchoolOptions = signal<SelectOption[]>([
-    { value: 'main',   label: 'Main Campus' },
-    { value: 'north',  label: 'North Branch' },
-    { value: 'south',  label: 'South Branch' },
+    { value: 'main', label: 'Main Campus' },
+    { value: 'north', label: 'North Branch' },
+    { value: 'south', label: 'South Branch' },
   ]);
-  protected readonly modalParentId   = signal('');
-  protected readonly modalAdmission  = signal('');
-  protected readonly modalFirstName  = signal('');
-  protected readonly modalLastName   = signal('');
-  protected readonly modalDob        = signal('');
-  protected readonly modalGender     = signal('Male');
+  protected readonly modalParentId = signal('');
+  protected readonly modalAdmission = signal('');
+  protected readonly modalFirstName = signal('');
+  protected readonly modalLastName = signal('');
+  protected readonly modalDob = signal('');
+  protected readonly modalGender = signal('Male');
 
   // ── Offcanvas & Student Directory Filters ─────────────────────────────────
-  protected readonly showOffcanvas      = signal(false);
-  protected readonly ocStudentSearch    = signal('');
-  protected readonly ocSchool           = signal('oakhaven');
-  protected readonly ocSchoolOptions    = signal<SelectOption[]>([
-    { value: 'all',      label: 'All Campuses' },
+  protected readonly showOffcanvas = signal(false);
+  protected readonly ocStudentSearch = signal('');
+  protected readonly ocSchool = signal('oakhaven');
+  protected readonly ocSchoolOptions = signal<SelectOption[]>([
+    { value: 'all', label: 'All Campuses' },
     { value: 'oakhaven', label: 'Oakhaven Senior Academy' },
-    { value: 'central',  label: 'Central High School' },
+    { value: 'central', label: 'Central High School' },
   ]);
-  protected readonly ocYear             = signal('2023-2024');
-  protected readonly ocYearOptions      = signal<SelectOption[]>([
-    { value: 'all',       label: 'All Years' },
+  protected readonly ocYear = signal('2023-2024');
+  protected readonly ocYearOptions = signal<SelectOption[]>([
+    { value: 'all', label: 'All Years' },
     { value: '2023-2024', label: '2023-2024' },
     { value: '2022-2023', label: '2022-2023' },
   ]);
-  protected readonly ocGrade            = signal('grade10');
-  protected readonly ocGradeOptions     = signal<SelectOption[]>([
-    { value: 'all',     label: 'All Grades' },
+  protected readonly ocGrade = signal('grade10');
+  protected readonly ocGradeOptions = signal<SelectOption[]>([
+    { value: 'all', label: 'All Grades' },
     { value: 'grade10', label: 'Grade 10' },
     { value: 'grade11', label: 'Grade 11' },
     { value: 'grade12', label: 'Grade 12' },
   ]);
-  protected readonly ocSection          = signal('sectionB');
-  protected readonly ocSectionOptions   = signal<SelectOption[]>([
-    { value: 'all',      label: 'All Sections' },
+  protected readonly ocSection = signal('sectionB');
+  protected readonly ocSectionOptions = signal<SelectOption[]>([
+    { value: 'all', label: 'All Sections' },
     { value: 'sectionA', label: 'Section A' },
     { value: 'sectionB', label: 'Section B' },
     { value: 'sectionC', label: 'Section C' },
   ]);
-  protected readonly ocGender           = signal('all');
-  protected readonly ocEnrollStatus     = signal('all');
-  protected readonly ocEnrollOptions    = signal<SelectOption[]>([
-    { value: 'all',       label: 'All Statuses' },
-    { value: 'active',    label: 'Active' },
-    { value: 'pending',   label: 'Pending' },
-    { value: 'on leave',  label: 'On Leave' },
+  protected readonly ocGender = signal('all');
+  protected readonly ocEnrollStatus = signal('all');
+  protected readonly ocEnrollOptions = signal<SelectOption[]>([
+    { value: 'all', label: 'All Statuses' },
+    { value: 'active', label: 'Active' },
+    { value: 'pending', label: 'Pending' },
+    { value: 'on leave', label: 'On Leave' },
   ]);
-  protected readonly ocDateFrom         = signal('');
-  protected readonly ocDateTo           = signal('');
+  protected readonly ocDateFrom = signal('');
+  protected readonly ocDateTo = signal('');
 
   // ── Toasts ────────────────────────────────────────────────────────────────
   protected readonly toasts = signal<ToastItem[]>([]);
@@ -256,20 +273,20 @@ export class App {
   // ── Data Table & Directory ────────────────────────────────────────────────
   protected readonly tableColumns = signal<TableColumn[]>([
     { key: 'admissionNo', label: 'Admission No', sortable: true, width: '160px' },
-    { key: 'name',        label: 'Name',         sortable: true },
-    { key: 'dob',         label: 'DOB',          sortable: true, width: '130px' },
-    { key: 'gender',      label: 'Gender',       sortable: true, width: '130px', align: 'center' },
-    { key: 'parentName',  label: 'Parent / Guardian', sortable: true },
-    { key: 'status',      label: 'Status',       sortable: true, width: '130px', align: 'center' },
-    { key: 'actions',     label: 'Actions',      sortable: false, width: '90px', align: 'center' },
+    { key: 'name', label: 'Name', sortable: true },
+    { key: 'dob', label: 'DOB', sortable: true, width: '130px' },
+    { key: 'gender', label: 'Gender', sortable: true, width: '130px', align: 'center' },
+    { key: 'parentName', label: 'Parent / Guardian', sortable: true },
+    { key: 'status', label: 'Status', sortable: true, width: '130px', align: 'center' },
+    { key: 'actions', label: 'Actions', sortable: false, width: '90px', align: 'center' },
   ]);
 
   protected readonly students = signal<StudentRecord[]>([
     { id: '1', name: 'Elena Williams', email: 'elena.williams@oakhaven.edu', initials: 'EW', avatarBg: '#a7f3d0', admissionNo: '#ADM-2023-001', dob: '12 May 2012', gender: 'Female', parentName: 'David Williams', status: 'Active', grade: 'grade10', section: 'sectionB' },
-    { id: '2', name: 'Marcus Knight',  email: 'marcus.knight@oakhaven.edu',   initials: 'MK', avatarBg: '#e2e8f0', admissionNo: '#ADM-2023-042', dob: '28 Aug 2011', gender: 'Male',   parentName: 'Sarah Knight',  status: 'Active', grade: 'grade10', section: 'sectionB' },
-    { id: '3', name: 'Sophia Jensen',  email: 'sophia.jensen@oakhaven.edu',   initials: 'SJ', avatarBg: '#c7d2fe', admissionNo: '#ADM-2022-119', dob: '04 Jan 2013', gender: 'Female', parentName: 'Michael Jensen', status: 'Pending', grade: 'grade11', section: 'sectionA' },
-    { id: '4', name: 'Ryan Lee',       email: 'ryan.lee@oakhaven.edu',        initials: 'RL', avatarBg: '#a7f3d0', admissionNo: '#ADM-2023-088', dob: '15 Nov 2012', gender: 'Male',   parentName: 'Karen Lee',    status: 'On Leave', grade: 'grade10', section: 'sectionB' },
-    { id: '5', name: 'Aisha Mahmood',  email: 'aisha.mahmood@oakhaven.edu',   initials: 'AM', avatarBg: '#e2e8f0', admissionNo: '#ADM-2023-205', dob: '22 Mar 2012', gender: 'Female', parentName: 'Zaid Mahmood',  status: 'Active', grade: 'grade12', section: 'sectionC' },
+    { id: '2', name: 'Marcus Knight', email: 'marcus.knight@oakhaven.edu', initials: 'MK', avatarBg: '#e2e8f0', admissionNo: '#ADM-2023-042', dob: '28 Aug 2011', gender: 'Male', parentName: 'Sarah Knight', status: 'Active', grade: 'grade10', section: 'sectionB' },
+    { id: '3', name: 'Sophia Jensen', email: 'sophia.jensen@oakhaven.edu', initials: 'SJ', avatarBg: '#c7d2fe', admissionNo: '#ADM-2022-119', dob: '04 Jan 2013', gender: 'Female', parentName: 'Michael Jensen', status: 'Pending', grade: 'grade11', section: 'sectionA' },
+    { id: '4', name: 'Ryan Lee', email: 'ryan.lee@oakhaven.edu', initials: 'RL', avatarBg: '#a7f3d0', admissionNo: '#ADM-2023-088', dob: '15 Nov 2012', gender: 'Male', parentName: 'Karen Lee', status: 'On Leave', grade: 'grade10', section: 'sectionB' },
+    { id: '5', name: 'Aisha Mahmood', email: 'aisha.mahmood@oakhaven.edu', initials: 'AM', avatarBg: '#e2e8f0', admissionNo: '#ADM-2023-205', dob: '22 Mar 2012', gender: 'Female', parentName: 'Zaid Mahmood', status: 'Active', grade: 'grade12', section: 'sectionC' },
   ]);
 
   protected readonly studentSearchQuery = signal('');
@@ -283,8 +300,8 @@ export class App {
     const gender = this.ocGender();
 
     if (query) {
-      list = list.filter(s => 
-        s.name.toLowerCase().includes(query) || 
+      list = list.filter(s =>
+        s.name.toLowerCase().includes(query) ||
         s.admissionNo.toLowerCase().includes(query) ||
         s.email.toLowerCase().includes(query)
       );
@@ -338,8 +355,8 @@ export class App {
   protected readonly topbarNavItems = signal<NavItem[]>([
     { id: 'dashboard', label: 'Dashboard', icon: 'fa-solid fa-gauge' },
     { id: 'academics', label: 'Academics', icon: 'fa-solid fa-book-open' },
-    { id: 'staff',     label: 'Staff',     icon: 'fa-solid fa-chalkboard-user' },
-    { id: 'students',  label: 'Students',  icon: 'fa-solid fa-user-graduate', badge: 3 },
+    { id: 'staff', label: 'Staff', icon: 'fa-solid fa-chalkboard-user' },
+    { id: 'students', label: 'Students', icon: 'fa-solid fa-user-graduate', badge: 3 },
   ]);
   protected readonly topbarActiveNav = signal('dashboard');
   protected onTopbarNavChange(id: string): void { this.topbarActiveNav.set(id); }
