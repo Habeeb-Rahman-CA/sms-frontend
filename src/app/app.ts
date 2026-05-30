@@ -94,7 +94,7 @@ export class App {
         { id: 'carousel', label: 'Carousel', icon: 'fa-solid fa-film', href: '#carousel' },
         { id: 'skeleton', label: 'Skeleton', icon: 'fa-solid fa-ghost', href: '#skeleton' },
         { id: 'modal-offcanvas', label: 'Modal & Offcanvas', icon: 'fa-solid fa-window-restore', href: '#modal-offcanvas' },
-        { id: 'table-directory', label: 'Student Directory', icon: 'fa-solid fa-table', href: '#table-directory' },
+        { id: 'table-directory', label: 'Table & Dataset', icon: 'fa-solid fa-table', href: '#table-directory' },
         { id: 'file-uploaders', label: 'File Uploaders', icon: 'fa-solid fa-file-arrow-up', href: '#file-uploaders' },
         { id: 'feedback-status', label: 'Feedback & Status', icon: 'fa-solid fa-circle-info', href: '#feedback-status' },
         { id: 'layout-containers', label: 'Layout & Containers', icon: 'fa-solid fa-grip', href: '#layout-containers' },
@@ -218,7 +218,7 @@ export class App {
   protected readonly modalDob = signal('');
   protected readonly modalGender = signal('Male');
 
-  // ── Offcanvas & Student Directory Filters ─────────────────────────────────
+  // ── Offcanvas & Table & Dataset Filters ─────────────────────────────────
   protected readonly showOffcanvas = signal(false);
   protected readonly ocStudentSearch = signal('');
   protected readonly ocSchool = signal('oakhaven');

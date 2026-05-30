@@ -14,13 +14,16 @@
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
@@ -331,8 +334,8 @@ section[id] .section-header h2 {
 .preview-box {
   padding: 48px;
   background-color: #fafbfc;
-  background-image: 
-    radial-gradient(#e2e8f0 1.2px, transparent 1.2px), 
+  background-image:
+    radial-gradient(#e2e8f0 1.2px, transparent 1.2px),
     radial-gradient(#e2e8f0 1.2px, #fafbfc 1.2px);
   background-size: 24px 24px;
   background-position: 0 0, 12px 12px;
@@ -477,7 +480,7 @@ section[id] .section-header h2 {
   box-sizing: border-box;
 }
 
-.forms-row + .forms-row {
+.forms-row+.forms-row {
   margin-top: 28px;
 }
 
@@ -595,7 +598,7 @@ section[id] .section-header h2 {
   gap: 12px;
 }
 
-.oc-row > * {
+.oc-row>* {
   flex: 1;
   min-width: 0;
 }
@@ -745,6 +748,7 @@ section[id] .section-header h2 {
     opacity: 0;
     transform: translateY(4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -756,12 +760,14 @@ section[id] .section-header h2 {
   .showcase-layout {
     flex-direction: column;
   }
+
   .showcase-sidebar {
     width: auto;
     border-right: none;
     border-bottom: 1px solid #e2e8f0;
     padding: 24px;
   }
+
   .showcase-main {
     padding: 32px 24px;
   }
@@ -774,9 +780,11 @@ section[id] .section-header h2 {
     gap: 20px;
     padding: 20px;
   }
+
   .control-buttons {
     width: 100%;
   }
+
   .control-toggle {
     flex: 1;
     justify-content: center;
@@ -813,7 +821,8 @@ section[id] .section-header h2 {
   font-family: var(--font-family);
   font-size: 1.05rem;
   font-weight: 700;
-  color: #003d29; /* Dark Forest Green Accent */
+  color: #003d29;
+  /* Dark Forest Green Accent */
   text-decoration: underline;
   text-underline-offset: 4px;
   cursor: pointer;
@@ -852,7 +861,7 @@ section[id] .section-header h2 {
   pointer-events: auto;
 }
 
-/* ── Student Directory showcase ──────────────────────────────────────────── */
+/* ── Table & Dataset showcase ──────────────────────────────────────────── */
 .directory-filter-header-bar {
   display: flex;
   flex-direction: column;
@@ -882,7 +891,8 @@ section[id] .section-header h2 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #e6eee9; /* Soft brand sage bg */
+  background-color: #e6eee9;
+  /* Soft brand sage bg */
   color: #4a5d54;
   border: 1px solid #c8dcd0;
   padding: 6px 14px;
@@ -918,6 +928,7 @@ section[id] .section-header h2 {
     transform: scale(0.9);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -936,7 +947,8 @@ section[id] .section-header h2 {
   align-items: center;
   justify-content: space-between;
   padding: 16px 24px;
-  background-color: #eaeaea; /* Matching header exactly */
+  background-color: #eaeaea;
+  /* Matching header exactly */
   border-top: 1.5px solid #cbd5e1;
   font-family: var(--font-family);
   flex-wrap: wrap;
@@ -980,7 +992,8 @@ section[id] .section-header h2 {
 }
 
 .pag-btn.active {
-  background-color: #003d29; /* Dark Forest Green */
+  background-color: #003d29;
+  /* Dark Forest Green */
   color: #ffffff;
   border-color: #003d29;
 }
@@ -1017,7 +1030,8 @@ section[id] .section-header h2 {
 }
 
 .alerts-grid app-alert {
-  flex: 1 1 340px; /* Side by side on wider screens, wraps on mobile */
+  flex: 1 1 340px;
+  /* Side by side on wider screens, wraps on mobile */
   min-width: 280px;
 }
 
@@ -1050,7 +1064,8 @@ section[id] .section-header h2 {
   align-items: center;
   justify-content: center;
   height: 90px;
-  background-color: #eaeaea; /* Matching grey mock header exactly */
+  background-color: #eaeaea;
+  /* Matching grey mock header exactly */
   border: 1px solid #cbd5e1;
   border-radius: 12px;
   font-family: var(--font-family);
@@ -1068,10 +1083,13 @@ section[id] .section-header h2 {
 }
 
 .mock-main-content-card {
-  flex: 3 1 450px; /* 3/4 layout, stacks under 450px */
+  flex: 3 1 450px;
+  /* 3/4 layout, stacks under 450px */
   height: 140px;
-  background-color: #e6eee9; /* Pale light sage background tint */
-  border: 1.5px solid #a8c3b4; /* Soft green borders */
+  background-color: #e6eee9;
+  /* Pale light sage background tint */
+  border: 1.5px solid #a8c3b4;
+  /* Soft green borders */
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -1084,9 +1102,11 @@ section[id] .section-header h2 {
 }
 
 .mock-sidebar-card {
-  flex: 1 1 200px; /* 1/4 layout */
+  flex: 1 1 200px;
+  /* 1/4 layout */
   height: 140px;
-  background-color: #fafbfc; /* Extremely light grey/cream */
+  background-color: #fafbfc;
+  /* Extremely light grey/cream */
   border: 1.5px solid #e2e8f0;
   border-radius: 12px;
   display: flex;
@@ -1197,12 +1217,12 @@ section[id] .section-header h2 {
   gap: 4px;
   cursor: default;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .color-swatch:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .color-swatch.sw-brand {
@@ -1240,13 +1260,13 @@ section[id] .section-header h2 {
 .semantic-swatch {
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .semantic-swatch:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .sem-main {
