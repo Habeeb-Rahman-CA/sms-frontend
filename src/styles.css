@@ -1,16 +1,139 @@
-/* ── Global styles ────────────────────────────────────────────────────────── */
+/* ── Global Styles & Design Tokens ─────────────────────────────────────── */
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import '@fortawesome/fontawesome-free/css/all.css';
 
-/* ── Primary Typeface: Atkinson Hyperlegible Next ───────────────────────── */
-/* Loaded locally via @font-face so no network dependency during build.      */
-/* CDN fallback via <link> in index.html is the actual delivery mechanism.   */
+/* ── Typeface ────────────────────────────────────────────────────────────── */
+/* Atkinson Hyperlegible Next delivered via <link> in index.html            */
 
+/* ── Design Tokens ───────────────────────────────────────────────────────── */
 :root {
+
+  /* Typography */
   --font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', Arial, sans-serif;
+  --font-mono:   'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  --text-xs:   0.75rem;    /* 12px */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg:   1.125rem;   /* 18px */
+  --text-xl:   1.25rem;    /* 20px */
+  --text-2xl:  1.5rem;     /* 24px */
+  --text-3xl:  1.875rem;   /* 30px */
+  --text-4xl:  2.25rem;    /* 36px */
+  --text-5xl:  2.75rem;    /* 44px */
+
+  --font-light:    300;
+  --font-normal:   400;
+  --font-medium:   500;
+  --font-semibold: 600;
+  --font-bold:     700;
+  --font-extrabold:800;
+
+  --leading-tight:  1.25;
+  --leading-snug:   1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed:1.625;
+
+  --tracking-tight:  -0.03em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.05em;
+  --tracking-wider:   0.1em;
+
+  /* ── Color Palette ─────────────────────────────────────────────────────── */
+
+  /* Primary — Forest Green */
+  --color-primary-950: #001a11;
+  --color-primary-900: #002d1e;
+  --color-primary-800: #003d29;   /* brand base */
+  --color-primary-700: #004d34;
+  --color-primary-600: #006644;
+  --color-primary-500: #008056;
+  --color-primary-400: #33a87e;
+  --color-primary-300: #66c9a3;
+  --color-primary-200: #a7e8cb;
+  --color-primary-100: #d4f5e8;
+  --color-primary-50:  #edfbf4;
+
+  /* Neutrals — Slate */
+  --color-neutral-950: #020617;
+  --color-neutral-900: #0f172a;
+  --color-neutral-800: #1e293b;
+  --color-neutral-700: #334155;
+  --color-neutral-600: #475569;
+  --color-neutral-500: #64748b;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-50:  #f8fafc;
+  --color-neutral-0:   #ffffff;
+
+  /* Semantic — Status */
+  --color-success-700: #15803d;
+  --color-success-500: #22c55e;
+  --color-success-100: #dcfce7;
+  --color-success-50:  #f0fdf4;
+
+  --color-warning-700: #b45309;
+  --color-warning-500: #f59e0b;
+  --color-warning-100: #fef3c7;
+  --color-warning-50:  #fffbeb;
+
+  --color-danger-700:  #b91c1c;
+  --color-danger-500:  #ef4444;
+  --color-danger-100:  #fee2e2;
+  --color-danger-50:   #fef2f2;
+
+  --color-info-700:    #1d4ed8;
+  --color-info-500:    #3b82f6;
+  --color-info-100:    #dbeafe;
+  --color-info-50:     #eff6ff;
+
+  /* ── Semantic Aliases ──────────────────────────────────────────────────── */
+  --color-primary:        var(--color-primary-800);
+  --color-primary-hover:  var(--color-primary-700);
+  --color-primary-tint:   rgba(0, 61, 41, 0.06);
+
+  --color-text-primary:   var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-muted:     var(--color-neutral-500);
+  --color-text-disabled:  var(--color-neutral-400);
+  --color-text-inverse:   var(--color-neutral-0);
+
+  --color-surface:        var(--color-neutral-0);
+  --color-surface-alt:    var(--color-neutral-50);
+  --color-surface-raised: var(--color-neutral-0);
+  --color-border:         var(--color-neutral-200);
+  --color-border-strong:  var(--color-neutral-300);
+
+  /* ── Spacing Scale ─────────────────────────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ── Border Radius ─────────────────────────────────────────────────────── */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   18px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ───────────────────────────────────────────────────────────── */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,0.10), 0 8px 16px rgba(0,0,0,0.04);
 }
 
-/* Apply globally so every element inherits it by default */
+/* ── Reset & Base ────────────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -18,6 +141,10 @@
 body {
   margin: 0;
   font-family: var(--font-family);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-alt);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: var(--leading-normal);
 }

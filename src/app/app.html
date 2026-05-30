@@ -1,14 +1,8 @@
 <div class="showcase-container">
   <!-- Top Navigation Bar -->
-  <app-topbar
-    schoolName="SMS Design System"
-    [navItems]="showcaseNavItems()"
-    [activeNavId]="showcaseNavActive()"
-    [notifications]="0"
-    avatarInitials="DS"
-    searchPlaceholder="Search components..."
-    (navChange)="onShowcaseNavChange($event)"
-  ></app-topbar>
+  <app-topbar schoolName="SMS Design System" [navItems]="showcaseNavItems()" [activeNavId]="showcaseNavActive()"
+    [notifications]="0" avatarInitials="DS" searchPlaceholder="Search components..."
+    (navChange)="onShowcaseNavChange($event)"></app-topbar>
 
   <!-- Sidebar & Main Content Layout -->
   <div class="showcase-layout">
@@ -17,43 +11,221 @@
       <div class="sidebar-section">
         <h3 class="sidebar-title">Foundation</h3>
         <ul class="sidebar-menu">
-          <li><a href="#" class="sidebar-item"><i class="fa-solid fa-palette"></i> Colors</a></li>
-          <li><a href="#" class="sidebar-item"><i class="fa-solid fa-font"></i> Typography</a></li>
+          <li><a href="#colors" class="sidebar-item"><i class="fa-solid fa-palette"></i> Colors</a></li>
+          <li><a href="#typography" class="sidebar-item"><i class="fa-solid fa-font"></i> Typography</a></li>
         </ul>
       </div>
 
       <div class="sidebar-section">
         <h3 class="sidebar-title">Components</h3>
         <ul class="sidebar-menu">
-          <li><a href="#buttons" class="sidebar-item active"><i class="fa-solid fa-square"></i> 1. Buttons</a></li>
-          <li><a href="#badges" class="sidebar-item"><i class="fa-solid fa-tags"></i> 2. Badges &amp; Labels</a></li>
-          <li><a href="#spinners" class="sidebar-item"><i class="fa-solid fa-arrows-spin"></i> 3. Spinners</a></li>
-          <li><a href="#navs" class="sidebar-item"><i class="fa-solid fa-compass"></i> 4. Navs &amp; Tabs</a></li>
-          <li><a href="#pagination" class="sidebar-item"><i class="fa-solid fa-list-ol"></i> 5. Pagination</a></li>
-          <li><a href="#forms" class="sidebar-item"><i class="fa-solid fa-square-poll-horizontal"></i> 6. Form Inputs</a>
+          <li><a href="#buttons" class="sidebar-item active"><i class="fa-solid fa-square"></i> Buttons</a></li>
+          <li><a href="#badges" class="sidebar-item"><i class="fa-solid fa-tags"></i> Badges &amp; Labels</a></li>
+          <li><a href="#spinners" class="sidebar-item"><i class="fa-solid fa-arrows-spin"></i> Spinners</a></li>
+          <li><a href="#navs" class="sidebar-item"><i class="fa-solid fa-compass"></i> Navs &amp; Tabs</a></li>
+          <li><a href="#pagination" class="sidebar-item"><i class="fa-solid fa-list-ol"></i> Pagination</a></li>
+          <li><a href="#forms" class="sidebar-item"><i class="fa-solid fa-square-poll-horizontal"></i> Form Inputs</a>
           </li>
-          <li><a href="#accordion" class="sidebar-item"><i class="fa-solid fa-layer-group"></i> 7. Accordion</a></li>
-          <li><a href="#carousel" class="sidebar-item"><i class="fa-solid fa-film"></i> 8. Carousel</a></li>
-          <li><a href="#skeleton" class="sidebar-item"><i class="fa-solid fa-ghost"></i> 9. Skeleton</a></li>
-          <li><a href="#modal-offcanvas" class="sidebar-item"><i class="fa-solid fa-window-restore"></i> 10. Modal &amp;
+          <li><a href="#accordion" class="sidebar-item"><i class="fa-solid fa-layer-group"></i> Accordion</a></li>
+          <li><a href="#carousel" class="sidebar-item"><i class="fa-solid fa-film"></i> Carousel</a></li>
+          <li><a href="#skeleton" class="sidebar-item"><i class="fa-solid fa-ghost"></i> Skeleton</a></li>
+          <li><a href="#modal-offcanvas" class="sidebar-item"><i class="fa-solid fa-window-restore"></i> Modal &amp;
               Offcanvas</a></li>
-          <li><a href="#table-directory" class="sidebar-item"><i class="fa-solid fa-table"></i> 11. Student Directory</a>
+          <li><a href="#table-directory" class="sidebar-item"><i class="fa-solid fa-table"></i> Student Directory</a>
           </li>
-          <li><a href="#file-uploaders" class="sidebar-item"><i class="fa-solid fa-file-arrow-up"></i> 12. File Uploaders</a></li>
-          <li><a href="#feedback-status" class="sidebar-item"><i class="fa-solid fa-circle-info"></i> 13. Feedback &amp; Status</a></li>
-          <li><a href="#layout-containers" class="sidebar-item"><i class="fa-solid fa-grip"></i> 14. Layout &amp; Containers</a></li>
-          <li><a href="#popover-toast" class="sidebar-item"><i class="fa-solid fa-message"></i> 15. Popovers &amp;
+          <li><a href="#file-uploaders" class="sidebar-item"><i class="fa-solid fa-file-arrow-up"></i> File
+              Uploaders</a></li>
+          <li><a href="#feedback-status" class="sidebar-item"><i class="fa-solid fa-circle-info"></i> Feedback &amp;
+              Status</a></li>
+          <li><a href="#layout-containers" class="sidebar-item"><i class="fa-solid fa-grip"></i> Layout &amp;
+              Containers</a></li>
+          <li><a href="#popover-toast" class="sidebar-item"><i class="fa-solid fa-message"></i> Popovers &amp;
               Toasts</a></li>
-          <li><a href="#topbar" class="sidebar-item"><i class="fa-solid fa-bars"></i> 16. Top Bar</a></li>
+          <li><a href="#topbar" class="sidebar-item"><i class="fa-solid fa-bars"></i> Top Bar</a></li>
         </ul>
       </div>
     </aside>
 
     <!-- Main Content Area -->
     <main class="showcase-main">
+      <!-- ── Colors Section ──────────────────────────────────────────────── -->
+      <section id="colors" class="showcase-section">
+        <div class="section-header">
+          <h2>Colors</h2>
+          <p>The SMS design system color palette — primary forest green brand tones, neutral slate grays, and four
+            semantic status colors. All values are available as CSS custom properties.</p>
+        </div>
+
+        <div class="color-palette-grid">
+
+          <!-- Primary Palette -->
+          <div class="color-group">
+            <p class="color-group-label">Primary — Forest Green</p>
+            <div class="color-swatches">
+              <div class="color-swatch" style="--sw-bg:#001a11;--sw-text:#ffffff"><span class="sw-label">950</span><span
+                  class="sw-hex">#001a11</span></div>
+              <div class="color-swatch" style="--sw-bg:#002d1e;--sw-text:#ffffff"><span class="sw-label">900</span><span
+                  class="sw-hex">#002d1e</span></div>
+              <div class="color-swatch sw-brand" style="--sw-bg:#003d29;--sw-text:#ffffff"><span class="sw-label">800
+                  ★</span><span class="sw-hex">#003d29</span></div>
+              <div class="color-swatch" style="--sw-bg:#004d34;--sw-text:#ffffff"><span class="sw-label">700</span><span
+                  class="sw-hex">#004d34</span></div>
+              <div class="color-swatch" style="--sw-bg:#006644;--sw-text:#ffffff"><span class="sw-label">600</span><span
+                  class="sw-hex">#006644</span></div>
+              <div class="color-swatch" style="--sw-bg:#008056;--sw-text:#ffffff"><span class="sw-label">500</span><span
+                  class="sw-hex">#008056</span></div>
+              <div class="color-swatch" style="--sw-bg:#33a87e;--sw-text:#ffffff"><span class="sw-label">400</span><span
+                  class="sw-hex">#33a87e</span></div>
+              <div class="color-swatch" style="--sw-bg:#66c9a3;--sw-text:#003d29"><span class="sw-label">300</span><span
+                  class="sw-hex">#66c9a3</span></div>
+              <div class="color-swatch" style="--sw-bg:#a7e8cb;--sw-text:#003d29"><span class="sw-label">200</span><span
+                  class="sw-hex">#a7e8cb</span></div>
+              <div class="color-swatch" style="--sw-bg:#d4f5e8;--sw-text:#003d29"><span class="sw-label">100</span><span
+                  class="sw-hex">#d4f5e8</span></div>
+              <div class="color-swatch" style="--sw-bg:#edfbf4;--sw-text:#003d29"><span class="sw-label">50</span><span
+                  class="sw-hex">#edfbf4</span></div>
+            </div>
+          </div>
+
+          <!-- Neutral Palette -->
+          <div class="color-group">
+            <p class="color-group-label">Neutrals — Slate</p>
+            <div class="color-swatches">
+              <div class="color-swatch" style="--sw-bg:#020617;--sw-text:#ffffff"><span class="sw-label">950</span><span
+                  class="sw-hex">#020617</span></div>
+              <div class="color-swatch" style="--sw-bg:#0f172a;--sw-text:#ffffff"><span class="sw-label">900</span><span
+                  class="sw-hex">#0f172a</span></div>
+              <div class="color-swatch" style="--sw-bg:#1e293b;--sw-text:#ffffff"><span class="sw-label">800</span><span
+                  class="sw-hex">#1e293b</span></div>
+              <div class="color-swatch" style="--sw-bg:#334155;--sw-text:#ffffff"><span class="sw-label">700</span><span
+                  class="sw-hex">#334155</span></div>
+              <div class="color-swatch" style="--sw-bg:#475569;--sw-text:#ffffff"><span class="sw-label">600</span><span
+                  class="sw-hex">#475569</span></div>
+              <div class="color-swatch" style="--sw-bg:#64748b;--sw-text:#ffffff"><span class="sw-label">500</span><span
+                  class="sw-hex">#64748b</span></div>
+              <div class="color-swatch" style="--sw-bg:#94a3b8;--sw-text:#0f172a"><span class="sw-label">400</span><span
+                  class="sw-hex">#94a3b8</span></div>
+              <div class="color-swatch" style="--sw-bg:#cbd5e1;--sw-text:#0f172a"><span class="sw-label">300</span><span
+                  class="sw-hex">#cbd5e1</span></div>
+              <div class="color-swatch" style="--sw-bg:#e2e8f0;--sw-text:#0f172a"><span class="sw-label">200</span><span
+                  class="sw-hex">#e2e8f0</span></div>
+              <div class="color-swatch" style="--sw-bg:#f1f5f9;--sw-text:#0f172a"><span class="sw-label">100</span><span
+                  class="sw-hex">#f1f5f9</span></div>
+              <div class="color-swatch" style="--sw-bg:#f8fafc;--sw-text:#0f172a"><span class="sw-label">50</span><span
+                  class="sw-hex">#f8fafc</span></div>
+            </div>
+          </div>
+
+          <!-- Semantic Row -->
+          <div class="color-group">
+            <p class="color-group-label">Semantic — Status</p>
+            <div class="semantic-swatches">
+              <div class="semantic-swatch">
+                <div class="sem-main" style="background:#22c55e;color:#ffffff">Success</div>
+                <div class="sem-light" style="background:#dcfce7;color:#15803d">#dcfce7</div>
+              </div>
+              <div class="semantic-swatch">
+                <div class="sem-main" style="background:#f59e0b;color:#ffffff">Warning</div>
+                <div class="sem-light" style="background:#fef3c7;color:#b45309">#fef3c7</div>
+              </div>
+              <div class="semantic-swatch">
+                <div class="sem-main" style="background:#ef4444;color:#ffffff">Danger</div>
+                <div class="sem-light" style="background:#fee2e2;color:#b91c1c">#fee2e2</div>
+              </div>
+              <div class="semantic-swatch">
+                <div class="sem-main" style="background:#3b82f6;color:#ffffff">Info</div>
+                <div class="sem-light" style="background:#dbeafe;color:#1d4ed8">#dbeafe</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── Typography Section ─────────────────────────────────────────── -->
+      <section id="typography" class="showcase-section">
+        <div class="section-header">
+          <h2>Typography</h2>
+          <p>Atkinson Hyperlegible Next — a typeface designed for maximum readability. The scale uses 9 steps from 12px
+            to 44px, with defined weight and line-height tokens.</p>
+        </div>
+
+        <div class="component-card">
+          <div class="typography-showcase">
+
+            <!-- Type Scale -->
+            <div class="type-scale-list">
+              <div class="type-scale-row">
+                <span class="type-meta">--text-5xl · 2.75rem · 800</span>
+                <span class="type-sample"
+                  style="font-size:2.75rem;font-weight:800;letter-spacing:-0.03em;line-height:1.15">Aa — School
+                  Registry</span>
+              </div>
+              <div class="type-scale-row">
+                <span class="type-meta">--text-4xl · 2.25rem · 700</span>
+                <span class="type-sample" style="font-size:2.25rem;font-weight:700;letter-spacing:-0.025em">Aa —
+                  Academic Year 2025</span>
+              </div>
+              <div class="type-scale-row">
+                <span class="type-meta">--text-3xl · 1.875rem · 700</span>
+                <span class="type-sample" style="font-size:1.875rem;font-weight:700;letter-spacing:-0.02em">Aa — Student
+                  Directory</span>
+              </div>
+              <div class="type-scale-row">
+                <span class="type-meta">--text-2xl · 1.5rem · 600</span>
+                <span class="type-sample" style="font-size:1.5rem;font-weight:600">Aa — Enrollment Summary</span>
+              </div>
+              <div class="type-scale-row">
+                <span class="type-meta">--text-xl · 1.25rem · 600</span>
+                <span class="type-sample" style="font-size:1.25rem;font-weight:600">Aa — Fee Payment Schedule</span>
+              </div>
+              <div class="type-scale-row">
+                <span class="type-meta">--text-lg · 1.125rem · 400</span>
+                <span class="type-sample" style="font-size:1.125rem;font-weight:400">Aa — Students are required to
+                  attend at least 85% of scheduled classes.</span>
+              </div>
+              <div class="type-scale-row">
+                <span class="type-meta">--text-base · 1rem · 400</span>
+                <span class="type-sample" style="font-size:1rem;font-weight:400">Aa — All tuition and lab fees must be
+                  settled by the 10th of each month.</span>
+              </div>
+              <div class="type-scale-row">
+                <span class="type-meta">--text-sm · 0.875rem · 400</span>
+                <span class="type-sample" style="font-size:0.875rem;font-weight:400">Aa — Contact the Finance Office for
+                  installment plan arrangements.</span>
+              </div>
+              <div class="type-scale-row">
+                <span class="type-meta">--text-xs · 0.75rem · 700 UPPERCASE</span>
+                <span class="type-sample"
+                  style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Aa — LABEL ·
+                  CATEGORY · STATUS TAG</span>
+              </div>
+            </div>
+
+            <!-- Font Weights -->
+            <div class="type-weights-row">
+              <div class="type-weight-card" style="font-weight:300"><span class="tw-val">300</span><span
+                  class="tw-name">Light</span><span class="tw-preview">Oakhaven Academy</span></div>
+              <div class="type-weight-card" style="font-weight:400"><span class="tw-val">400</span><span
+                  class="tw-name">Regular</span><span class="tw-preview">Oakhaven Academy</span></div>
+              <div class="type-weight-card" style="font-weight:500"><span class="tw-val">500</span><span
+                  class="tw-name">Medium</span><span class="tw-preview">Oakhaven Academy</span></div>
+              <div class="type-weight-card" style="font-weight:600"><span class="tw-val">600</span><span
+                  class="tw-name">Semibold</span><span class="tw-preview">Oakhaven Academy</span></div>
+              <div class="type-weight-card" style="font-weight:700"><span class="tw-val">700</span><span
+                  class="tw-name">Bold</span><span class="tw-preview">Oakhaven Academy</span></div>
+              <div class="type-weight-card" style="font-weight:800"><span class="tw-val">800</span><span
+                  class="tw-name">Extrabold</span><span class="tw-preview">Oakhaven Academy</span></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 1. Buttons -->
       <section class="intro-section">
         <span class="category-tag">UI Component Library</span>
-        <h1>1. Buttons</h1>
+        <h1>Buttons</h1>
         <p class="section-desc">
           A highly reusable, interactive button component built for the School Management System (SMS). Supports
           variants, sizes, icon placement, state tracking, and satisfying micro-interactions.
@@ -231,7 +403,7 @@
       <!-- 5. Badges & Labels Section -->
       <section id="badges" class="showcase-section">
         <div class="section-header">
-          <h2>2. Badges &amp; Labels</h2>
+          <h2>Badges &amp; Labels</h2>
           <p>Flexible label badges designed for metadata, active filters, status states, and categorization.</p>
         </div>
 
@@ -255,7 +427,7 @@
       <!-- 6. Spinners Section -->
       <section id="spinners" class="showcase-section">
         <div class="section-header">
-          <h2>3. Spinners</h2>
+          <h2>Spinners</h2>
           <p>Clean loading spinners configured in dynamic sizing hierarchies for background processes and visual
             feedback.</p>
         </div>
@@ -291,7 +463,7 @@
       <!-- 7. Navs & Tabs Section -->
       <section id="navs" class="showcase-section">
         <div class="section-header">
-          <h2>4. Navs &amp; Tabs</h2>
+          <h2>Navs &amp; Tabs</h2>
           <p>Underline action tabs with smooth reactive indicator transitions and disabled state visual styling.</p>
         </div>
 
@@ -345,7 +517,7 @@
       <!-- 8. Pagination Section -->
       <section id="pagination" class="showcase-section">
         <div class="section-header">
-          <h2>5. Pagination</h2>
+          <h2>Pagination</h2>
           <p>Circular-rounded page navigation blocks supporting truncation dots, chevrons, and active indices.</p>
         </div>
 
@@ -372,7 +544,7 @@
       <!-- 9. Forms & Inputs Section -->
       <section id="forms" class="showcase-section">
         <div class="section-header">
-          <h2>6. Form Inputs</h2>
+          <h2>Form Inputs</h2>
           <p>A comprehensive set of interactive form controls — text fields, selects, currency inputs, checkboxes,
             radios, range sliders, and validation states.</p>
         </div>
@@ -459,7 +631,7 @@
       <!-- Accordion Section -->
       <section id="accordion" class="showcase-section">
         <div class="section-header">
-          <h2>7. Accordion</h2>
+          <h2>Accordion</h2>
           <p>Vertically stacked, bordered disclosure panels. One panel open at a time with a smooth CSS max-height
             transition.</p>
         </div>
@@ -482,7 +654,7 @@
       <!-- Carousel Section -->
       <section id="carousel" class="showcase-section">
         <div class="section-header">
-          <h2>8. Carousel</h2>
+          <h2>Carousel</h2>
           <p>Touch-friendly slide viewer with gradient overlay captions, blurred-glass arrows, and stretching dot
             indicators.</p>
         </div>
@@ -505,7 +677,7 @@
       <!-- Skeleton Section -->
       <section id="skeleton" class="showcase-section">
         <div class="section-header">
-          <h2>9. Skeleton Placeholders</h2>
+          <h2>Skeleton Placeholders</h2>
           <p>Shimmer-animated placeholder shapes — used during data-loading states to preserve layout and reduce
             perceived latency.</p>
         </div>
@@ -541,7 +713,7 @@
       <!-- Modal & Offcanvas Section -->
       <section id="modal-offcanvas" class="showcase-section">
         <div class="section-header">
-          <h2>10. Modal &amp; Offcanvas</h2>
+          <h2>Modal &amp; Offcanvas</h2>
           <p>Overlay dialog and slide-in panel components — both with backdrop blur, CSS-transition animations, and
             flexible ng-content slots.</p>
         </div>
@@ -697,50 +869,49 @@
       <!-- Student Directory Section -->
       <section id="table-directory" class="showcase-section">
         <div class="section-header">
-          <h2>11. Student Directory (Data Table)</h2>
-          <p>A premium data grid showcasing real-time sorting, searching, and filtering of student profiles powered by reactive Signals.</p>
+          <h2>Student Directory</h2>
+          <p>A premium data grid showcasing real-time sorting, searching, and filtering of student profiles powered by
+            reactive Signals.</p>
         </div>
 
         <div class="component-card">
           <!-- Mockup Active Filters Header Panel -->
           <div class="directory-filter-header-bar">
             <span class="advanced-filters-label">Advanced Filters</span>
-            
+
             <div class="filter-actions-row">
               <!-- Trigger Refine Search Offcanvas -->
-              <app-button
-                variant="primary"
-                iconLeft="fa-solid fa-filter"
-                (click)="showOffcanvas.set(true)"
-              >
+              <app-button variant="primary" iconLeft="fa-solid fa-filter" (click)="showOffcanvas.set(true)">
                 Refine Search
               </app-button>
 
               <!-- Active Grade Pill -->
               @if (getGradeLabel() !== '') {
-                <div class="active-filter-pill">
-                  <span>{{ getGradeLabel() }}</span>
-                  <button type="button" class="clear-pill-btn" (click)="clearGradeFilter()" aria-label="Clear grade filter">
-                    <i class="fa-solid fa-xmark"></i>
-                  </button>
-                </div>
+              <div class="active-filter-pill">
+                <span>{{ getGradeLabel() }}</span>
+                <button type="button" class="clear-pill-btn" (click)="clearGradeFilter()"
+                  aria-label="Clear grade filter">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
               }
 
               <!-- Active Section Pill -->
               @if (getSectionLabel() !== '') {
-                <div class="active-filter-pill">
-                  <span>{{ getSectionLabel() }}</span>
-                  <button type="button" class="clear-pill-btn" (click)="clearSectionFilter()" aria-label="Clear section filter">
-                    <i class="fa-solid fa-xmark"></i>
-                  </button>
-                </div>
+              <div class="active-filter-pill">
+                <span>{{ getSectionLabel() }}</span>
+                <button type="button" class="clear-pill-btn" (click)="clearSectionFilter()"
+                  aria-label="Clear section filter">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
               }
             </div>
           </div>
 
           <div class="preview-box table-preview-box-container">
             <app-table [columns]="tableColumns()" [data]="filteredStudents()">
-              
+
               <!-- Custom projected footer matching screenshot -->
               <div table-footer class="app-table-footer-row">
                 <span class="footer-summary-text">
@@ -752,14 +923,14 @@
                   <button type="button" class="pag-btn pag-nav-btn" aria-label="Previous page">
                     <i class="fa-solid fa-chevron-left"></i>
                   </button>
-                  
+
                   <!-- Page numbers -->
                   <button type="button" class="pag-btn pag-num-btn active">1</button>
                   <button type="button" class="pag-btn pag-num-btn">2</button>
                   <button type="button" class="pag-btn pag-num-btn">3</button>
-                  
+
                   <span class="pag-ellipsis">...</span>
-                  
+
                   <!-- Next chevron -->
                   <button type="button" class="pag-btn pag-nav-btn" aria-label="Next page">
                     <i class="fa-solid fa-chevron-right"></i>
@@ -784,8 +955,9 @@
       <!-- File Uploaders Section -->
       <section id="file-uploaders" class="showcase-section">
         <div class="section-header">
-          <h2>12. File Uploaders</h2>
-          <p>A drag-and-drop file uploader component with instant format validation, interactive uploading status animations, and micro progress meters.</p>
+          <h2>File Uploaders</h2>
+          <p>A drag-and-drop file uploader component with instant format validation, interactive uploading status
+            animations, and micro progress meters.</p>
         </div>
 
         <div class="component-card">
@@ -802,40 +974,27 @@
       <!-- Feedback & Status Section -->
       <section id="feedback-status" class="showcase-section">
         <div class="section-header">
-          <h2>13. Feedback &amp; Status</h2>
-          <p>Semantic alert messages and visually appealing progress meters representing student processes, registrations, and completions.</p>
+          <h2>Feedback &amp; Status</h2>
+          <p>Semantic alert messages and visually appealing progress meters representing student processes,
+            registrations, and completions.</p>
         </div>
 
         <!-- Layout container matching mockup layout exactly -->
         <div class="feedback-status-container">
           <!-- Row 1: Alerts Grid -->
           <div class="alerts-grid">
-            <app-alert
-              type="info"
-              title="Enrollment Update"
-              message="Phase 2 registration starts next Monday at 8:00 AM."
-            ></app-alert>
+            <app-alert type="info" title="Enrollment Update"
+              message="Phase 2 registration starts next Monday at 8:00 AM."></app-alert>
 
-            <app-alert
-              type="danger"
-              title="Missing Documentation"
-              message="35 students have pending health clearance forms."
-            ></app-alert>
+            <app-alert type="danger" title="Missing Documentation"
+              message="35 students have pending health clearance forms."></app-alert>
           </div>
 
           <!-- Row 2: Progress Bars Container Card -->
           <div class="progress-bars-card">
-            <app-progress
-              label="Graduation Requirement Completion"
-              [value]="75"
-              variant="primary"
-            ></app-progress>
+            <app-progress label="Graduation Requirement Completion" [value]="75" variant="primary"></app-progress>
 
-            <app-progress
-              label="Processing Transcripts..."
-              [value]="40"
-              variant="secondary"
-            ></app-progress>
+            <app-progress label="Processing Transcripts..." [value]="40" variant="secondary"></app-progress>
           </div>
         </div>
 
@@ -848,7 +1007,7 @@
       <!-- Layout & Containers Section -->
       <section id="layout-containers" class="showcase-section">
         <div class="section-header">
-          <h2>14. Layout &amp; Containers</h2>
+          <h2>Layout &amp; Containers</h2>
           <p>Responsive multi-column grids and structural content wraps configured for high-fidelity dashboards.</p>
         </div>
 
@@ -870,7 +1029,7 @@
               <div class="mock-main-content-card">
                 Main Content Area (3/4)
               </div>
-              
+
               <div class="mock-sidebar-card">
                 Sidebar (1/4)
               </div>
@@ -894,7 +1053,7 @@
       <!-- Popovers & Toasts Section -->
       <section id="popover-toast" class="showcase-section">
         <div class="section-header">
-          <h2>15. Popovers &amp; Toasts</h2>
+          <h2>Popovers &amp; Toasts</h2>
           <p>Overlay helper tips and transient notification banners built to fit the School Management System branding
             guidelines.</p>
         </div>
@@ -940,7 +1099,7 @@
       <!-- ── 16. Top Bar Section ─────────────────────────────────────── -->
       <section id="topbar" class="showcase-section">
         <div class="section-header">
-          <h2>16. Top Bar</h2>
+          <h2>Top Bar</h2>
           <p>A responsive top navigation bar for the SMS dashboard — with school branding, primary nav links,
             an expanding search field, notification badge, settings, and a user avatar with online indicator.</p>
         </div>
@@ -949,15 +1108,9 @@
           <!-- Live demo -->
           <div class="preview-box topbar-preview-box">
             <div class="topbar-demo-shell">
-              <app-topbar
-                schoolName="Oakhaven Academy"
-                [navItems]="topbarNavItems()"
-                [activeNavId]="topbarActiveNav()"
-                [notifications]="3"
-                avatarInitials="OA"
-                searchPlaceholder="Global Search..."
-                (navChange)="onTopbarNavChange($event)"
-              ></app-topbar>
+              <app-topbar schoolName="Oakhaven Academy" [navItems]="topbarNavItems()" [activeNavId]="topbarActiveNav()"
+                [notifications]="3" avatarInitials="OA" searchPlaceholder="Global Search..."
+                (navChange)="onTopbarNavChange($event)"></app-topbar>
 
               <!-- Fake content below the bar -->
               <div class="topbar-demo-content">
