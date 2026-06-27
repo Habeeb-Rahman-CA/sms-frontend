@@ -29,7 +29,11 @@
 
     <!-- Suffix Addon: FA icon class or plain text (e.g. 'USD') -->
     @if (suffix()) {
-      <span class="input-addon addon-suffix">
+      <span 
+        class="input-addon addon-suffix" 
+        (click)="suffixClick.emit()"
+        [style.cursor]="'pointer'"
+      >
         @if (isIconClass(suffix()!)) {
           <i [class]="suffix()" aria-hidden="true"></i>
         } @else {

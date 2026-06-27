@@ -23,5 +23,11 @@
   </span>
 
   <!-- Label text -->
-  <span class="checkbox-label">{{ label() }}</span>
+  <span class="checkbox-label">
+    @if (label()) {
+      {{ label() }}
+    } @else {
+      <ng-content></ng-content>
+    }
+  </span>
 </label>

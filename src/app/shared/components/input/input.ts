@@ -1,4 +1,4 @@
-import { Component, computed, input, model } from '@angular/core';
+import { Component, computed, input, model, output } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -10,6 +10,9 @@ import { Component, computed, input, model } from '@angular/core';
 export class Input {
   // Two-way bindable signal model
   readonly value = model<string>('');
+  
+  // Click event for the suffix addon
+  readonly suffixClick = output<void>();
 
   // Sizing & styling inputs
   readonly label = input<string | undefined>(undefined);

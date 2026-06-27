@@ -1,0 +1,299 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: var(--font-family, 'Atkinson Hyperlegible Next', -apple-system, BlinkMacSystemFont, sans-serif);
+}
+
+/* ── Layout ───────────────────────────────────────────────────────────────── */
+.signin-container {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  min-height: 100vh;
+}
+
+/* ── Left Brand Panel ─────────────────────────────────────────────────────── */
+.brand-panel {
+  background:
+    radial-gradient(ellipse at 60% 20%, rgba(0, 100, 65, 0.45) 0%, transparent 60%),
+    linear-gradient(160deg, #0d2b1e 0%, #092016 40%, #061510 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 52px 56px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Subtle decorative glow blob */
+.brand-panel::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 100, 65, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.brand-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo-icon {
+  font-size: 1.2rem;
+  color: #52c49a;
+}
+
+.brand-logo-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #e0f5ec;
+  letter-spacing: -0.01em;
+}
+
+/* Hero copy */
+.brand-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px 0;
+  color: #52c49a;
+}
+
+.brand-hero p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #8ecfb1;
+  margin: 0;
+  max-width: 360px;
+}
+
+/* Bottom footer stamp */
+.brand-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.brand-footer-line {
+  width: 56px;
+  height: 2px;
+  background-color: rgba(82, 196, 154, 0.45);
+  border-radius: 2px;
+}
+
+.brand-footer-text {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(142, 207, 177, 0.6);
+}
+
+/* ── Right Form Panel ─────────────────────────────────────────────────────── */
+.form-panel {
+  background-color: #f5f7f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 48px;
+  box-sizing: border-box;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Form Header */
+.form-header {
+  margin-bottom: 32px;
+}
+
+.form-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin: 0 0 8px 0;
+}
+
+.form-header p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Alert */
+.alert-wrapper {
+  margin-bottom: 24px;
+}
+
+/* Form */
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Password Label Row */
+.password-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.field-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.forgot-link {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1d6fad;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.forgot-link:hover {
+  color: #155a8a;
+  text-decoration: underline;
+}
+
+/* Remember Me */
+.remember-row {
+  margin-top: -4px;
+}
+
+app-button {
+  display: block;
+  width: 100%;
+}
+
+/* Sign In Button */
+::ng-deep .signin-btn {
+  width: 100% !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+  background-color: #003d29 !important;
+  border-color: #003d29 !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+::ng-deep .signin-btn:hover:not(:disabled) {
+  background-color: #002d1e !important;
+  border-color: #002d1e !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 61, 41, 0.22);
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: #d1d9cf;
+}
+
+.divider-text {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a9e8a;
+  white-space: nowrap;
+}
+
+/* Register School Button */
+::ng-deep .register-school-btn {
+  width: 100% !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  border-color: #003d29 !important;
+  color: #003d29 !important;
+  transition: all 0.2s ease !important;
+}
+
+::ng-deep .register-school-btn:hover {
+  background-color: rgba(0, 61, 41, 0.04) !important;
+}
+
+/* Form Footer */
+.form-footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.form-footer span {
+  margin-right: 4px;
+}
+
+.support-link {
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.support-link:hover {
+  border-color: #0f172a;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .signin-container {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-panel {
+    display: none;
+  }
+
+  .form-panel {
+    padding: 48px 24px;
+    background-color: #ffffff;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-panel {
+    padding: 32px 20px;
+  }
+
+  .form-header h2 {
+    font-size: 1.75rem;
+  }
+}

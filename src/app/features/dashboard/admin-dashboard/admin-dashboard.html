@@ -1,0 +1,214 @@
+<div class="dash-shell">
+
+  <!-- ── Top Bar ─────────────────────────────────────────────────────────── -->
+  <app-topbar
+    schoolName="SMS Academy"
+    [navItems]="topNavItems"
+    [activeNavId]="activeNav()"
+    [notifications]="3"
+    avatarInitials="AD"
+    (navChange)="onNavChange($event)"
+  ></app-topbar>
+
+  <!-- ── Body (sidebar + main) ──────────────────────────────────────────── -->
+  <div class="dash-body">
+
+    <!-- Sidebar -->
+    <app-sidebar
+      schoolName="Admin Portal"
+      schoolRole="Central Command"
+      [navGroups]="sidebarNavGroups"
+      [activeItemId]="activeSidebarItem()"
+      [bottomItems]="sidebarBottomItems"
+      (itemClick)="onSidebarItemClick($event)"
+    ></app-sidebar>
+
+    <!-- Main content -->
+    <main class="dash-main">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">School Overview</h1>
+          <p class="page-subtitle">SMS Academy &mdash; Main Campus</p>
+        </div>
+      </div>
+
+      <!-- ── Stat Cards ──────────────────────────────────────────────────── -->
+      <div class="stat-grid">
+        @for (card of statCards; track card.label) {
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-label">{{ card.label }}</span>
+              <span class="stat-icon" [ngClass]="'stat-icon--' + card.iconColor">
+                <i [class]="card.icon"></i>
+              </span>
+            </div>
+            <div class="stat-value">{{ card.value }}</div>
+            <div class="stat-trend"
+                 [ngClass]="{
+                   'trend-up':   card.trendUp === true,
+                   'trend-down': card.trendUp === false,
+                   'trend-neutral': card.trendUp === null
+                 }">
+              {{ card.trend }}
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- ── Bottom Grid (chart + faculty | urgent + quick) ─────────────── -->
+      <div class="content-grid">
+
+        <!-- LEFT column -->
+        <div class="col-left">
+
+          <!-- Academic Performance card -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3 class="panel-title">Academic Performance</h3>
+              <div class="legend">
+                <span class="legend-dot legend-dot--green"></span> Science
+                <span class="legend-dot legend-dot--blue"></span> Arts
+                <span class="legend-dot legend-dot--navy"></span> Commerce
+              </div>
+            </div>
+            <div class="chart-area">
+              <div class="chart-bars">
+                @for (bar of chartBars; track bar.dept) {
+                  <div class="chart-col">
+                    <div class="chart-bar-track">
+                      <div class="chart-bar-fill" [style.height.%]="bar.score"></div>
+                    </div>
+                    <span class="chart-bar-label">{{ bar.dept }}</span>
+                  </div>
+                }
+              </div>
+              <!-- Y-axis guide lines -->
+              <div class="chart-guides">
+                <span class="guide-line"></span>
+                <span class="guide-line"></span>
+                <span class="guide-line"></span>
+                <span class="guide-line"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Faculty Leadership card -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3 class="panel-title">Faculty Leadership</h3>
+              <a class="view-all-link" href="javascript:void(0)">View All Staff</a>
+            </div>
+            <table class="faculty-table">
+              <thead>
+                <tr>
+                  <th>NAME</th>
+                  <th>DEPARTMENT</th>
+                  <th>STATUS</th>
+                  <th>WORKLOAD</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (row of facultyRows; track row.name) {
+                  <tr>
+                    <td>
+                      <div class="faculty-name-cell">
+                        <div class="faculty-avatar">{{ row.initials }}</div>
+                        <div>
+                          <div class="faculty-name">{{ row.name }}</div>
+                          <div class="faculty-title">{{ row.title }}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="faculty-dept">{{ row.dept }}</td>
+                    <td>
+                      <span class="status-badge" [ngClass]="'status-badge--' + row.statusClass">
+                        {{ row.status }}
+                      </span>
+                    </td>
+                    <td class="faculty-workload">
+                      <div class="workload-bar-track">
+                        <div class="workload-bar-fill" [style.width.%]="row.workload"></div>
+                      </div>
+                      <span class="workload-label">{{ row.workload }}% Capacity</span>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- RIGHT column -->
+        <div class="col-right">
+
+          <!-- Urgent Actions panel -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3 class="panel-title">
+                <i class="fa-solid fa-circle-exclamation urgent-icon"></i>
+                Urgent Actions
+              </h3>
+            </div>
+            <div class="urgent-list">
+              @for (item of urgentActions; track item.title) {
+                <div class="urgent-item" [ngClass]="'urgent-item--' + item.type">
+                  <div class="urgent-item-header">
+                    <i [class]="item.icon + ' urgent-item-icon'"></i>
+                    <span class="urgent-title">{{ item.title }}</span>
+                  </div>
+                  <p class="urgent-desc">{{ item.desc }}</p>
+                  @if (item.action) {
+                    <a href="javascript:void(0)" class="urgent-action-link">{{ item.action }}</a>
+                  }
+                  @if (item.actionApprove) {
+                    <div class="urgent-actions-row">
+                      <app-button variant="primary" size="sm">{{ item.actionApprove }}</app-button>
+                      <app-button variant="outline" size="sm">{{ item.actionDeny }}</app-button>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Quick Actions panel -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3 class="panel-title">Quick Actions</h3>
+            </div>
+            <div class="quick-actions-list">
+              @for (qa of quickActions; track qa.label) {
+                <button type="button" class="quick-action-btn">
+                  <i [class]="qa.icon + ' quick-action-icon'"></i>
+                  <span>{{ qa.label }}</span>
+                  <i class="fa-solid fa-chevron-right quick-action-chevron"></i>
+                </button>
+              }
+            </div>
+          </div>
+
+          <!-- Server Status -->
+          <div class="server-status-panel">
+            <div class="server-status-label">SERVER STATUS</div>
+            <div class="server-status-value">
+              <span class="server-dot"></span>
+              Operational
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ── Add New Record FAB (sidebar bottom) ───────────────────────────── -->
+  <button type="button" class="fab-btn">
+    <i class="fa-solid fa-plus"></i>
+    Add New Record
+  </button>
+
+</div>

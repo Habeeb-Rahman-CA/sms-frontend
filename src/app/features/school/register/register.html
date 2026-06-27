@@ -1,0 +1,224 @@
+<div class="register-container">
+  <!-- Left Side: Brand & Value Prop (Forest Green Card) -->
+  <div class="brand-panel">
+    <div class="brand-content">
+      <h1 class="brand-logo">SMS Academy</h1>
+      <p class="brand-description">
+        Join a community of excellence. Empower your faculty and students with an administrative system built for clarity and support.
+      </p>
+
+      <ul class="features-list">
+        <li>
+          <span class="feature-icon-wrapper">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </span>
+          <span>Streamlined Academics</span>
+        </li>
+        <li>
+          <span class="feature-icon-wrapper">
+            <i class="fa-solid fa-wallet"></i>
+          </span>
+          <span>Transparent Finances</span>
+        </li>
+        <li>
+          <span class="feature-icon-wrapper">
+            <i class="fa-solid fa-shield-halved"></i>
+          </span>
+          <span>Secure Data Management</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Right Side: Creation Form -->
+  <div class="form-panel">
+    <div class="form-card">
+      <div class="form-header">
+        <h2>Create School Account</h2>
+        <p>Register your educational institution to get started.</p>
+      </div>
+
+      <!-- Feedback Alerts -->
+      @if (errorMessage()) {
+        <div class="alert-wrapper">
+          <app-alert variant="error" [message]="errorMessage()!"></app-alert>
+        </div>
+      }
+      @if (successMessage()) {
+        <div class="alert-wrapper">
+          <app-alert variant="success" [message]="successMessage()!"></app-alert>
+        </div>
+      }
+
+      <form (submit)="onSubmit($event)" class="registration-form">
+        <!-- School Name & School Code Row -->
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <app-input
+              label="School Name"
+              placeholder="Green Valley School"
+              [value]="schoolName()"
+              (valueChange)="schoolName.set($event)"
+              [state]="schoolNameState()"
+              [message]="schoolNameMsg()"
+            ></app-input>
+          </div>
+          <div class="form-group flex-1">
+            <app-input
+              label="School Code"
+              placeholder="GVS"
+              [value]="schoolCode()"
+              (valueChange)="schoolCode.set($event)"
+              [state]="schoolCodeState()"
+              [message]="schoolCodeMsg()"
+            ></app-input>
+          </div>
+        </div>
+
+        <!-- Admin Name -->
+        <div class="form-group">
+          <app-input
+            label="Admin Name"
+            placeholder="Rahman"
+            [value]="adminName()"
+            (valueChange)="adminName.set($event)"
+            [state]="adminNameState()"
+            [message]="adminNameMsg()"
+          ></app-input>
+        </div>
+
+        <!-- Email & Phone Row -->
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <app-input
+              label="Email Address"
+              type="email"
+              placeholder="admin@gvs.com"
+              [value]="email()"
+              (valueChange)="email.set($event)"
+              [state]="emailState()"
+              [message]="emailMsg()"
+            ></app-input>
+          </div>
+          <div class="form-group flex-1">
+            <app-input
+              label="Phone Number"
+              type="tel"
+              placeholder="+1 (555) 000-0000"
+              [value]="phone()"
+              (valueChange)="phone.set($event)"
+              [state]="phoneState()"
+              [message]="phoneMsg()"
+            ></app-input>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <app-input
+            label="Password"
+            [type]="passwordType"
+            placeholder="••••••••"
+            [value]="password()"
+            (valueChange)="password.set($event)"
+            [suffix]="passwordSuffixIcon"
+            (suffixClick)="togglePasswordVisibility()"
+            [state]="passwordState()"
+            [message]="passwordMsg()"
+          ></app-input>
+        </div>
+
+        <!-- Terms & Conditions Checkbox -->
+        <div class="form-group terms-checkbox-wrapper">
+          <app-checkbox [checked]="agreeTerms()" (checkedChange)="agreeTerms.set($event)">
+            I agree to the <a href="javascript:void(0)" (click)="isTermsOpen.set(true)" class="legal-link">Terms of Service</a> and <a href="javascript:void(0)" (click)="isPrivacyOpen.set(true)" class="legal-link">Privacy Policy</a> of SMS Academy.
+          </app-checkbox>
+          @if (agreeTermsState() === 'error' && agreeTermsMsg()) {
+            <span class="terms-error-message" role="alert">
+              <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+              {{ agreeTermsMsg() }}
+            </span>
+          }
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-submit-wrapper">
+          <app-button
+            type="submit"
+            variant="primary"
+            size="lg"
+            [loading]="loading()"
+            iconRight="fa-solid fa-arrow-right"
+            customClass="register-btn"
+          >
+            Create School Account
+          </app-button>
+        </div>
+      </form>
+
+      <!-- Already have an account footer -->
+      <div class="form-footer">
+        <span>Already have an account? </span>
+        <a routerLink="/login" class="signin-link">Sign In</a>
+      </div>
+    </div>
+
+    <!-- Need assistance bottom floater -->
+    <div class="assistance-floater">
+      <div class="assistance-icon">
+        <i class="fa-regular fa-circle-question"></i>
+      </div>
+      <div class="assistance-text">
+        <h5>Need assistance?</h5>
+        <p>Our support team is available 24/7 to help your school transition.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal
+  [isOpen]="isTermsOpen()"
+  title="Terms of Service"
+  size="lg"
+  (closed)="isTermsOpen.set(false)"
+>
+  <div style="padding: 24px; color: #475569; line-height: 1.65;">
+    <h4 style="margin-top: 0; color: #0f172a;">1. Acceptance of Terms</h4>
+    <p>By accessing and using the SMS Academy platform, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+    <h4 style="color: #0f172a;">2. User Accounts</h4>
+    <p>You are responsible for safeguarding your account credentials and for all activities that occur under your account. You must notify us immediately of any unauthorised use.</p>
+    <h4 style="color: #0f172a;">3. Data Privacy</h4>
+    <p>We take data privacy seriously. Your data is handled in accordance with our Privacy Policy. SMS Academy ensures robust encryption and access control across all tenants.</p>
+    <h4 style="color: #0f172a;">4. Acceptable Use</h4>
+    <p>You agree not to misuse the services or help anyone else do so. You may only use the services in compliance with applicable laws and these terms.</p>
+    <h4 style="color: #0f172a;">5. Termination</h4>
+    <p>We reserve the right to suspend or terminate access to the platform for violations of these terms, without prior notice.</p>
+  </div>
+  <div modal-footer>
+    <app-button variant="primary" (click)="isTermsOpen.set(false)">Got it</app-button>
+  </div>
+</app-modal>
+
+<!-- Privacy Modal -->
+<app-modal
+  [isOpen]="isPrivacyOpen()"
+  title="Privacy Policy"
+  size="lg"
+  (closed)="isPrivacyOpen.set(false)"
+>
+  <div style="padding: 24px; color: #475569; line-height: 1.65;">
+    <h4 style="margin-top: 0; color: #0f172a;">Information We Collect</h4>
+    <p>We collect information to provide better services to our users. This includes basic account information such as your name, email address, and school details.</p>
+    <h4 style="color: #0f172a;">How We Use Information</h4>
+    <p>We use the information we collect to operate, maintain, and improve our services, as well as to communicate with you regarding updates and support.</p>
+    <h4 style="color: #0f172a;">Data Security</h4>
+    <p>We implement industry-standard security measures to protect your data from unauthorized access, alteration, or destruction. All data is encrypted in transit and at rest.</p>
+    <h4 style="color: #0f172a;">Your Rights</h4>
+    <p>You have the right to access, correct, or delete your personal data. You can contact our support team to exercise these rights at any time.</p>
+    <h4 style="color: #0f172a;">Cookies</h4>
+    <p>We use cookies and similar technologies to keep you signed in and to remember your preferences within the platform.</p>
+  </div>
+  <div modal-footer>
+    <app-button variant="primary" (click)="isPrivacyOpen.set(false)">Close</app-button>
+  </div>
+</app-modal>
