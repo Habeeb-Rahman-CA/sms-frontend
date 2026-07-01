@@ -7,7 +7,7 @@
 /* ── Layout ───────────────────────────────────────────────────────────────── */
 .signin-container {
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
+  grid-template-columns: 1.1fr 1.3fr;
   min-height: 100vh;
 }
 
@@ -105,7 +105,7 @@
 
 /* ── Right Form Panel ─────────────────────────────────────────────────────── */
 .form-panel {
-  background-color: #f5f7f2;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,15 +124,15 @@
 }
 
 .form-header h2 {
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: var(--text-4xl, 2.25rem);
+  font-weight: var(--font-extrabold, 800);
   color: #0f172a;
   letter-spacing: -0.025em;
   margin: 0 0 8px 0;
 }
 
 .form-header p {
-  font-size: 0.95rem;
+  font-size: var(--text-base, 1rem);
   color: #475569;
   line-height: 1.5;
   margin: 0;
@@ -164,7 +164,7 @@
 }
 
 .field-label {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #0f172a;
 }
@@ -252,7 +252,7 @@ app-button {
 .form-footer {
   margin-top: 32px;
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   color: #64748b;
 }
 

@@ -56,6 +56,7 @@
           <div class="form-group flex-2">
             <app-input
               label="School Name"
+              prefix="fa-regular fa-building"
               placeholder="Green Valley School"
               [value]="schoolName()"
               (valueChange)="onSchoolNameChange($event)"
@@ -66,6 +67,7 @@
           <div class="form-group flex-1">
             <app-input
               label="School Code"
+              prefix="fa-solid fa-hashtag"
               placeholder="GVS"
               [value]="schoolCode()"
               (valueChange)="onSchoolCodeChange($event)"
@@ -79,6 +81,7 @@
         <div class="form-group">
           <app-input
             label="Admin Name"
+            prefix="fa-regular fa-circle-user"
             placeholder="Rahman"
             [value]="adminName()"
             (valueChange)="onAdminNameChange($event)"
@@ -93,6 +96,7 @@
             <app-input
               label="Email Address"
               type="email"
+              prefix="fa-regular fa-envelope"
               placeholder="admin@gvs.com"
               [value]="email()"
               (valueChange)="onEmailChange($event)"
@@ -104,6 +108,7 @@
             <app-input
               label="Phone Number"
               type="tel"
+              prefix="fa-solid fa-phone"
               placeholder="+1 (555) 000-0000"
               [value]="phone()"
               (valueChange)="phone.set($event)"
@@ -117,6 +122,7 @@
         <div class="form-group">
           <app-input
             label="Password"
+            prefix="fa-solid fa-lock"
             [type]="passwordType"
             placeholder="••••••••"
             [value]="password()"
