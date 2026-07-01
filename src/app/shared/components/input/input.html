@@ -1,7 +1,14 @@
 <div class="app-input-container">
   <!-- Optional Label -->
   @if (label()) {
-    <label class="input-label" [class]="'label-' + state()">{{ label() }}</label>
+    <div class="label-container">
+      <label class="input-label" [class]="'label-' + state()">{{ label() }}</label>
+      @if (state() === 'error' && message()) {
+        <span class="label-error-icon-wrapper" [attr.data-tooltip]="message()">
+          <i class="fa-solid fa-circle-exclamation error-icon"></i>
+        </span>
+      }
+    </div>
   }
 
   <!-- Input Wrapper containing addons -->
@@ -42,17 +49,4 @@
       </span>
     }
   </div>
-
-  <!-- Validation Feedback Message -->
-  @if (message() && state() === 'error') {
-    <span class="feedback-message error-message" role="alert">
-      <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-      {{ message() }}
-    </span>
-  } @else if (message() && state() === 'success') {
-    <span class="feedback-message success-message">
-      <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-      {{ message() }}
-    </span>
-  }
 </div>

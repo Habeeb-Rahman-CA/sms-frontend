@@ -58,7 +58,7 @@
               label="School Name"
               placeholder="Green Valley School"
               [value]="schoolName()"
-              (valueChange)="schoolName.set($event)"
+              (valueChange)="onSchoolNameChange($event)"
               [state]="schoolNameState()"
               [message]="schoolNameMsg()"
             ></app-input>
@@ -68,7 +68,7 @@
               label="School Code"
               placeholder="GVS"
               [value]="schoolCode()"
-              (valueChange)="schoolCode.set($event)"
+              (valueChange)="onSchoolCodeChange($event)"
               [state]="schoolCodeState()"
               [message]="schoolCodeMsg()"
             ></app-input>
@@ -81,7 +81,7 @@
             label="Admin Name"
             placeholder="Rahman"
             [value]="adminName()"
-            (valueChange)="adminName.set($event)"
+            (valueChange)="onAdminNameChange($event)"
             [state]="adminNameState()"
             [message]="adminNameMsg()"
           ></app-input>
@@ -95,7 +95,7 @@
               type="email"
               placeholder="admin@gvs.com"
               [value]="email()"
-              (valueChange)="email.set($event)"
+              (valueChange)="onEmailChange($event)"
               [state]="emailState()"
               [message]="emailMsg()"
             ></app-input>
@@ -120,7 +120,7 @@
             [type]="passwordType"
             placeholder="••••••••"
             [value]="password()"
-            (valueChange)="password.set($event)"
+            (valueChange)="onPasswordChange($event)"
             [suffix]="passwordSuffixIcon"
             (suffixClick)="togglePasswordVisibility()"
             [state]="passwordState()"
@@ -130,15 +130,16 @@
 
         <!-- Terms & Conditions Checkbox -->
         <div class="form-group terms-checkbox-wrapper">
-          <app-checkbox [checked]="agreeTerms()" (checkedChange)="agreeTerms.set($event)">
-            I agree to the <a href="javascript:void(0)" (click)="isTermsOpen.set(true)" class="legal-link">Terms of Service</a> and <a href="javascript:void(0)" (click)="isPrivacyOpen.set(true)" class="legal-link">Privacy Policy</a> of SMS Academy.
-          </app-checkbox>
-          @if (agreeTermsState() === 'error' && agreeTermsMsg()) {
-            <span class="terms-error-message" role="alert">
-              <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-              {{ agreeTermsMsg() }}
-            </span>
-          }
+          <div class="label-container" style="align-items: flex-start;">
+            <app-checkbox [checked]="agreeTerms()" (checkedChange)="onAgreeTermsChange($event)">
+              I agree to the <a href="javascript:void(0)" (click)="isTermsOpen.set(true)" class="legal-link">Terms of Service</a> and <a href="javascript:void(0)" (click)="isPrivacyOpen.set(true)" class="legal-link">Privacy Policy</a> of SMS Academy.
+            </app-checkbox>
+            @if (agreeTermsState() === 'error' && agreeTermsMsg()) {
+              <span class="label-error-icon-wrapper" [attr.data-tooltip]="agreeTermsMsg()" style="margin-top: 3px;">
+                <i class="fa-solid fa-circle-exclamation error-icon"></i>
+              </span>
+            }
+          </div>
         </div>
 
         <!-- Submit Button -->

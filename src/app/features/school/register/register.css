@@ -176,15 +176,6 @@
   border-color: #003d29;
 }
 
-.terms-error-message {
-  font-size: 0.825rem;
-  color: #ef4444;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 4px;
-}
-
 /* Button & Actions */
 .form-submit-wrapper {
   margin-top: 16px;
@@ -275,7 +266,8 @@ app-button {
   }
 
   .brand-panel {
-    display: none; /* Hide brand panel on smaller screens to optimize experience */
+    display: none;
+    /* Hide brand panel on smaller screens to optimize experience */
   }
 
   .form-panel {
@@ -296,7 +288,7 @@ app-button {
     gap: 20px;
   }
 
-  .form-row > * {
+  .form-row>* {
     width: 100%;
   }
 }

@@ -45,6 +45,22 @@ export class SignIn {
     this.showPassword.update((v) => !v);
   }
 
+  protected onIdentifierChange(val: string): void {
+    this.identifier.set(val);
+    if (val.trim()) {
+      this.identifierState.set('normal');
+      this.identifierMsg.set('');
+    }
+  }
+
+  protected onPasswordChange(val: string): void {
+    this.password.set(val);
+    if (val) {
+      this.passwordState.set('normal');
+      this.passwordMsg.set('');
+    }
+  }
+
   protected get passwordType(): 'text' | 'password' {
     return this.showPassword() ? 'text' : 'password';
   }

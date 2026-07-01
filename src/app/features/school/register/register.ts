@@ -67,6 +67,55 @@ export class Register {
     this.showPassword.update((val) => !val);
   }
 
+  protected onSchoolNameChange(val: string): void {
+    this.schoolName.set(val);
+    if (val.trim()) {
+      this.schoolNameState.set('normal');
+      this.schoolNameMsg.set('');
+    }
+  }
+
+  protected onSchoolCodeChange(val: string): void {
+    this.schoolCode.set(val);
+    if (val.trim()) {
+      this.schoolCodeState.set('normal');
+      this.schoolCodeMsg.set('');
+    }
+  }
+
+  protected onAdminNameChange(val: string): void {
+    this.adminName.set(val);
+    if (val.trim()) {
+      this.adminNameState.set('normal');
+      this.adminNameMsg.set('');
+    }
+  }
+
+  protected onEmailChange(val: string): void {
+    this.email.set(val);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (val.trim() && emailRegex.test(val)) {
+      this.emailState.set('normal');
+      this.emailMsg.set('');
+    }
+  }
+
+  protected onPasswordChange(val: string): void {
+    this.password.set(val);
+    if (val && val.length >= 8) {
+      this.passwordState.set('normal');
+      this.passwordMsg.set('');
+    }
+  }
+
+  protected onAgreeTermsChange(val: boolean): void {
+    this.agreeTerms.set(val);
+    if (val) {
+      this.agreeTermsState.set('normal');
+      this.agreeTermsMsg.set('');
+    }
+  }
+
   protected get passwordType(): 'text' | 'password' {
     return this.showPassword() ? 'text' : 'password';
   }
@@ -148,7 +197,6 @@ export class Register {
       this.agreeTermsState.set('error');
       this.agreeTermsMsg.set('You must agree to the Terms of Service and Privacy Policy');
       hasError = true;
-      this.errorMessage.set('You must accept the terms to proceed.');
     }
 
     if (hasError) {

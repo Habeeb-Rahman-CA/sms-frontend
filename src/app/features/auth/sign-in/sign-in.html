@@ -45,7 +45,7 @@
         <!-- Email or Username -->
         <div class="form-group">
           <app-input label="Email or Username" type="text" placeholder="admin@sms.edu"
-            prefix="fa-regular fa-circle-user" [value]="identifier()" (valueChange)="identifier.set($event)"
+            prefix="fa-regular fa-circle-user" [value]="identifier()" (valueChange)="onIdentifierChange($event)"
             [state]="identifierState()" [message]="identifierMsg()"></app-input>
         </div>
 
@@ -53,12 +53,19 @@
         <div class="form-group">
           <!-- Password label row: label left, forgot password right -->
           <div class="password-label-row">
-            <span class="field-label">Password</span>
+            <div class="label-container">
+              <span class="field-label" [style.color]="passwordState() === 'error' ? 'var(--color-danger-500)' : 'inherit'">Password</span>
+              @if (passwordState() === 'error' && passwordMsg()) {
+                <span class="label-error-icon-wrapper" [attr.data-tooltip]="passwordMsg()">
+                  <i class="fa-solid fa-circle-exclamation error-icon"></i>
+                </span>
+              }
+            </div>
             <a routerLink="/forgot-password" class="forgot-link">Forgot password?</a>
           </div>
           <app-input [type]="passwordType" placeholder="••••••••" prefix="fa-solid fa-lock"
             [suffix]="passwordSuffixIcon" (suffixClick)="togglePasswordVisibility()" [value]="password()"
-            (valueChange)="password.set($event)" [state]="passwordState()" [message]="passwordMsg()"></app-input>
+            (valueChange)="onPasswordChange($event)" [state]="passwordState()" [message]="passwordMsg()"></app-input>
         </div>
 
         <!-- Remember Me -->

@@ -3,15 +3,15 @@
   --input-border: #cbd5e1;
   --input-border-hover: #003d29;
   --input-focus-ring: rgba(0, 61, 41, 0.15);
-  
+
   --input-bg-error: #fff5f5;
   --input-border-error: #c53030;
   --input-focus-error: rgba(197, 48, 48, 0.15);
-  
+
   --input-bg-success: #edf7f4;
   --input-border-success: #003d29;
   --input-focus-success: rgba(0, 61, 41, 0.15);
-  
+
   --addon-bg: #e6eee9;
   --addon-text: #4a5d54;
   --font-family: var(--font-family);
@@ -52,7 +52,7 @@
   border-radius: 12px;
   overflow: hidden;
   background-color: #ffffff;
-  transition: 
+  transition:
     border-color 0.2s var(--transition-bezier),
     box-shadow 0.2s var(--transition-bezier),
     background-color 0.2s var(--transition-bezier);
@@ -139,6 +139,7 @@
 .input-wrapper-error .addon-prefix {
   border-color: var(--input-border-error);
 }
+
 .input-wrapper-success .addon-prefix {
   border-color: var(--input-border-success);
 }
@@ -150,37 +151,7 @@
 .input-wrapper-error .addon-suffix {
   border-color: var(--input-border-error);
 }
+
 .input-wrapper-success .addon-suffix {
   border-color: var(--input-border-success);
-}
-
-/* --- FEEDBACK MESSAGE --- */
-.feedback-message {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-family);
-  font-size: 0.875rem;
-  font-weight: 700;
-  margin-top: 4px;
-  animation: slideDown 0.2s var(--transition-bezier);
-}
-
-.error-message {
-  color: var(--input-border-error);
-}
-
-.success-message {
-  color: var(--input-border-success);
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-4px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
